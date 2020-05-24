@@ -1,0 +1,55 @@
+api:
+  endpoints:
+    - name: scanapi-demo
+      path: ${BASE_URL}
+      requests:
+        - name: health
+          method: get
+          path: /health/
+        - name: languages
+          method: get
+          path: /languages/
+      endpoints:
+        - name: devs
+          path: /devs/
+          requests:
+            - name: list_all
+              method: get
+              vars:
+                uuid: ${{response.json()[2]["uuid"]}}
+            - name: looking_for_new_opportunities
+              method: get
+              params:
+                newOpportunities: true
+            - name: not_looking_for_new_opportunities
+              method: get
+              params:
+                newOpportunities: false
+            - name: new
+              method: post
+              headers:
+                x-api-key: ${DEMO_KEY}
+              body:
+                uuid: ${{uuid.uuid4().hex}}
+                name: Tarik
+                yearsOfExperience: 2
+                languages:
+                  - ruby
+                    go
+                newOpportunities: false
+            - name: details_not_found
+              path: 129e8cb2-d19c-51ad-9921-cea329bed7fa
+              method: get
+          endpoints:
+            - name: details
+              path: ${uuid}
+              requests:
+                - name: get
+                  method: get
+                - name: delete
+                  method: delete
+                  headers:
+                    x-api-key: ${DEMO_KEY}
+                - name: languages
+                  path: languages
+                  method: get

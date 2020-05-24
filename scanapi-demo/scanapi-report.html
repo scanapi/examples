@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ScanAPI Report</title>
+  <meta name="description" content="ScanAPI Report">
+  <meta name="author" content="camilamaia/scanapi">
+</head>
+
+<body>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/health/</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/languages/</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/?newOpportunities=True</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/?newOpportunities=False</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>POST http://demo.scanapi.dev/api/devs/</h2>
+        <p>201</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</h2>
+        <p>404</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>DELETE http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</h2>
+        <p>200</p>
+    </div>
+  <div>
+        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</h2>
+        <p>200</p>
+    </div>
+  
+</body>
+</html>

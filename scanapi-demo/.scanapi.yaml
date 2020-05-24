@@ -1,0 +1,4 @@
+report:
+  hide-request:
+    headers:
+      - x-api-key
