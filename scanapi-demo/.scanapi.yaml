@@ -1,3 +1,4 @@
+project-name: ScanAPI Demo
 report:
   hide-request:
     headers:

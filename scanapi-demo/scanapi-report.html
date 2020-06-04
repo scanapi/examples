@@ -1,55 +1,3131 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-  <title>ScanAPI Report</title>
-  <meta name="description" content="ScanAPI Report">
-  <meta name="author" content="camilamaia/scanapi">
-</head>
+    <title>ScanAPI Report</title>
+    <meta name="description" content="ScanAPI Report" />
+    <meta name="author" content="scanapi/scanapi" />
+  </head>
 
 <body>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/health/</h2>
-        <p>200</p>
+    <style type="text/css">
+        html,
+        body {
+        margin: 0;
+        padding: 0;
+        background-color: #eeeeee;
+        font-size: 18px;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+        color: #636c73;
+        font-weight: bold;
+        }
+
+        h1 {
+        text-align: center;
+        }
+
+        h3 {
+        font-size: 21px;
+        }
+
+        details {
+        margin-top: 20px;
+        }
+
+        details div {
+        background-color: #f5f5f5;
+        padding: 20px 20px;
+        border-radius: 10px;
+        }
+
+        summary {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        }
+
+        table {
+        border-radius: 20px;
+        }
+
+        table,
+        td,
+        th {
+        border: 1px solid #ccc;
+        text-align: left;
+        border-collapse: collapse;
+        }
+
+        th {
+        background-color: #f5f5f5;
+        text-align: center;
+        padding: 8px 10px;
+        }
+
+        td {
+        text-align: left;
+        padding: 8px 10px;
+        }
+
+        /* Wrapper */
+        .wrapper {
+        background-color: white;
+        border-radius: 8px;
+        padding-bottom: 20px;
+        }
+        /* END -- Wrapper */
+
+        /* Title */
+        .title {
+        border-bottom: 8px solid #eeeeee;
+        margin-bottom: 20px;
+        padding: 20px;
+        }
+
+        .title__name {
+        margin: 0 0 10px 0;
+        padding: 0;
+        font-size: 36px;
+        font-weight: 300;
+        }
+
+        .title__project {
+        font-weight: bold;
+        color: #dc3545;
+        }
+
+        .title__overview {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        color: #636c73;
+        text-align: center;
+        }
+        /* END -- Title */
+
+        /* HEADER */
+        .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .header__image {
+        width: 250px;
+        margin: 20px 0;
+        }
+
+        .github {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        }
+
+        .github__svg {
+        width: 30px;
+        }
+
+        .wrapper,
+        .header {
+        width: 1150px;
+        margin: auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .wrapper {
+                width: auto;
+                padding: 0 20px;
+            }
+        }
+        /* END -- HEADER */
+
+        /* Endpoint */
+        .endpoint {
+        overflow: hidden;
+        margin-bottom: 20px;
+        }
+
+        .endpoint__content {
+        padding: 0 30px;
+        height: 0;
+        }
+
+        .endpoint__response h3,
+        .endpoint__request h3 {
+        margin: 20px 0;
+        background: #f9f9f9;
+        display: inline-block;
+        padding: 10px 12px;
+        border-radius: 10px;
+        }
+
+        .endpoint__operationTitle {
+        margin: 20px 0;
+        }
+
+        .endpoint__title {
+        background-color: #f5f5f5;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 20px;
+        display: block;
+        cursor: pointer;
+        margin: 0 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        }
+
+        .endpoint__titleInfo {
+        display: flex;
+        }
+
+        .endpoint__titleInfo::after {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        margin-left: 5px;
+        text-align: right;
+        transition: all 0.35s;
+        color: #636c73;
+        }
+
+        .endpoint__checkbox {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        }
+
+        .endpoint__checkbox:checked + .endpoint__title .endpoint__titleInfo::after {
+        transform: rotate(90deg);
+        }
+
+        .endpoint__checkbox:checked ~ .endpoint__content {
+        height: auto;
+        }
+        /* END -- ENDPOINT */
+
+        /* STATUS */
+        .status {
+        font-weight: bold;
+        }
+
+        .status--GET {
+        color: #28a745;
+        }
+
+        .status--POST {
+        color: #ffc107;
+        }
+
+        .status--DELETE {
+        color: #dc3545;
+        }
+
+        .status--PUT {
+        color: #4a90e2;
+        }
+
+        /* END -- STATUS */
+    </style>
+
+    <div class="header">
+      <img class="header__image" src="https://scanapi.s3.us-east-2.amazonaws.com/assets/images/logos/scanapi-no-background.png" />
     </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/languages/</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/?newOpportunities=True</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/?newOpportunities=False</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>POST http://demo.scanapi.dev/api/devs/</h2>
-        <p>201</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</h2>
-        <p>404</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>DELETE http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</h2>
-        <p>200</p>
-    </div>
-  <div>
-        <h2>GET http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</h2>
-        <p>200</p>
-    </div>
-  
+
+    <div class="wrapper">
+        <header class="title">
+            
+                <h1 class="title__name">Report generated for <span class="title__project">ScanAPI Demo</span></h1>
+            
+            <p class="title__overview">Generated at: 2020-06-04 16:13:07</p>
+        </header>
+
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_1" />
+                <label class="endpoint__title" for="chck_1">
+                    <span><span class="status status--GET">GET</span> /api/health/</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/health/"> http://demo.scanapi.dev/api/health/</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/health/</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.437661 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:08 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                text/html; charset=utf-8
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=dcd8208aaf213eb2b6d92def4010710de1591297987; expires=Sat, 04-Jul-20 19:13:07 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                0322596d170000f6f4298ce200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f8282fcdf6f4-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     OK! 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_2" />
+                <label class="endpoint__title" for="chck_2">
+                    <span><span class="status status--GET">GET</span> /api/languages/</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/languages/"> http://demo.scanapi.dev/api/languages/</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/languages/</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.401765 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:08 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                37
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=df61619db2f140f9f6f1010b82f82768d1591297988; expires=Sat, 04-Jul-20 19:13:08 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                0322596ecf0000f62f94150200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f82ae971f62f-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     ["c", "go", "java", "python", "ruby"] 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_3" />
+                <label class="endpoint__title" for="chck_3">
+                    <span><span class="status status--GET">GET</span> /api/devs/</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/"> http://demo.scanapi.dev/api/devs/</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.505984 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:09 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=ddf8e2c7863a055bc5f7933073af9c44d1591297988; expires=Sat, 04-Jul-20 19:13:08 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                032259706f0000f6bfaf05b200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f82d7a8ff6bf-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     [{"uuid": "68af402f-1084-40a4-b9b2-6bb5c2d11559", "name": "Anna", "yearsOfExperience": 5, "languages": ["python", "c"], "newOpportunities": true}, {"uuid": "0d1bd106-c585-4d6b-b3a4-d72dedf7190e", "name": "Louis", "yearsOfExperience": 3, "languages": ["java"], "newOpportunities": true}, {"uuid": "129e8cb2-d19c-41ad-9921-cea329bed7f0", "name": "Marcus", "yearsOfExperience": 4, "languages": ["c"], "newOpportunities": false}] 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_4" />
+                <label class="endpoint__title" for="chck_4">
+                    <span><span class="status status--GET">GET</span> /api/devs/?newOpportunities=True</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/?newOpportunities=True"> http://demo.scanapi.dev/api/devs/?newOpportunities=True</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=True'</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.291196 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:09 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=d48719fc73799f425bc006501ffb4cdd31591297989; expires=Sat, 04-Jul-20 19:13:09 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                03225972700000f6b384072200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f830bc36f6b3-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     [{"uuid": "68af402f-1084-40a4-b9b2-6bb5c2d11559", "name": "Anna", "yearsOfExperience": 5, "languages": ["python", "c"], "newOpportunities": true}, {"uuid": "0d1bd106-c585-4d6b-b3a4-d72dedf7190e", "name": "Louis", "yearsOfExperience": 3, "languages": ["java"], "newOpportunities": true}] 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_5" />
+                <label class="endpoint__title" for="chck_5">
+                    <span><span class="status status--GET">GET</span> /api/devs/?newOpportunities=False</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/?newOpportunities=False"> http://demo.scanapi.dev/api/devs/?newOpportunities=False</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=False'</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.257304 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:09 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=d09eb1de19efb76c5879dcdf141ccb4181591297989; expires=Sat, 04-Jul-20 19:13:09 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                032259739600004c0a11a9d200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f8328b934c0a-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     [{"uuid": "129e8cb2-d19c-41ad-9921-cea329bed7f0", "name": "Marcus", "yearsOfExperience": 4, "languages": ["c"], "newOpportunities": false}] 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_6" />
+                <label class="endpoint__title" for="chck_6">
+                    <span><span class="status status--POST">POST</span> /api/devs/</span>
+                    <span class="endpoint__titleInfo">201</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/"> http://demo.scanapi.dev/api/devs/</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                x-api-key
+                                            </td>
+                                            <td>
+                                                <sensitive_information>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                138
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+                            <details>
+                                <summary>Body</summary>
+                                <p>b'{"uuid": "fef9ee8b399f4877b6d4fb647d2a9ee9", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}'</p>
+                            </details>
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 138' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{"uuid": "fef9ee8b399f4877b6d4fb647d2a9ee9", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}' http://demo.scanapi.dev/api/devs/</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        201
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        201
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.455267 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:10 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                138
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=dd7ffc6516729e1fa40b248974f95c2ee1591297989; expires=Sat, 04-Jul-20 19:13:09 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                032259749a0000f66b2f959200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f8342cb5f66b-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     {"uuid": "fef9ee8b399f4877b6d4fb647d2a9ee9", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false} 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_7" />
+                <label class="endpoint__title" for="chck_7">
+                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</span>
+                    <span class="endpoint__titleInfo">404</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa"> http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        404
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        404
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.422268 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:10 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                text/html; charset=utf-8
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=d1498b27967cd1e59106ced511b8eb6421591297990; expires=Sat, 04-Jul-20 19:13:10 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                03225976700000eebedebb3200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f8371d5beebe-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     uuid 129e8cb2-d19c-51ad-9921-cea329bed7fa not found 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_8" />
+                <label class="endpoint__title" for="chck_8">
+                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0"> http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.483714 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:11 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=d12bce4b6ac1185adc1f33a5646a4d7ab1591297990; expires=Sat, 04-Jul-20 19:13:10 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                03225978150000f730d7b8a200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f839bc35f730-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     {"uuid": "129e8cb2-d19c-41ad-9921-cea329bed7f0", "name": "Marcus", "yearsOfExperience": 4, "languages": ["c"], "newOpportunities": false} 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_9" />
+                <label class="endpoint__title" for="chck_9">
+                    <span><span class="status status--DELETE">DELETE</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0"> http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                x-api-key
+                                            </td>
+                                            <td>
+                                                <sensitive_information>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.500459 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:11 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Transfer-Encoding
+                                            </td>
+                                            <td>
+                                                chunked
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=dd28c2e4498a06408c326ead13dbd943b1591297991; expires=Sat, 04-Jul-20 19:13:11 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                0322597a030000f720318c4200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f83cdb70f720-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Encoding
+                                            </td>
+                                            <td>
+                                                gzip
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     {"deleted": "129e8cb2-d19c-41ad-9921-cea329bed7f0"} 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+            <div class="endpoint">
+                <input type="checkbox" class="endpoint__checkbox" id="chck_10" />
+                <label class="endpoint__title" for="chck_10">
+                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</span>
+                    <span class="endpoint__titleInfo">200</span>
+                </label>
+
+                <div class="endpoint__content">
+                    <section class="endpoint__request">
+                        <h3>Request</h3>
+                        <p>Full URL: <a href="http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages"> http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</a></p>
+
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                            <td>
+                                                User-Agent
+                                            </td>
+                                            <td>
+                                                python-requests/2.22.0
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept-Encoding
+                                            </td>
+                                            <td>
+                                                gzip, deflate
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Accept
+                                            </td>
+                                            <td>
+                                                */*
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        
+
+                        
+
+                        <details>
+                            <summary>cURL</summary>
+                            <p>curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</p>
+                        </details>
+                    </section>
+
+                    <section class="endpoint__response">
+                        <h3>Response</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        status code
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        response time
+                                    </td>
+                                    <td>
+                                        0.505987 s
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        redirect
+                                    </td>
+                                    <td>
+                                        False
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                            <details>
+                                <summary>Headers</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Header
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Thu, 04 Jun 2020 19:13:12 GMT
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Type
+                                            </td>
+                                            <td>
+                                                application/json
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Content-Length
+                                            </td>
+                                            <td>
+                                                5
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Connection
+                                            </td>
+                                            <td>
+                                                keep-alive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Set-Cookie
+                                            </td>
+                                            <td>
+                                                __cfduid=de9976dc072fa29f6bc57f20f3a89a8241591297991; expires=Sat, 04-Jul-20 19:13:11 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Frame-Options
+                                            </td>
+                                            <td>
+                                                DENY
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                X-Content-Type-Options
+                                            </td>
+                                            <td>
+                                                nosniff
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Via
+                                            </td>
+                                            <td>
+                                                1.1 vegur
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-Cache-Status
+                                            </td>
+                                            <td>
+                                                DYNAMIC
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                cf-request-id
+                                            </td>
+                                            <td>
+                                                0322597c000000f72892bd1200000001
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Server
+                                            </td>
+                                            <td>
+                                                cloudflare
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                CF-RAY
+                                            </td>
+                                            <td>
+                                                59e3f8400dc8f728-GRU
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </details>
+
+                            <details>
+                                <summary>Content</summary>
+                                <p>
+                                     ["c"] 
+                                </p>
+                            </details>
+                        
+                    </section>
+                </div>
+            </div>
+        
+
+        <a class="github" href="https://github.com/scanapi/scanapi"><img class="github__svg" src="https://scanapi.s3.us-east-2.amazonaws.com/assets/images/github/github-logo.svg" /></a>
 </body>
+
 </html>

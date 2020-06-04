@@ -13,7 +13,7 @@ Full URL: http://demo.scanapi.dev/api/health/
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -24,14 +24,12 @@ Full URL: http://demo.scanapi.dev/api/health/
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/health/
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/health/
 ```
 
 </p></details>
@@ -42,7 +40,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.435039 s |
+| response time | 0.382632 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -51,19 +49,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:48 GMT |
+| Date | Thu, 04 Jun 2020 19:13:20 GMT |
 | Content-Type | text/html; charset=utf-8 |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d5bbf1ed2701dd2fc4dec30f0f69f070f1589220227; expires=Wed, 10-Jun-20 18:03:47 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=d105a14c3a8192e51f52784b40dd0cc1f1591298000; expires=Sat, 04-Jul-20 19:13:20 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 0322599edf0000f3afa62e1200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd197aed6eeb2-GRU |
+| CF-RAY | 59e3f877cffff3af-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a68152cc0000eeb21abdd200000001 |
 
 
 
@@ -91,7 +89,7 @@ Full URL: http://demo.scanapi.dev/api/languages/
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -102,14 +100,12 @@ Full URL: http://demo.scanapi.dev/api/languages/
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/languages/
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/languages/
 ```
 
 </p></details>
@@ -120,7 +116,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.500916 s |
+| response time | 0.508393 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -129,18 +125,18 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:48 GMT |
+| Date | Thu, 04 Jun 2020 19:13:21 GMT |
 | Content-Type | application/json |
 | Content-Length | 37 |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d56f526de1a41fbf7c918db898c88ec681589220228; expires=Wed, 10-Jun-20 18:03:48 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=dfbc84f9372dda0c5084982a9503bf2141591298000; expires=Sat, 04-Jul-20 19:13:20 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a0620000eee6162eb200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd19a6a7bf1ff-GRU |
-| cf-request-id | 02a68154820000f1ff749d5200000001 |
+| CF-RAY | 59e3f87a393eeee6-GRU |
 
 
 
@@ -168,7 +164,7 @@ Full URL: http://demo.scanapi.dev/api/devs/
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -179,14 +175,12 @@ Full URL: http://demo.scanapi.dev/api/devs/
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/devs/
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/
 ```
 
 </p></details>
@@ -197,7 +191,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.404855 s |
+| response time | 0.243415 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -206,19 +200,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:49 GMT |
+| Date | Thu, 04 Jun 2020 19:13:21 GMT |
 | Content-Type | application/json |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=dd0ff63f9b9ab0e0c01a3a83a9934c44a1589220228; expires=Wed, 10-Jun-20 18:03:48 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=df748dde0224c37d19955fd35fd08dc8d1591298001; expires=Sat, 04-Jul-20 19:13:21 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a2690000f647d5a4f200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd19d9c68f6fc-GRU |
+| CF-RAY | 59e3f87d7b25f647-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a681567c0000f6fcec91f200000001 |
 
 
 
@@ -246,7 +240,7 @@ Full URL: http://demo.scanapi.dev/api/devs/?newOpportunities=True
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -257,14 +251,12 @@ Full URL: http://demo.scanapi.dev/api/devs/?newOpportunities=True
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=True'
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=True'
 ```
 
 </p></details>
@@ -275,7 +267,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.403292 s |
+| response time | 0.395521 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -284,19 +276,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:49 GMT |
+| Date | Thu, 04 Jun 2020 19:13:22 GMT |
 | Content-Type | application/json |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=db130f2522e213583b0fae0a04e40196d1589220229; expires=Wed, 10-Jun-20 18:03:49 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=ddadff6c98d0547455509e35fb53d50521591298001; expires=Sat, 04-Jul-20 19:13:21 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a35a0000f754602c8200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1a02cf5d044-GRU |
+| CF-RAY | 59e3f87efd7ff754-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a68158180000d0442c0f3200000001 |
 
 
 
@@ -324,7 +316,7 @@ Full URL: http://demo.scanapi.dev/api/devs/?newOpportunities=False
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -335,14 +327,12 @@ Full URL: http://demo.scanapi.dev/api/devs/?newOpportunities=False
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=False'
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' 'http://demo.scanapi.dev/api/devs/?newOpportunities=False'
 ```
 
 </p></details>
@@ -353,7 +343,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.508184 s |
+| response time | 0.401956 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -362,19 +352,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:49 GMT |
+| Date | Thu, 04 Jun 2020 19:13:22 GMT |
 | Content-Type | application/json |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=da35da445df1edc65b53b45f18349e6d81589220229; expires=Wed, 10-Jun-20 18:03:49 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=d5e5d81122e8be989efdd06b1c317ddce1591298002; expires=Sat, 04-Jul-20 19:13:22 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a4f50000cfe4210bc200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1a2b941d01c-GRU |
+| CF-RAY | 59e3f8818e5bcfe4-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a68159b20000d01c66bcd200000001 |
 
 
 
@@ -402,7 +392,7 @@ Full URL: http://demo.scanapi.dev/api/devs/
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -418,19 +408,19 @@ Full URL: http://demo.scanapi.dev/api/devs/
 <details><summary></summary><p>
 
 ```json
-b'{"uuid": "8a7bba6a5ab94daca05fa2e1abee5b27", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}'
+b'{"uuid": "c6a19532c0ed4680bfdd73e5ced11d28", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}'
 ```
 
-
-
 </p></details>
+
+
 
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 138' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -H 'x-api-key: <sensitive_information>' -d '{"uuid": "8a7bba6a5ab94daca05fa2e1abee5b27", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}' http://demo.scanapi.dev/api/devs/
+curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 138' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{"uuid": "c6a19532c0ed4680bfdd73e5ced11d28", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}' http://demo.scanapi.dev/api/devs/
 ```
 
 </p></details>
@@ -441,7 +431,7 @@ curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.293906 s |
+| response time | 0.469444 s |
 | status code   | 201               |
 | redirect      | False               |
 
@@ -450,18 +440,18 @@ curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:50 GMT |
+| Date | Thu, 04 Jun 2020 19:13:22 GMT |
 | Content-Type | application/json |
 | Content-Length | 138 |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d991c41bcd618560cadb94b8784011a7b1589220230; expires=Wed, 10-Jun-20 18:03:50 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=d92fa3a7ee045204ffe520d869166ffb61591298002; expires=Sat, 04-Jul-20 19:13:22 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a68a0000f74ccf365200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1a5ff39f603-GRU |
-| cf-request-id | 02a6815bbc0000f6036315c200000001 |
+| CF-RAY | 59e3f8841bc5f74c-GRU |
 
 
 
@@ -470,7 +460,7 @@ curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection
 
 
 ```
-{"uuid": "8a7bba6a5ab94daca05fa2e1abee5b27", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}
+{"uuid": "c6a19532c0ed4680bfdd73e5ced11d28", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}
 ```
 
 
@@ -489,7 +479,7 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -500,14 +490,12 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa
 ```
 
 </p></details>
@@ -518,7 +506,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.408931 s |
+| response time | 0.4119 s |
 | status code   | 404               |
 | redirect      | False               |
 
@@ -527,19 +515,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:50 GMT |
+| Date | Thu, 04 Jun 2020 19:13:23 GMT |
 | Content-Type | text/html; charset=utf-8 |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d096bd4cdeb015f529885393606e9b3171589220230; expires=Wed, 10-Jun-20 18:03:50 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=da7cad1e0edd69e2d8225568cb67ac18d1591298003; expires=Sat, 04-Jul-20 19:13:23 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259a86f0000f63fd1a0c200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1a7dd90eeb2-GRU |
+| CF-RAY | 59e3f8871c03f63f-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a6815ce50000eeb2280ff200000001 |
 
 
 
@@ -567,7 +555,7 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -578,14 +566,12 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 ```
 
 </p></details>
@@ -596,7 +582,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.397964 s |
+| response time | 0.493627 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -605,19 +591,19 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:51 GMT |
+| Date | Thu, 04 Jun 2020 19:13:23 GMT |
 | Content-Type | application/json |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d096bd4cdeb015f529885393606e9b3171589220230; expires=Wed, 10-Jun-20 18:03:50 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=d65c472b9d578c7a717155b15235f22971591298003; expires=Sat, 04-Jul-20 19:13:23 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259aa090000f770fa9ff200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1aa6a45eeb2-GRU |
+| CF-RAY | 59e3f889a93ef770-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a6815e7e0000eeb220a5b200000001 |
 
 
 
@@ -645,7 +631,7 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -657,14 +643,12 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -H 'x-api-key: <sensitive_information>' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
+curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0
 ```
 
 </p></details>
@@ -675,7 +659,7 @@ curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connecti
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.505554 s |
+| response time | 0.410731 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -684,19 +668,19 @@ curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connecti
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:51 GMT |
+| Date | Thu, 04 Jun 2020 19:13:24 GMT |
 | Content-Type | application/json |
 | Transfer-Encoding | chunked |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=dae650ea0cbdea4349ef0fe76cff74d661589220231; expires=Wed, 10-Jun-20 18:03:51 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=db042ea37afe1633dfe3741113489a39a1591298003; expires=Sat, 04-Jul-20 19:13:23 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259ac0b0000f77430950200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1acfbb94c4c-GRU |
+| CF-RAY | 59e3f88cd89af774-GRU |
 | Content-Encoding | gzip |
-| cf-request-id | 02a681601d00004c4cd6353200000001 |
 
 
 
@@ -724,7 +708,7 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/
 
 | Header    | Value       |
 |-----------|-------------|
-| User-Agent | python-requests/2.23.0 |
+| User-Agent | python-requests/2.22.0 |
 | Accept-Encoding | gzip, deflate |
 | Accept | */* |
 | Connection | keep-alive |
@@ -735,14 +719,12 @@ Full URL: http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/
 
 
 
-</p></details>
-
 #### cURL
 
 <details><summary></summary><p>
 
 ```
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.23.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages
 ```
 
 </p></details>
@@ -753,7 +735,7 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 |               |                                          |
 |---------------|------------------------------------------|
-| response time | 0.411345 s |
+| response time | 0.291825 s |
 | status code   | 200               |
 | redirect      | False               |
 
@@ -762,18 +744,18 @@ curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection:
 
 | Header    | Value       |
 |-----------|-------------|
-| Date | Mon, 11 May 2020 18:03:52 GMT |
+| Date | Thu, 04 Jun 2020 19:13:24 GMT |
 | Content-Type | application/json |
 | Content-Length | 5 |
 | Connection | keep-alive |
-| Set-Cookie | __cfduid=d974988b215118a090984aa21a11aa1861589220231; expires=Wed, 10-Jun-20 18:03:51 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
+| Set-Cookie | __cfduid=dc2ba18cb9b1623c106e10c709d7bb53e1591298004; expires=Sat, 04-Jul-20 19:13:24 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax |
 | X-Frame-Options | DENY |
 | X-Content-Type-Options | nosniff |
 | Via | 1.1 vegur |
 | CF-Cache-Status | DYNAMIC |
+| cf-request-id | 032259ada60000f70c3d3e7200000001 |
 | Server | cloudflare |
-| CF-RAY | 591dd1b029d8f1da-GRU |
-| cf-request-id | 02a681621a0000f1dabc150200000001 |
+| CF-RAY | 59e3f88f7942f70c-GRU |
 
 
 
