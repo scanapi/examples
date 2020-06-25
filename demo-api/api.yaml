@@ -7,15 +7,15 @@ api:
           method: get
           path: /health/
           tests:
-            - name: Response Status is 200
+            - name: status_code_is_200
               assert: ${{ response.status_code == 200 }}
-            - name: Response Body Equals OK
+            - name: bode_equals_ok
               assert: ${{ response.content == b"OK!" }}
         - name: languages
           method: get
           path: /languages/
           tests:
-            - name: Response Status is 200
+            - name: status_code_is_200
               assert: ${{ response.status_code == 200 }}
       endpoints:
         - name: devs
@@ -26,21 +26,21 @@ api:
               vars:
                 uuid: ${{response.json()[2]["uuid"]}}
               tests:
-                - name: Response Status is 200
+                - name: status_code_is_200
                   assert: ${{ response.status_code == 200 }}
             - name: looking_for_new_opportunities
               method: get
               params:
                 newOpportunities: true
               tests:
-                - name: Response Status is 200
+                - name: status_code_is_200
                   assert: ${{ response.status_code == 200 }}
             - name: not_looking_for_new_opportunities
               method: get
               params:
                 newOpportunities: false
               tests:
-                - name: Response Status is 200
+                - name: status_code_is_200
                   assert: ${{ response.status_code == 200 }}
             - name: new
               method: post
@@ -70,18 +70,18 @@ api:
                 - name: get
                   method: get
                   tests:
-                    - name: Response Status is 200
+                    - name: status_code_is_200
                       assert: ${{ response.status_code == 200 }}
                 - name: delete
                   method: delete
                   headers:
                     x-api-key: ${DEMO_KEY}
                   tests:
-                    - name: Response Status is 200
+                    - name: status_code_is_200
                       assert: ${{ response.status_code == 200 }}
                 - name: languages
                   path: languages
                   method: get
                   tests:
-                    - name: Response Status is 200
+                    - name: status_code_is_200
                       assert: ${{ response.status_code == 200 }}

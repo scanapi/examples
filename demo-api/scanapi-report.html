@@ -162,11 +162,11 @@
         }
 
         .endpoint__response h3,
-        .endpoint__request h3 {
+        .endpoint__request h3,
+        .endpoint__tests h3 {
+        text-transform: uppercase;
         margin: 20px 0;
-        background: #f9f9f9;
         display: inline-block;
-        padding: 10px 12px;
         border-radius: 10px;
         }
 
@@ -187,8 +187,32 @@
         justify-content: space-between;
         }
 
+        .http_method {
+        font-weight: bold;
+        }
+
         .endpoint__titleInfo {
         display: flex;
+        }
+
+        .endpoint__status {
+        margin-left: 10px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100px;
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+        }
+
+        .endpoint__status--P {
+        background-color: green;
+        }
+
+        .endpoint__status--F {
+        background-color: red;
         }
 
         .endpoint__titleInfo::after {
@@ -214,30 +238,72 @@
         .endpoint__checkbox:checked ~ .endpoint__content {
         height: auto;
         }
+
+        .endpoint__tests {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .endpoint__testcase {
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0;
+        }
+
+        .endpoint__testcaseStatus {
+        width: 10%;
+        }
+
+        .endpoint__testcaseLabel {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .endpoint__testcase-failure {
+        padding: 10px 0;
+        }
+
+        .endpoint__testcase-passed {
+        color: green;
+        }
+
+        .endpoint__testcase-failed, .endpoint__testcase-error {
+        color: red;
+        }
+
         /* END -- ENDPOINT */
 
-        /* STATUS */
-        .status {
-        font-weight: bold;
+        /* TESTS SUMMARY */
+        .tests__summary {
+        background: #f9f9f9;
+        padding: 10px 12px;
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        border: solid;
+        border-width: 1px;
         }
 
-        .status--GET {
-        color: #28a745;
+        .tests__summary--passed {
+        border-color: green;
         }
 
-        .status--POST {
-        color: #ffc107;
+        .tests__summary--failed {
+        border-color: red;
         }
 
-        .status--DELETE {
-        color: #dc3545;
+        .tests__summaryTitle {
+        text-align: center;
+        margin-bottom: 30px;
         }
 
-        .status--PUT {
-        color: #4a90e2;
+        .tests__summaryResults{
+        margin-bottom: 21px;
+        display: flex;
+        justify-content: space-between;
         }
-
-        /* END -- STATUS */
+        /* END TESTS SUMMARY */
     </style>
 
     <div class="header">
@@ -249,15 +315,26 @@
             
                 <h1 class="title__name">Report generated for <span class="title__project">ScanAPI Demo</span></h1>
             
-            <p class="title__overview">Generated at: 2020-06-15 14:07:55</p>
+            <p class="title__overview">Generated at: 2020-06-25 08:40:45</p>
         </header>
 
+        <!-- summary_box -->
+
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_1" />
                 <label class="endpoint__title" for="chck_1">
-                    <span><span class="status status--GET">GET</span> /api/health/</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/health/</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -343,17 +420,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -368,7 +434,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        12.746359 s
+                                        9.418485 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -402,7 +468,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:11 GMT
+                                                Thu, 25 Jun 2020 11:40:58 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -442,7 +508,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=ddc05149288f84ce0f2748ea0e55652551592240879; expires=Wed, 15-Jul-20 17:07:59 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d6d310eeeaf5513226d7ac43ab7be913f1593085250; expires=Sat, 25-Jul-20 11:40:50 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -492,7 +558,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8cce2f0000f75803071200000001
+                                                038ce0e24d0000f697ae0c1200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -512,7 +578,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de3f6b85bf758-GRU
+                                                5a8e6a7d4913f697-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -538,14 +604,56 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::health::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::health::bode_equals_ok
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_2" />
                 <label class="endpoint__title" for="chck_2">
-                    <span><span class="status status--GET">GET</span> /api/languages/</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/languages/</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -631,17 +739,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -656,7 +753,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.435439 s
+                                        0.371457 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -690,7 +787,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:12 GMT
+                                                Thu, 25 Jun 2020 11:40:59 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -730,7 +827,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d3de752d12eed5e1083c59171a2b35a8a1592240891; expires=Wed, 15-Jul-20 17:08:11 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d5a5e22dce8f447ad1a7ec81561d496761593085258; expires=Sat, 25-Jul-20 11:40:58 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -780,7 +877,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8cffaf0000cff021bb2200000001
+                                                038ce103d70000f6cfb32a9200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -800,7 +897,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de445e86acff0-GRU
+                                                5a8e6ab2fba0f6cf-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -816,14 +913,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::languages::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_3" />
                 <label class="endpoint__title" for="chck_3">
-                    <span><span class="status status--GET">GET</span> /api/devs/</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/devs/</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -909,17 +1034,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -934,7 +1048,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.428329 s
+                                        0.439772 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -968,7 +1082,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:12 GMT
+                                                Thu, 25 Jun 2020 11:40:59 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1008,7 +1122,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=dde1776487f40869ebe87f6453b4ecd001592240892; expires=Wed, 15-Jul-20 17:08:12 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=df8e98cad154a5ee6284e3054d92dbacf1593085259; expires=Sat, 25-Jul-20 11:40:59 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1058,7 +1172,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d01730000cff02ea89200000001
+                                                038ce1054b0000f73c5480f200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1078,7 +1192,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de448bcc6cff0-GRU
+                                                5a8e6ab54e4cf73c-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1104,14 +1218,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::list_all::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_4" />
                 <label class="endpoint__title" for="chck_4">
-                    <span><span class="status status--GET">GET</span> /api/devs/?newOpportunities=True</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/devs/?newOpportunities=True</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -1197,17 +1339,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -1222,7 +1353,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.397591 s
+                                        0.405749 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -1256,7 +1387,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:13 GMT
+                                                Thu, 25 Jun 2020 11:40:59 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1296,7 +1427,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d65fd2c7d85bfdd33daac7ee990679cdb1592240892; expires=Wed, 15-Jul-20 17:08:12 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d164efbbcd111372b047c268078b75cb01593085259; expires=Sat, 25-Jul-20 11:40:59 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1346,7 +1477,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d031b0000f6bb7a8d5200000001
+                                                038ce1070c0000d00035238200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1366,7 +1497,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de44b5f85f6bb-GRU
+                                                5a8e6ab81b15d000-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1392,14 +1523,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::looking_for_new_opportunities::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_5" />
                 <label class="endpoint__title" for="chck_5">
-                    <span><span class="status status--GET">GET</span> /api/devs/?newOpportunities=False</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/devs/?newOpportunities=False</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -1485,17 +1644,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -1510,7 +1658,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.410331 s
+                                        0.372494 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -1544,7 +1692,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:13 GMT
+                                                Thu, 25 Jun 2020 11:41:00 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1584,7 +1732,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d509cc9e61cf73dd0ada8cdb840ba8b9b1592240893; expires=Wed, 15-Jul-20 17:08:13 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d07e3e90e51a87062c7b10af189a7e37a1593085259; expires=Sat, 25-Jul-20 11:40:59 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1634,7 +1782,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d04b70000f6d3de281200000001
+                                                038ce108a50000d00483b78200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1654,7 +1802,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de44df96ff6d3-GRU
+                                                5a8e6abaacf9d004-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1680,14 +1828,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::not_looking_for_new_opportunities::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_6" />
                 <label class="endpoint__title" for="chck_6">
-                    <span><span class="status status--POST">POST</span> /api/devs/</span>
-                    <span class="endpoint__titleInfo">201</span>
+                    <span><span class="http_method">POST</span> /api/devs/</span>
+                    <span class="endpoint__titleInfo">
+                        201
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -1746,7 +1922,7 @@
                                                 x-api-key
                                             </td>
                                             <td>
-                                                <sensitive_information>
+                                                SENSITIVE_INFORMATION
                                             </td>
                                         </tr>
                                     <tr>
@@ -1773,30 +1949,19 @@
                         
                             <details>
                                 <summary>Body</summary>
-                                <p>b'{"uuid": "04d8fa7c1c9d4d91938002f5a85ea134", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}'</p>
+                                <p>b'{"uuid": "1e2a249afa4540fd9d2aa6719744f2ac", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}'</p>
                             </details>
                         
 
                         <details>
                             <summary>cURL</summary>
-                            <p>curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 138' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{"uuid": "04d8fa7c1c9d4d91938002f5a85ea134", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}' http://demo.scanapi.dev/api/devs/</p>
+                            <p>curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 138' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: SENSITIVE_INFORMATION' -d '{"uuid": "1e2a249afa4540fd9d2aa6719744f2ac", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false}' http://demo.scanapi.dev/api/devs/</p>
                         </details>
                     </section>
 
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        201
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -1811,7 +1976,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.489846 s
+                                        0.435792 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -1845,7 +2010,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:13 GMT
+                                                Thu, 25 Jun 2020 11:41:00 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1885,7 +2050,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d7332f99837b738760bbaa98e765fe5711592240893; expires=Wed, 15-Jul-20 17:08:13 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d899211b00512de4376d0eec27a1fa8951593085260; expires=Sat, 25-Jul-20 11:41:00 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1935,7 +2100,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d065d0000cffc37048200000001
+                                                038ce10a1f0000f697b6a4b200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1955,7 +2120,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de4509d20cffc-GRU
+                                                5a8e6abcfccdf697-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1966,19 +2131,47 @@
                             <details>
                                 <summary>Content</summary>
                                 <p>
-                                     {"uuid": "04d8fa7c1c9d4d91938002f5a85ea134", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false} 
+                                     {"uuid": "1e2a249afa4540fd9d2aa6719744f2ac", "name": "Tarik", "yearsOfExperience": 2, "languages": ["ruby go"], "newOpportunities": false} 
                                 </p>
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::new::Response Status is 201
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_7" />
                 <label class="endpoint__title" for="chck_7">
-                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</span>
-                    <span class="endpoint__titleInfo">404</span>
+                    <span><span class="http_method">GET</span> /api/devs/129e8cb2-d19c-51ad-9921-cea329bed7fa</span>
+                    <span class="endpoint__titleInfo">
+                        404
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -2064,17 +2257,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        404
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -2089,7 +2271,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.507335 s
+                                        0.406867 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -2123,7 +2305,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:14 GMT
+                                                Thu, 25 Jun 2020 11:41:01 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2163,7 +2345,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d2d1a8c921c035fb73bb7edb6731bd1971592240894; expires=Wed, 15-Jul-20 17:08:14 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d08bf77db36e5beac79bc4f320c49e0471593085260; expires=Sat, 25-Jul-20 11:41:00 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2213,7 +2395,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d083e0000f3a3fe1dc200000001
+                                                038ce10bd50000eede6f1c5200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2233,7 +2415,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de4539c1ef3a3-GRU
+                                                5a8e6abfba78eede-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2259,14 +2441,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::details_not_found::Response Status is 404
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_8" />
                 <label class="endpoint__title" for="chck_8">
-                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -2352,17 +2562,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -2377,7 +2576,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.423814 s
+                                        0.384425 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -2411,7 +2610,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:14 GMT
+                                                Thu, 25 Jun 2020 11:41:01 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2451,7 +2650,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=d810c42de0c8e71a4267b4ff94d83e6051592240894; expires=Wed, 15-Jul-20 17:08:14 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=df8540952e688de4ef9caded23aa71b8e1593085261; expires=Sat, 25-Jul-20 11:41:01 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2501,7 +2700,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d0a460000f7401e07e200000001
+                                                038ce10d700000eeca3f316200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2521,7 +2720,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de456dadef740-GRU
+                                                5a8e6ac249f9eeca-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2547,14 +2746,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::details::get::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_9" />
                 <label class="endpoint__title" for="chck_9">
-                    <span><span class="status status--DELETE">DELETE</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">DELETE</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -2613,7 +2840,7 @@
                                                 x-api-key
                                             </td>
                                             <td>
-                                                <sensitive_information>
+                                                SENSITIVE_INFORMATION
                                             </td>
                                         </tr>
                                     <tr>
@@ -2641,24 +2868,13 @@
 
                         <details>
                             <summary>cURL</summary>
-                            <p>curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: <sensitive_information>' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</p>
+                            <p>curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.22.0' -H 'x-api-key: SENSITIVE_INFORMATION' -d '{}' http://demo.scanapi.dev/api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0</p>
                         </details>
                     </section>
 
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -2673,7 +2889,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.487237 s
+                                        0.423912 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -2707,7 +2923,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:15 GMT
+                                                Thu, 25 Jun 2020 11:41:01 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2747,7 +2963,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=dabbf5e6aaf906340ddba7cf327065d391592240894; expires=Wed, 15-Jul-20 17:08:14 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=dab9fe272e47a329a6725623c9dc5d5471593085261; expires=Sat, 25-Jul-20 11:41:01 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2797,7 +3013,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d0bfa0000cff02180f200000001
+                                                038ce10efb0000f6b3998ce200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2817,7 +3033,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de45998eecff0-GRU
+                                                5a8e6ac4c876f6b3-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2843,14 +3059,42 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::details::delete::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+            
+            
+            
+
             <div class="endpoint">
                 <input type="checkbox" class="endpoint__checkbox" id="chck_10" />
                 <label class="endpoint__title" for="chck_10">
-                    <span><span class="status status--GET">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</span>
-                    <span class="endpoint__titleInfo">200</span>
+                    <span><span class="http_method">GET</span> /api/devs/129e8cb2-d19c-41ad-9921-cea329bed7f0/languages</span>
+                    <span class="endpoint__titleInfo">
+                        200
+                        <span class="endpoint__status endpoint__status--P">
+                            P
+                        </span>
+                    </span>
                 </label>
 
                 <div class="endpoint__content">
@@ -2936,17 +3180,6 @@
                     <section class="endpoint__response">
                         <h3>Response</h3>
                         <table>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        status code
-                                    </td>
-                                    <td>
-                                        200
-                                    </td>
-                                </tr>
-                            </thead>
-
                             <tbody>
                                 <tr>
                                     <td>
@@ -2961,7 +3194,7 @@
                                         response time
                                     </td>
                                     <td>
-                                        0.507924 s
+                                        0.358905 s
                                     </td>
                                 </tr>
                                 <tr>
@@ -2995,7 +3228,7 @@
                                                 Date
                                             </td>
                                             <td>
-                                                Mon, 15 Jun 2020 17:08:15 GMT
+                                                Thu, 25 Jun 2020 11:41:02 GMT
                                             </td>
                                         </tr>
                                     </tbody>
@@ -3035,7 +3268,7 @@
                                                 Set-Cookie
                                             </td>
                                             <td>
-                                                __cfduid=dafc5f0e2c6266ece76286bbe3c91f44a1592240895; expires=Wed, 15-Jul-20 17:08:15 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
+                                                __cfduid=d6fecc29f2a065c653f6cb44b474b4df21593085261; expires=Sat, 25-Jul-20 11:41:01 GMT; path=/; domain=.scanapi.dev; HttpOnly; SameSite=Lax
                                             </td>
                                         </tr>
                                     </tbody>
@@ -3085,7 +3318,7 @@
                                                 cf-request-id
                                             </td>
                                             <td>
-                                                035a8d0dd70000f3abc83f7200000001
+                                                038ce110a10000f7184d940200000001
                                             </td>
                                         </tr>
                                     </tbody>
@@ -3105,7 +3338,7 @@
                                                 CF-RAY
                                             </td>
                                             <td>
-                                                5a3de45c89ecf3ab-GRU
+                                                5a8e6ac76eaef718-GRU
                                             </td>
                                         </tr>
                                     </tbody>
@@ -3121,9 +3354,40 @@
                             </details>
                         
                     </section>
+
+                    <section class="endpoint__tests">
+                        <h3>Tests</h3>
+                        <div class="endpoint__testcase">
+                                <div class="endpoint__testcaseStatus">
+                                    <strong class="endpoint__testcase-passed">
+                                        [PASSED]
+                                    </strong>
+                                </div>
+                                <div class="endpoint__testcaseLabel">
+                                    <span>
+                                        scanapi-demo::devs::details::languages::status_code_is_200
+                                    </span>
+                                    
+                                    
+                                </div>
+                            </div>
+                        
+                    <section>
                 </div>
             </div>
         
+
+        
+
+        <div class="tests__summary tests__summary--passed">
+            <h3 class="tests__summaryTitle">Tests Summary</h3>
+            <div class="tests__summaryResults">
+                <span><strong>PASSED:</strong> 11</span>
+                <span><strong>FAILURES:</strong> 0</span>
+                <span><strong>ERRORS:</strong> 0</span>
+                <span><strong>Total Time:</strong> 0:00:16.494179</span>
+            </div>
+        </div>
 
         <a class="github" href="https://github.com/scanapi/scanapi"><img class="github__svg" src="https://scanapi.s3.us-east-2.amazonaws.com/assets/images/github/github-logo.svg" /></a>
 </body>
