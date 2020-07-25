@@ -14,7 +14,7 @@ Requirements:
 ```shell
 $ git clone git@github.com:scanapi/examples.git
 $ cd pokeapi
-$ scanapi api.yaml
+$ scanapi scanapi.yaml
 ```
 
 The report will be available at `scanapi-report.html`
