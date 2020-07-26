@@ -1,24 +1,21 @@
-# api.yaml
-
-api:
-  endpoints:
-    - name: pokeapi
-      path: https://pokeapi.co/api/v2/
-      endpoints:
-        - name: pokemon
-          path: pokemon
-          requests:
-            - name: list_all
-              method: get
-              vars:
-                pokemon_name: ${{ response.json()["results"][0]["name"] }}
-              tests:
-                - name: status_code_is_200
-                  assert: ${{ response.status_code == 200 }}
-                - name: response_time_is_under_half_second
-                  assert: ${{ response.elapsed.total_seconds() < 0.5 }}
-                - name: count_is_equals_to_964
-                  assert: ${{ response.json()["count"] == 964 }}
-            - name: details
-              method: get
-              path: ${pokemon_name}
+endpoints:
+  - name: pokeapi
+    path: https://pokeapi.co/api/v2/
+    endpoints:
+      - name: pokemon
+        path: pokemon
+        requests:
+          - name: list_all
+            method: get
+            vars:
+              pokemon_name: ${{ response.json()["results"][0]["name"] }}
+            tests:
+              - name: status_code_is_200
+                assert: ${{ response.status_code == 200 }}
+              - name: response_time_is_under_half_second
+                assert: ${{ response.elapsed.total_seconds() < 0.5 }}
+              - name: count_is_equals_to_964
+                assert: ${{ response.json()["count"] == 964 }}
+          - name: details
+            method: get
+            path: ${pokemon_name}
