@@ -1,5 +1,5 @@
-project-name: ScanAPI Demo
+project_name: ScanAPI Demo
 report:
-  hide-request:
+  hide_request:
     headers:
       - x-api-key
