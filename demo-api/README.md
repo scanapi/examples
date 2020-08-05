@@ -12,7 +12,7 @@ Requirements:
 $ git clone git@github.com:scanapi/examples.git
 $ cd demo-api
 $ source .env
-$ scanapi
+$ scanapi run scanapi.yaml
 ```
 
 The report will be available at `scanapi-report.html`
