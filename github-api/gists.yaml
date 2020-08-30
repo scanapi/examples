@@ -1,0 +1,49 @@
+- name: gists
+  path: gists
+  headers:
+    Authorization: token ${GITHUB_API_TOKEN}
+    Accept: application/vnd.github.v3+json
+  requests:
+    - name: list all public gists
+      tests:
+        - name: status_code_is_200
+          assert: ${{ response.status_code == 200 }}
+    - name: create a gist
+      method: post
+      body:
+        files:
+          my_gist:
+            content: "Hello, that is my gist. I'm a super gist! "
+        description: hello!!
+        public: true
+      vars:
+        gist_id: ${{ response.json()["id"] }}
+      tests:
+        - name: status_code_is_201
+          assert: ${{ response.status_code == 201 }}
+  endpoints:
+    - name: details
+      path: ${gist_id}
+      requests:
+        - name: gist details
+          tests:
+            - name: status_code_is_200
+              assert: ${{ response.status_code == 200 }}
+            - name: id matches
+              assert: ${{ response.json()["id"] == "${gist_id}" }}
+        - name: update gist
+          method: patch
+          body:
+            files:
+              my_gist:
+                content: "Hello, that is my gist. I'm a super gist! "
+            description: Hello super updated! Yay!
+            public: true
+          tests:
+            - name: status_code_is_200
+              assert: ${{ response.status_code == 200 }}
+        - name: delete gist
+          method: delete
+          tests:
+            - name: status_code_is_204
+              assert: ${{ response.status_code == 204 }}

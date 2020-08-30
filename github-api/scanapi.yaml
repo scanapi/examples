@@ -1,0 +1,22 @@
+endpoints:
+  - name: github api
+    path: https://api.github.com
+    requests:
+      - name: root
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
+          - name: response_time_is_under_a_second
+            assert: ${{ response.elapsed.total_seconds() < 1 }}
+      - name: emojis
+        path: emojis
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
+      - name: public repos
+        path: users/scanapi/repos
+        vars:
+          repo_name: ${{ response.json()[6]["name"] }}
+      - name: repo details
+        path: repos/scanapi/${repo_name}/branches
+    endpoints: !include gists.yaml
