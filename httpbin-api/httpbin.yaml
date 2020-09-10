@@ -1,0 +1,56 @@
+endpoints:
+  - name: httpbin
+    path: https://httpbin.org
+    headers:
+      Accept: application/json
+    requests:
+      - name: get-simple
+        path: /get
+        method: get
+
+      - name: get-image
+        path: /image/png
+        headers:
+          Accept: image/png
+        method: get
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
+          - name: content_type_is_png
+            assert: ${{ response.headers.get("content-type") == "image/png" }}
+
+      - name: post-simple
+        path: /post
+        method: post
+        vars:
+          scanapi_var: scanapi_test1
+        body:
+          description: hello scanapi
+          scanapi_test: ${scanapi_var}
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
+          - name: body_is_ok
+            assert: ${{ response.json()["json"].get("scanapi_test") == "${scanapi_var}" }}
+          - name: response_origin
+            assert: ${{ response.json()["origin"] is not None }}
+
+      - name: put-simple
+        path: /put
+        method: put
+        vars:
+          scanapi_description: hello scanapi again
+        body:
+          description: ${scanapi_description}
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
+          - name: description_changed
+            assert: ${{ response.json()["json"].get("description") == "${scanapi_description}" }}
+
+      - name: delete-simple
+        path: /delete
+        method: delete
+        tests:
+          - name: status_code_is_200
+            assert: ${{ response.status_code == 200 }}
