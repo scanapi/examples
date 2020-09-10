@@ -1,6 +1,6 @@
 # httpbin.org REST API
 
-A simple HTTP Request & Response Service.
+[httpbin.org](https://httpbin.org) is a simple HTTP Request & Response Service.
 
 ## Run
 
