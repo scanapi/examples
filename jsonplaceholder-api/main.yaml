@@ -1,0 +1,28 @@
+endpoints:
+  - name: Jsonplaceholder API Tests
+    path: ${BASE_URL}
+    endpoints:
+      - name: user_actions
+        path: users
+        requests: !include resources/users.yaml
+        endpoints:      
+          - name: user_todos
+            path: ${userId}/todos
+            requests: !include resources/todos.yaml
+
+          - name: user_album
+            path: ${userId}/albums
+            requests: !include resources/albums.yaml
+
+          - name: user_posts
+            path: ${userId}/posts
+            requests: !include resources/user_posts.yaml
+
+      - name: post_actions
+        path: posts
+        requests:
+          !include resources/posts.yaml
+        endpoints:
+          - name: comments_by_post
+            path: ${postId}/comments
+            requests: !include resources/comments.yaml

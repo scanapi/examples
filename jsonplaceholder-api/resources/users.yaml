@@ -1,0 +1,102 @@
+- name: get_all
+  method: get
+  vars:
+    userId: ${{ response.json()[0]["id"] }}
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: get_by_id
+  path: ${userId}
+  method: get
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: get_with_filter
+  params:
+    userId: 1
+  method: get
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: create_new
+  method: post
+  vars:
+    newRecordId: ${{ response.json()["id"] }}
+  body:
+    name: User Test
+    username: user_test
+    email: user@test.com
+    address:
+      street: Victor Plains
+      suite: Suite 879
+      city: Wisokyburgh
+      zipcode: 90566-7771
+      geo:
+        lat: -43.9509
+        lng: -34.4618
+  tests:
+    - name: status_code_is_201
+      assert: ${{ response.status_code == 201 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: update_with_put
+  method: put
+  path: ${newRecordId}
+  body:
+    # id: ${newRecordId}
+    name: User Test - PUT
+    username: user_test_put
+    email: user_put@test.com
+    address:
+      street: Victor Plains PUT
+      suite: Suite 879 PUT
+      city: Wisokyburgh PUT
+      zipcode: 90566-7771
+      geo:
+        lat: -43.9509
+        lng: -34.4618
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: update_with_path
+  method: patch
+  path: ${newRecordId}
+  body:
+    name: User Test - Patch
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: delete
+  method: delete
+  path: ${newRecordId}
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}

@@ -1,0 +1,11 @@
+- name: get_all
+  method: get
+  vars:
+    recordId: ${{ response.json()[0]["id"] }}
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}

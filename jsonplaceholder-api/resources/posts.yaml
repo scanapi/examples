@@ -1,0 +1,86 @@
+- name: get_all
+  method: get
+  vars:
+    postId: ${{ response.json()[0]["id"] }}
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: get_by_id
+  path: ${postId}
+  method: get
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: get_with_filter
+  params:
+    userId: 1
+  method: get
+  body:
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: create_new
+  method: post
+  vars:
+    newRecordId: ${{ response.json()["id"] }}
+  body:
+    title: Post Title
+    body: Post Body
+    userId: 1
+  tests:
+    - name: status_code_is_201
+      assert: ${{ response.status_code == 201 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: update_with_put
+  method: put
+  path: ${newRecordId}
+  body:
+    id: ${newRecordId}
+    title: Post Title - Update with PUT
+    body: Post Body - Update with PUT
+    userId: 1
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: update_with_path
+  method: patch
+  path: ${newRecordId}
+  body:
+    title: Post Title - Update with Patch
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
+
+- name: delete
+  method: delete
+  path: ${newRecordId}
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+    
+    - name: response_time_is_under_a_second
+      assert: ${{ response.elapsed.total_seconds() < 1 }}
