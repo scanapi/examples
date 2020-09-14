@@ -60,7 +60,6 @@
   method: put
   path: ${newRecordId}
   body:
-    # id: ${newRecordId}
     name: User Test - PUT
     username: user_test_put
     email: user_put@test.com
