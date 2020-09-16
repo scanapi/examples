@@ -16,8 +16,8 @@ endpoints:
                 assert: ${{ response.elapsed.total_seconds() < 0.5 }}
               - name: results_length_is_20
                 assert: ${{ len(response.json()["results"]) == 20 }}
-              - name: count_is_equals_to_1048
-                assert: ${{ response.json()["count"] == 1048 }}
+              - name: count_is_gte_1050
+                assert: ${{ response.json()["count"] >= 1050 }}
           - name: details
             method: get
             path: ${pokemon_name}
