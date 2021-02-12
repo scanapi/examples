@@ -43,6 +43,7 @@
 
         details {
             margin-top: 20px;
+            position: relative;
         }
 
         details div {
@@ -320,18 +321,62 @@
         }
 
         /* END TESTS SUMMARY */
+
         /* START RENDERJSON */
-        .renderjson {
+        .json-body{
+            padding: 0;
+            margin: 0;
+        }
+        /* END RENDERJSON */
+
+        /* START SNIPPET CONTENT */
+        .snippet__content{
             background-color: #eeeeee;
             white-space: break-spaces;
-            padding: 10px;
+            padding: 20px 40px 20px 10px;
+            font-size: 16px;
         }
 
-        .renderjson a {
+        .snippet__content a{
             text-decoration: none;
         }
 
-        /* END RENDERJSON */
+        .copy__snippet{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .copy__snippet{
+            position: absolute;
+            top: 42px;
+            right: 10px;
+            background-color: #C6C4C4;
+            border-radius: 2px;
+            font-size: 18px;
+            width: 25px;
+            height: 23px;
+            cursor: pointer;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .copy__snippet:hover{
+            background-color: #D6D8D6;
+        }
+
+        .copy__snippet:focus{
+            outline: none;
+        }
+
+        .bg_green{
+            background-color: green!important;
+            color: white;
+        }
+        /* END SNIPPET CONTENT */
     </style>
 
     <div class="header">
@@ -343,7 +388,7 @@
             
             <h1 class="title__name">Report generated for <span class="title__project">httpbin.org API</span></h1>
             
-            <p class="title__overview">Generated at: 2020-09-10 13:30:50</p>
+            <p class="title__overview">Generated at: 2021-02-12 15:08:09</p>
         </header>
 
         <!-- summary_box -->
@@ -416,22 +461,6 @@
                                     keep-alive
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Content-Length
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Type
-                                </td>
-                                <td>
-                                    application/json
-                                </td>
-                            </tr>
                             
                         </tbody>
                     </table>
@@ -441,7 +470,8 @@
 
                     <details>
                         <summary>cURL</summary>
-                        <p>curl -X GET -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{}' https://httpbin.org/get</p>
+                        <pre>curl -X GET -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/get</pre>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                 </section>
 
@@ -462,7 +492,7 @@
                                     response time
                                 </td>
                                 <td>
-                                    1.816236 s
+                                    1.140392 s
                                 </td>
                             </tr>
                             <tr>
@@ -496,7 +526,7 @@
                                         Date
                                     </td>
                                     <td>
-                                        Thu, 10 Sep 2020 17:30:59 GMT
+                                        Fri, 12 Feb 2021 19:08:10 GMT
                                     </td>
                                 </tr>
                             </tbody>
@@ -516,7 +546,7 @@
                                         Content-Length
                                     </td>
                                     <td>
-                                        391
+                                        320
                                     </td>
                                 </tr>
                             </tbody>
@@ -572,17 +602,16 @@
   "headers": {
     "Accept": "application/json", 
     "Accept-Encoding": "gzip, deflate", 
-    "Content-Length": "2", 
-    "Content-Type": "application/json", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.24.0", 
-    "X-Amzn-Trace-Id": "Root=1-5f5a62d3-db307e4628960096e653163e"
+    "X-Amzn-Trace-Id": "Root=1-6026d21a-159ef3c9263592c56c208939"
   }, 
-  "origin": "177.193.150.229", 
+  "origin": "187.58.28.219", 
   "url": "https://httpbin.org/get"
 }
  
                         </p>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                     
                 </section>
@@ -601,6 +630,1135 @@
         <div class="endpoint">
             <input type="checkbox" class="endpoint__checkbox" id="chck_2" />
             <label class="endpoint__title" for="chck_2">
+                <span class="endpoint__url"><span class="http_method">POST</span> /post</span>
+                <span class="endpoint__titleInfo">
+                    200
+                    <span class="endpoint__status endpoint__status--P">
+                        P
+                    </span>
+                </span>
+            </label>
+
+            <div class="endpoint__content">
+                <section class="endpoint__request">
+                    <h3>Request</h3>
+                    <p>Full URL: <a href="https://httpbin.org/post"> https://httpbin.org/post</a></p>
+
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Header
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    User-Agent
+                                </td>
+                                <td>
+                                    python-requests/2.24.0
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept-Encoding
+                                </td>
+                                <td>
+                                    gzip, deflate
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Connection
+                                </td>
+                                <td>
+                                    keep-alive
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Length
+                                </td>
+                                <td>
+                                    65
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Type
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    
+
+                    
+                    <details>
+                        <summary>Body</summary>
+                        <p>b'{"description": "hello scanapi", "scanapi_test": "scanapi_test1"}'</p>
+                    </details>
+                    
+
+                    <details>
+                        <summary>cURL</summary>
+                        <pre>curl -X POST -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 65' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{"description": "hello scanapi", "scanapi_test": "scanapi_test1"}' https://httpbin.org/post</pre>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                </section>
+
+                <section class="endpoint__response">
+                    <h3>Response</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    status code
+                                </td>
+                                <td>
+                                    200
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    response time
+                                </td>
+                                <td>
+                                    0.77929 s
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    redirect
+                                </td>
+                                <td>
+                                    False
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    <details>
+                        <summary>Headers</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Header
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        Fri, 12 Feb 2021 19:08:11 GMT
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Type
+                                    </td>
+                                    <td>
+                                        application/json
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Length
+                                    </td>
+                                    <td>
+                                        601
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Connection
+                                    </td>
+                                    <td>
+                                        keep-alive
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Server
+                                    </td>
+                                    <td>
+                                        gunicorn/19.9.0
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Origin
+                                    </td>
+                                    <td>
+                                        *
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Credentials
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </details>
+
+                    <details>
+                        <summary>Content</summary>
+                        <p class="json-body">
+                             {
+  "args": {}, 
+  "data": "{\"description\": \"hello scanapi\", \"scanapi_test\": \"scanapi_test1\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "application/json", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "65", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.24.0", 
+    "X-Amzn-Trace-Id": "Root=1-6026d21b-30dcb9411604302b22168753"
+  }, 
+  "json": {
+    "description": "hello scanapi", 
+    "scanapi_test": "scanapi_test1"
+  }, 
+  "origin": "187.58.28.219", 
+  "url": "https://httpbin.org/post"
+}
+ 
+                        </p>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                    
+                </section>
+
+                <section class="endpoint__tests">
+                    <h3>Tests</h3>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::post-simple::status_code_is_200
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::post-simple::body_is_ok
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::post-simple::response_origin
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <section>
+            </div>
+        </div>
+        
+        
+        
+        
+
+        <div class="endpoint">
+            <input type="checkbox" class="endpoint__checkbox" id="chck_3" />
+            <label class="endpoint__title" for="chck_3">
+                <span class="endpoint__url"><span class="http_method">PUT</span> /put</span>
+                <span class="endpoint__titleInfo">
+                    200
+                    <span class="endpoint__status endpoint__status--P">
+                        P
+                    </span>
+                </span>
+            </label>
+
+            <div class="endpoint__content">
+                <section class="endpoint__request">
+                    <h3>Request</h3>
+                    <p>Full URL: <a href="https://httpbin.org/put"> https://httpbin.org/put</a></p>
+
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Header
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    User-Agent
+                                </td>
+                                <td>
+                                    python-requests/2.24.0
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept-Encoding
+                                </td>
+                                <td>
+                                    gzip, deflate
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Connection
+                                </td>
+                                <td>
+                                    keep-alive
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Length
+                                </td>
+                                <td>
+                                    38
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Type
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    
+
+                    
+                    <details>
+                        <summary>Body</summary>
+                        <p>b'{"description": "hello scanapi again"}'</p>
+                    </details>
+                    
+
+                    <details>
+                        <summary>cURL</summary>
+                        <pre>curl -X PUT -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 38' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{"description": "hello scanapi again"}' https://httpbin.org/put</pre>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                </section>
+
+                <section class="endpoint__response">
+                    <h3>Response</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    status code
+                                </td>
+                                <td>
+                                    200
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    response time
+                                </td>
+                                <td>
+                                    0.873127 s
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    redirect
+                                </td>
+                                <td>
+                                    False
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    <details>
+                        <summary>Headers</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Header
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        Fri, 12 Feb 2021 19:08:12 GMT
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Type
+                                    </td>
+                                    <td>
+                                        application/json
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Length
+                                    </td>
+                                    <td>
+                                        537
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Connection
+                                    </td>
+                                    <td>
+                                        keep-alive
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Server
+                                    </td>
+                                    <td>
+                                        gunicorn/19.9.0
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Origin
+                                    </td>
+                                    <td>
+                                        *
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Credentials
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </details>
+
+                    <details>
+                        <summary>Content</summary>
+                        <p class="json-body">
+                             {
+  "args": {}, 
+  "data": "{\"description\": \"hello scanapi again\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "application/json", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "38", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.24.0", 
+    "X-Amzn-Trace-Id": "Root=1-6026d21c-1172235b0f6cf5f04d832073"
+  }, 
+  "json": {
+    "description": "hello scanapi again"
+  }, 
+  "origin": "187.58.28.219", 
+  "url": "https://httpbin.org/put"
+}
+ 
+                        </p>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                    
+                </section>
+
+                <section class="endpoint__tests">
+                    <h3>Tests</h3>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::put-simple::status_code_is_200
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::put-simple::description_changed
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <section>
+            </div>
+        </div>
+        
+        
+        
+        
+
+        <div class="endpoint">
+            <input type="checkbox" class="endpoint__checkbox" id="chck_4" />
+            <label class="endpoint__title" for="chck_4">
+                <span class="endpoint__url"><span class="http_method">PATCH</span> /patch</span>
+                <span class="endpoint__titleInfo">
+                    200
+                    <span class="endpoint__status endpoint__status--P">
+                        P
+                    </span>
+                </span>
+            </label>
+
+            <div class="endpoint__content">
+                <section class="endpoint__request">
+                    <h3>Request</h3>
+                    <p>Full URL: <a href="https://httpbin.org/patch"> https://httpbin.org/patch</a></p>
+
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Header
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    User-Agent
+                                </td>
+                                <td>
+                                    python-requests/2.24.0
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept-Encoding
+                                </td>
+                                <td>
+                                    gzip, deflate
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Connection
+                                </td>
+                                <td>
+                                    keep-alive
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Length
+                                </td>
+                                <td>
+                                    45
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Type
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    
+
+                    
+                    <details>
+                        <summary>Body</summary>
+                        <p>b'{"description": "hello scanapi patch method"}'</p>
+                    </details>
+                    
+
+                    <details>
+                        <summary>cURL</summary>
+                        <pre>curl -X PATCH -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 45' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{"description": "hello scanapi patch method"}' https://httpbin.org/patch</pre>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                </section>
+
+                <section class="endpoint__response">
+                    <h3>Response</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    status code
+                                </td>
+                                <td>
+                                    200
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    response time
+                                </td>
+                                <td>
+                                    0.864708 s
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    redirect
+                                </td>
+                                <td>
+                                    False
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    <details>
+                        <summary>Headers</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Header
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        Fri, 12 Feb 2021 19:08:12 GMT
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Type
+                                    </td>
+                                    <td>
+                                        application/json
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Length
+                                    </td>
+                                    <td>
+                                        553
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Connection
+                                    </td>
+                                    <td>
+                                        keep-alive
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Server
+                                    </td>
+                                    <td>
+                                        gunicorn/19.9.0
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Origin
+                                    </td>
+                                    <td>
+                                        *
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Credentials
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </details>
+
+                    <details>
+                        <summary>Content</summary>
+                        <p class="json-body">
+                             {
+  "args": {}, 
+  "data": "{\"description\": \"hello scanapi patch method\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "application/json", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "45", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.24.0", 
+    "X-Amzn-Trace-Id": "Root=1-6026d21c-0dea8a9f012b8f323cc9feb3"
+  }, 
+  "json": {
+    "description": "hello scanapi patch method"
+  }, 
+  "origin": "187.58.28.219", 
+  "url": "https://httpbin.org/patch"
+}
+ 
+                        </p>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                    
+                </section>
+
+                <section class="endpoint__tests">
+                    <h3>Tests</h3>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::patch-simple::status_code_is_200
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::patch-simple::description_changed
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <section>
+            </div>
+        </div>
+        
+        
+        
+        
+
+        <div class="endpoint">
+            <input type="checkbox" class="endpoint__checkbox" id="chck_5" />
+            <label class="endpoint__title" for="chck_5">
+                <span class="endpoint__url"><span class="http_method">DELETE</span> /delete</span>
+                <span class="endpoint__titleInfo">
+                    200
+                    <span class="endpoint__status endpoint__status--P">
+                        P
+                    </span>
+                </span>
+            </label>
+
+            <div class="endpoint__content">
+                <section class="endpoint__request">
+                    <h3>Request</h3>
+                    <p>Full URL: <a href="https://httpbin.org/delete"> https://httpbin.org/delete</a></p>
+
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Header
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    User-Agent
+                                </td>
+                                <td>
+                                    python-requests/2.24.0
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept-Encoding
+                                </td>
+                                <td>
+                                    gzip, deflate
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accept
+                                </td>
+                                <td>
+                                    application/json
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Connection
+                                </td>
+                                <td>
+                                    keep-alive
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Content-Length
+                                </td>
+                                <td>
+                                    0
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    
+
+                    
+
+                    <details>
+                        <summary>cURL</summary>
+                        <pre>curl -X DELETE -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 0' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/delete</pre>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                </section>
+
+                <section class="endpoint__response">
+                    <h3>Response</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    status code
+                                </td>
+                                <td>
+                                    200
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    response time
+                                </td>
+                                <td>
+                                    0.787451 s
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    redirect
+                                </td>
+                                <td>
+                                    False
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    <details>
+                        <summary>Headers</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Header
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        Fri, 12 Feb 2021 19:08:13 GMT
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Type
+                                    </td>
+                                    <td>
+                                        application/json
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Content-Length
+                                    </td>
+                                    <td>
+                                        414
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Connection
+                                    </td>
+                                    <td>
+                                        keep-alive
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Server
+                                    </td>
+                                    <td>
+                                        gunicorn/19.9.0
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Origin
+                                    </td>
+                                    <td>
+                                        *
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Access-Control-Allow-Credentials
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </details>
+
+                    <details>
+                        <summary>Content</summary>
+                        <p class="json-body">
+                             {
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "application/json", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "0", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.24.0", 
+    "X-Amzn-Trace-Id": "Root=1-6026d21d-6f1fea6a597f4c9a69f8387b"
+  }, 
+  "json": null, 
+  "origin": "187.58.28.219", 
+  "url": "https://httpbin.org/delete"
+}
+ 
+                        </p>
+                        <button class="copy__snippet">&#10063;</button>
+                    </details>
+                    
+                </section>
+
+                <section class="endpoint__tests">
+                    <h3>Tests</h3>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::http-methods::delete-simple::status_code_is_200
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <section>
+            </div>
+        </div>
+        
+        
+        
+        
+
+        <div class="endpoint">
+            <input type="checkbox" class="endpoint__checkbox" id="chck_6" />
+            <label class="endpoint__title" for="chck_6">
                 <span class="endpoint__url"><span class="http_method">GET</span> /image/png</span>
                 <span class="endpoint__titleInfo">
                     200
@@ -661,22 +1819,6 @@
                                     keep-alive
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Content-Length
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Type
-                                </td>
-                                <td>
-                                    application/json
-                                </td>
-                            </tr>
                             
                         </tbody>
                     </table>
@@ -686,7 +1828,8 @@
 
                     <details>
                         <summary>cURL</summary>
-                        <p>curl -X GET -H 'Accept: image/png' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{}' https://httpbin.org/image/png</p>
+                        <pre>curl -X GET -H 'Accept: image/png' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/image/png</pre>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                 </section>
 
@@ -707,7 +1850,7 @@
                                     response time
                                 </td>
                                 <td>
-                                    1.052402 s
+                                    0.80236 s
                                 </td>
                             </tr>
                             <tr>
@@ -741,7 +1884,7 @@
                                         Date
                                     </td>
                                     <td>
-                                        Thu, 10 Sep 2020 17:31:00 GMT
+                                        Fri, 12 Feb 2021 19:08:14 GMT
                                     </td>
                                 </tr>
                             </tbody>
@@ -850,6 +1993,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
 ���������W�+�Ȗ��G������ɱ�����U��	x������+ol�P[�?�VWW���������}�?N)�YB`����FdgYaaa�*����7�oL�(ZZZ������
 )f�����54����wSl�    IEND�B`� 
                         </p>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                     
                 </section>
@@ -864,7 +2008,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::get-image::status_code_is_200
+                                httpbin::images::image-png::status_code_is_200
                             </span>
                             
                             
@@ -878,7 +2022,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::get-image::content_type_is_png
+                                httpbin::images::image-png::content_type_is_png
                             </span>
                             
                             
@@ -894,9 +2038,9 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
         
 
         <div class="endpoint">
-            <input type="checkbox" class="endpoint__checkbox" id="chck_3" />
-            <label class="endpoint__title" for="chck_3">
-                <span class="endpoint__url"><span class="http_method">POST</span> /post</span>
+            <input type="checkbox" class="endpoint__checkbox" id="chck_7" />
+            <label class="endpoint__title" for="chck_7">
+                <span class="endpoint__url"><span class="http_method">GET</span> /image/jpeg</span>
                 <span class="endpoint__titleInfo">
                     200
                     <span class="endpoint__status endpoint__status--P">
@@ -908,7 +2052,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
             <div class="endpoint__content">
                 <section class="endpoint__request">
                     <h3>Request</h3>
-                    <p>Full URL: <a href="https://httpbin.org/post"> https://httpbin.org/post</a></p>
+                    <p>Full URL: <a href="https://httpbin.org/image/jpeg"> https://httpbin.org/image/jpeg</a></p>
 
                     
                     <table>
@@ -945,7 +2089,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     Accept
                                 </td>
                                 <td>
-                                    application/json
+                                    image/jpeg
                                 </td>
                             </tr>
                             <tr>
@@ -956,37 +2100,17 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     keep-alive
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Content-Length
-                                </td>
-                                <td>
-                                    65
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Type
-                                </td>
-                                <td>
-                                    application/json
-                                </td>
-                            </tr>
                             
                         </tbody>
                     </table>
                     
 
                     
-                    <details>
-                        <summary>Body</summary>
-                        <p>b'{"description": "hello scanapi", "scanapi_test": "scanapi_test1"}'</p>
-                    </details>
-                    
 
                     <details>
                         <summary>cURL</summary>
-                        <p>curl -X POST -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 65' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{"description": "hello scanapi", "scanapi_test": "scanapi_test1"}' https://httpbin.org/post</p>
+                        <pre>curl -X GET -H 'Accept: image/jpeg' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/image/jpeg</pre>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                 </section>
 
@@ -1007,7 +2131,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     response time
                                 </td>
                                 <td>
-                                    0.914418 s
+                                    0.778979 s
                                 </td>
                             </tr>
                             <tr>
@@ -1041,7 +2165,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Date
                                     </td>
                                     <td>
-                                        Thu, 10 Sep 2020 17:31:01 GMT
+                                        Fri, 12 Feb 2021 19:08:15 GMT
                                     </td>
                                 </tr>
                             </tbody>
@@ -1051,7 +2175,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Type
                                     </td>
                                     <td>
-                                        application/json
+                                        image/jpeg
                                     </td>
                                 </tr>
                             </tbody>
@@ -1061,7 +2185,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Length
                                     </td>
                                     <td>
-                                        603
+                                        35588
                                     </td>
                                 </tr>
                             </tbody>
@@ -1112,29 +2236,176 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                     <details>
                         <summary>Content</summary>
                         <p class="json-body">
-                             {
-  "args": {}, 
-  "data": "{\"description\": \"hello scanapi\", \"scanapi_test\": \"scanapi_test1\"}", 
-  "files": {}, 
-  "form": {}, 
-  "headers": {
-    "Accept": "application/json", 
-    "Accept-Encoding": "gzip, deflate", 
-    "Content-Length": "65", 
-    "Content-Type": "application/json", 
-    "Host": "httpbin.org", 
-    "User-Agent": "python-requests/2.24.0", 
-    "X-Amzn-Trace-Id": "Root=1-5f5a62d5-a0952d4a834e58250cd2924b"
-  }, 
-  "json": {
-    "description": "hello scanapi", 
-    "scanapi_test": "scanapi_test1"
-  }, 
-  "origin": "177.193.150.229", 
-  "url": "https://httpbin.org/post"
-}
- 
+                             ���� JFIF     �� 5Edited by Paul Sherman for WPClipart, Public Domain�� C 			
+
+
+
+
+
+	
+
+
+�� C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+��  � � ��           	 
+�� M  ! 1#A"$Q	34a2Dq�BCST��%cdr���5Rbs��&Ut������             �� 5 
+    �!1AQaq�������"�2#3C�$��   ? �����bxs�}�g�\���QDK]���[��Uu�UM��R��Kͯ��ʹ�#Q��"|ՙ� +)�+3,��`�3�|�)h��>�����Wn�$k~
+$����~�¿��R��%��h�t�K4,��� ���*m,&j���>(�w��}=o�I�׻�k~�Da�J?��q����S
+�O>�T�%�Nw�o rq8�	�8A�A�p�f�Ia8Q�[D���[$UW�^Z�Js��s&5\�v<;7����~J������. �\�+P�|�7iD���Y�hReUk�D��q�+���=�&��L�;.i�<�%��F�#q[��qꪋh�Os���i�s��r�v��'������3�m��F���L�l��"R�-Z1�T��E^f�W�T�����Y�;� ӾU�*����xz�!� H@�b�-m�D��e��2��Ɇ�uǟ�+��c߫��~o5؂��_օ<3���$��x\�Kx6S������*&��"/�|}|l�8� �w����!��|T��8U�f`ȓ��é��^׺�A�UEZjVq�'2.���D������]�y�+�>x\��&���"�"j�H*�s�+z&1�\g�-�8����Ī���J��xiN�h��}U��<%�}p��La=�؝WHL��� �~y��?M����-ơI�bB��`1l�s˟	�"cL*j�uO]��G}Gk��b��u�O\��h��d��U��"�34��aQ���\�_vj�,`nU[ʍ���S��I�N.���N�oޠ�F�b�	j_S�����v�*8�Gx��S��$��7�5rl����c����R���|9�³��u�6�c� ��%XTt�)������mF��Sw��=F찘�]0��Ҫ{�3��ۉ�� �|O�bN�vK���|v�l{�@j�Ӣi��3R%?�������2��.�㊃�Q�'��P��63 ��BWw;���|]��ӻ�����l�*qQq��R�r��Lx�l�9=�&�����
+��n�ˑ�F��Gv�G^Ffذۥ�E�)F[���*�s�TO:*��c3N����jU�J�#q{���l������4$�|y{hBY`^]U����Lh���q�??��'��z�*���r���pJ �Y��]i��荲q����4��Q>�auMvxc1f?s�Q^��3@|Jnt�������D���F-[|f���r��J�&S
+���5`Wĸ�܎rc~yi�(N�T�>+<�����-��8K��+E "�1ܡ�DO���>�D�|���Ջ��~Z�%¥^'���q�ͮ�2�������n��M���[�ӏd�_�v,��}���D���/�w�ZuEC[�٣�yQY����j�yk�Zx]��k�Vo����jT�Q��w�sx Cߜn��a�iV%+��GV�r�U�|_Uϕύ1)�K��]�w�s_Zu*�w��Ę�*��o�[J��� *��]=/�5�q�A��� ���E*�T'��^-�oy+'rvt4�}q�A�V��<�<��T�V�t�J�<ȸ]i��U�GSqMy:�$�?�9Ơ���ms��Ww�Ʋ�4��R��T�?�?���:�p2T88��=ػS��.��4�-#>��{c���mV9� Tʘ%�m��p�Ĩ2�_Uƞ<g�\����'`�4B  ֖���)��Y^j�AQW����S_}��0�����CH��)��nf�Z������q�\���?�l�㳽v������S������B�%0����O���S�iܻ0d'�Q➎�KWݵ�VK�Ƙ��yO9�8����#
+�g�����5jLAQ4�IJ�{������>�� ��h�vƋ�B�ߪ�"�߶�A9��T%�EB>UE®���Snf�Κx�bZNaBۣ�")rm°��� ���G�']�_����`k2KR`3;�.a���@�a'�Q��i���_>=�_����)�k�k�Y��QHB>}+���� ����	����N@_��3�gM�4�Q��?X�1��Lc�� �;1�Bț�� .�ȕ���:�&�|��h���@������Y��{�H���UW�q��i���؈���F��~K�Hp&�(h�է���/��\O��l:[*z�0=�����$#�MM>sJ�o�����ϟ>3�Us[aJ�f☸fbt�]Qp�Lc�}�\�s�Q6����݉�M�-�4��:�V���WELj��덴�������2���<�V�.�;�����is�yO�� U]�h���#$��"[�Ut� g����*���3���?�J ��]�AA��P��?���0�0���UD�]S)�Lk� ��D�
+dhS�N�%�mGj ^�(�T��� ]1�=�OƓ�V4��"!"��n�eeEg��jJUQ9S:&W�5Mvm�P����D���A'�2T�I�]D�K۰U���\��� ��D䡔�L�w_o\���.1G�
+�>@�:�S��L}|�T�c�`�Ƕ��ʅ��yh���H��$К�D�|-?
+�ο��`*70}�n� �l��$��h����iq1��q����<TX���e6�weGL�U*3\tb<�YD4U�k�t�x��aY��YԚ	�g/�Z �N�Zj!����R[d4�����W��X��?�(��/����{�{�}����.��G�")�iіP6u�9�>1�6Ha^�-(�j��ݴ.U����[��䅪�jG.�Ue�ʮ�����t���a�ź�ck휼�M���X��zMשt�Ǵ��}*�W�k��6hb�ކ�+��QU�=<H�D�ڍ�0K��B�)	�a�e?�.��D)�����$�UE�Ӧ�8�t�,�:{c����(4M��!NH?dg5f6*
+��'U���So���l�svJ\���CN��Ǵ9iX��\r��V�Y�c�Ξ��O�d�A0��Ƃ���g���S��q^�u�MQ�Qt�\���M�mP��rn��6�����l̞�H��
+6^d:h�����m�J� �c4�ɘ�vARqk%�k�A��\x_�T_��6��q�F�w)��ո�Ʌ�(&
+ $��UF+�������]�n�����~4��4�kfK�����J=�_WO�?��ڇ$?�e���c�r��Ls��5����}�����l��6�ʱ�K`]� ǧ"m�+&�y��U`vW�_�U�<�W]�����@4]����%x���ޗ��PX'��p�k�\�J��IVe uR��H̀�C�(�O��2���*� ~�\���$�@��hL��H��p���T�C�L���Ǥ��+�p�$�yau���~���M
+��ޅ�'A�v��uޅ$���q����L.kˤj�0�.$z]�Nm}���w�;�)C���+��2��|)� ��_>v57S3��h �ݢo��7l��0�P���#�Ӣ�T�s�������Lj�a����I�_n'
+��
+#��R�&W�_�S��EbI�U���Bo
+9˚%�(v�S�AU�����t����Oe�&ţT�k+�E�M�n�vn�S
+��
+Fz������i��Kv��/r�&ݻ�h�e�"=�u#;�̱�}���=�ڿ�՘7��ғ��rt��wa�X��4)u�D��E,���맺�Ol�� ��qm{�~�h�ʘ�����㠡Hx���Aap�ꊩ��2��6=c22���Hb�k�X%���XBU�RWE�D�>��� ��q��U?�Sjo�����h�Z�@De$�,S�1�� ��[Tc6�Z��wD]���Y�-�2� �F��_��Հ_Lg�_O�:/�bUĸ��+�M�{<U7�&�%����y���a�V�]UR����_{�����Zi\� ��6GWu\cg����u�oTB��h�.'�-� �#�썋�e��K=���?��M���`��k5�pq �fɄ��v:�a�9�n�Y������G=�*��ޥB��ͧI�\��#�
+�KU5<�|�:��U_|�(�
+bW�� �6ݩC����	\ ��De�U1����ͤ>���%$��7�tW
+˨�"��h��=�U>�_��F�$�&.�A۲An��	��ߘ��4��?O姝W�ٖ8�)b�ر�]竰��8 ���z	��0��gv��g����sD_�����ބ����e��,�*t*aW(�O_?���6���K��:Q&��-�%�.�db�az1����cMq�������IE�
+zE�L����Z$�\���'YY�yO�}��̮��>Ǖ���:�@�O$�qU];�3�u����2�5`9���[6�Z�Ki�G�W�Z�}��SVQr�Ϸ��x���H*�h$@�Q�v@��x�Cj`���a�a|����L*&t�k �ܕ�R[
+��/�q3֕�`Y�ոy
+�ԓ��)R&W�WΪ�TفKfYճ�h�fFӔe�M��x
+�_aW�������0�L#�����v���m��&鸬��2$�^��ߗ�UPw�EET�g�&=�l�`\M߲e��d}��� ���[�BO��T����Y�{*�?��ڢyM�lW��n�������T���!��S�8P�t�O�W?��s�nÏU�j���� �Fz��S��W���U�]>������NK�-鈦C}�a�*B#�j�tOwp��1��2Ƙ�8�[�=�tc�C��O�ߝ���O��>��Nq�����U�,s7~��2=ʣڡ��f�i_�2����c�6:��m�W�y�c�~���u�g��]r�kձ���Dj�:�Ҭi�����:�Gb�T�P3)An�X����*I8��&��q��2����O�]6���	��U��ԈV��dͽG�ꃔ��E���ELb�EMu�|+�1��Z�p����Z5�wz���^��j�c-.�)���<�~��~���f(Skt�Q^�7ګb�ރR#�o�	$2�W26�.W�c
+��*��1�����u�U��w�rL�îG�G�9���l�*4�*T�*�.S���&�4ˌ�ܔu�!M4�2�B��dutgݫ�}�O�T��� m�poz	��TWڍg�/	����/#��}�kEn��PZs���� ��x<.�-���*�$S�m�	/�՝l4��żE�U�zr��� H�U?T]����8�T��.3�D�W��k�&K�A&>�0���'�q�|~���M�ꀒ�aSm;p1����GtQ�E��ƙ�����dƨ�!7�$,��ް��F���a�Tv��H2���x�WTBa3�v��_��|M"Liwǚ�c?��JȾ�0-�µ�٤��󌡹�8u�,9"����*��z�e>�Wan]�������Ɍ��(�i��t���a:���c��e�q��g0���_v��T�T��f�o��[�X�$"�z�
+�0��&�'��	� uS8�(����������)]�pJ�&=�C����[N�=�g�"���:�j�77U�����<]�p�>�:1�WT5=�i�Q�?�M��Ъ��3w��44��߰�
+���Ƶ��-�v�����Z�0��M<es���L�:F6��&�����P_�3�v��k[�de��ʾ^G�Պ������{'�y��z�e �]��\��ߵ�jz�Hq�N����d��a��L���gX����`j��
+NB^� lW
+�R؎*��=¼Ǻ�ƚ�jP��`.�L�`2Z�":i�Ζf�zc��zIJ.Lx񯾻u|H���G0���DB�wۄ�)m�Ej�U�F�*g��u�2�eviS9�)�#+�ٿ�gyC�i��YuG�=>/~�0�Sܢ*y�}?�����Df}�w�i(�(�-h�\6��2�VU�US��4Oo���Fk�9))���i7S1#D0�AիF�B�9{|������l[��>�B��"�wz �\�>A*ʠ�z�*U����.��g���Ź���s4	A��Ay�����;�TG��^�&;�+�*l���D*�S:�y9��K0��dD���
+k�9�_��"���*��1��v������do�M�E�IUF-/0�גtF}�g�x�?Lm=Dd����%�-�I�nݥd�tw�<b�Ƃ�]QQ>��yڤP2�k��4���x��ۭ�"X��M"�]^�W��TM}��m �L4�;���{͌��J�sՐ����P2�c:h����w��7�i�WqV�}Mƾ��(��T.U�3��)�+� ��_�T���n�*��|�@��!�T���5�<�<c�گx'��uк�������/�<*f���?s����_W A�3ǥ�j��X��_I�Q��DOo:�}q�{.Ó<�3Y��W�."8N�b#l�����FJ���:I��Np��/�}���� �ѻ�vbU���T<��St��J���y�ߩU�	��/�\� ]�� jH8��Y�0݈�b3B+lA$O�������L�]��`���]n"* r��"�j�/�.S�󝋇̣'<��ux�Z2Vqn\�с
+�([9y�<��΋������ZM9k|�5$��W۪�Q�'pw[���ip]�<:Z˘�0����a�f�_���>S�s�z��ը���$�y�Α��>�jV��ݠ5�-N����5�J�n]���*��+���y�G�b��X�,&�����6r#����\b��om�^{��ћ�r��l!�n��V)&��d��2�u��/���c�̛���p��g�����FLS+m�KlS���vf�e]f�L.�'������{*�"sF;����E0�<��;�P����eS	���=�¸����vTqW�B��� "�9BV��	��_�� L}abjuyq��4���Q�\���H���YC�9kI��~�"&T|"�5�/��k�)�����i��1f��*"�쉚�&&� ��	��`�GiT\�j���E��.�P��P\� �S��h���� k 7CF)�!�ԅ!�r�>� _��]����@\q-�9��v�nZbض��iGf�k��2��2��._+쨻Z��&D+�@���y+P ����m�HN�q�谋��X�=|u��v�PhR�Ę�w��.��[fJ��TJ���W���ꖆ�_��a��T}�����fGC�����5 �w�Lw�jB5�����;B�C{�n;
+D��p���$���������}L7v����@�@�Cqm�g��)���\��c)��ڱ�� /�3�q����ۈx�ތ7k�����8����9�T�\dZ3-n֯�ۇ� 0�#��dC��ʌ.�> �}a��'���8x"xc���O��'l�w��YD**?Z�ADsʪ���c��>��lGѢ[��޸�3wܙ��� �����ta̫�ڛ��Ih���/�X�C��c�XDc�Ϗ8j`�~K�I�
+R**ܹa�.K6Ӳ$���x�v�*C�^�0��|� j?׫4&S���³�݅"���M�����0#델ͤδ<��U*,�Oc�����D!r��Wl��!���������8f0"����R�\�d*���̇f�zƥ�ƕ�ү/���U^����u��$�]�ڍ� �~{�I|�vX�͕]��rU,GU](��B�*�������E�`�'�_r�	�P�u���uCs�MH��2��&u\�� ��gQ�� �� S�Ŀ��H�)����|���n�W��=�� ��q�"�ӣg#�qn�a�3'21.<B42��������Mj�n�R�~\I}5A�9ED�� ���*����<&b��$�j��K�^����8P�hf�9�JZ?�1U9�+��Ώ3�li����s
+��y�ou�"��K!�jZz��Gf�ˏm|� 4�e�\BX�%Yu��M<@�3-24r�B�V�Ƙ�.�Vr*A+� 父bw�kD4�JT�v�mv�ο�G_�?_8�<6 ��A¹����޾�7/�����R�a�����e�y����ta�5�� V�K��z�F����݌�gf�wurƦi�ݮ�dv�_XjD#P����t��:��<�s@��8J���.Svp��2����/��G�g���1T�q[o��c�J.�>)?OB�=|*cl�S�H|����y-
+l0�{�v���d�q�VԄ[
+��01@��%1��E�T�U�~�:��__��f*ap�;\/�s�\".�Pw�q�6aW�ʴ�� +t[6�{��g[�aI�M�O������%_���l����D]��Y�C��)d�eZ�n�6���C���U��>�z#�ã�2�>��^ϗ�����h�_̬���h��%�Tmݺ���f� 艟�B*az�ԣ�A��u���*���T�d�U�_ʪt7as	g_���p�\{Ӄ��Eb���Bz
+�&=܎���ι�����mlFS(f��$n�P�\{��Rߴ��Թ�I����Ѱ�X�#Q���|��T����o�����X1�@gz�j���H(�q�h�"G"�ϓ!�iA�{r�:�<ދ�h��T�(i6I��W��w��#'�PI�'�-�+y���*�%��A ���'H~���Ga���[8]�sS�$��sDl��ƦY50��H[">��J�bB�[)�a� �ED��5Q����;�ё�ݑ�]�qAlo �~FѭiO]�zÐ�TwG����(��@7��Xާ�xL���n���UE3IT���z��j��>
+_a��֪JA�}��q�O_(�"d)�	�DN�g����[}����D|���m �4J�r�p�v�+���XGԊ��L�P`�OD�>�on����'u�_Q��]S�l�]���k���ƭ)T)U�h�Du\�U�����2*=w��;Rz�b�-��~�c�p� ���"�L
+I,�՚����UF�2�L�� �*���]�o�&(��8���%+}�J�`�#W���%�A�)J�֮�|��,�����m'�����?FT��I�`��Ćh~$8����ҬC',�&ImP�b�觯Щ^ ���^�9��}�I~4T��J,�F��I���)�Ź��p�u�}n��:�nΦhuc���9�H榚Eo,��G>zx�� ���l�����$�n��n8(�C��uո!7e��a�2�mGGQ���(:)az��
+�X�_c:��&��<���,���n��Rl���V/�nN����]�����>�c��z8�$��b�V�[�r+�1MP�naqM�7��nHT�i:J��s�#��j�Ȧ(ѕ��I� ��]r���?��m��x�1�CFNDP�A�a�DZ4�d�@�U��h�_����6!pi�ff��]̍U���*��u�}S���§���쳘LBi�h�1}�]3������4�I�I1���X��Z�?T���[�2~�w,���W)W�R�U��H�WGJ���#�S^0��cU��T�q�=��q���W77=ݼ���V#Vy��Bn�ݮ�(���Τ&Q���GD%5�¯�Ì��K�K�H� u�wn�ޖ�������nK�h�i}_��H_�}}��0t]�4z~�O�N*邿�mw�F��+�gp��'�o��w�Tc�c;^�������YDu}��>��j�,h�>+�����*�K,����F�8)��R�
+��-���Js�B�I��]��B��}���ܴf���9��	�xk�i� ������T1����c�W/�p����aP�R7�n�7���@j�8g��m�_�|V𥮘m�5"����[�q���j��sw4�<��ժm5�̗}r˳�\4�՘�0>��ړ��n7/o������M�}�뤓�L�ET:tׯ���	ZgTr�L�=.��*4�i��/t���P����� W�G�6�L�Y�zPF_����� �����~'R�W�y��u ����#t��������d��F�.)^h��R�k��L�&��F<�]����,5vҗ\�̱��ũt�t�h��Y�����R/Qe��	A�яǰuA��ܬ)�n�U��{I��N�l��h�Z��l۵���@�!������b8vc��+�0��u��������Q��c�;=D�tȱ�7s�̖��+�A��ۢV[�(���������QY�O�������e'}1=�����Yh���6
+�j�,9-װ���ɰ8����+�<��ʫ��_pD���2�y��n�|VX�r�~�d�i!�C~<�u��(t�(~Ua�N��h�����4�tDq�J�^M^��[�t3������p��J�L���T�(N�"3V�����X!��U�:F�.!�xw�K�.ဲ`�� ��*�(�
+�	�e�	����z+�~,H� �/u��ϼn"�Cxs�{����"1���ݕ�J�{��Nl�a�V�'G>*�e��a�9"+W�>#Z����݌��+��[�;����C�� ����:+	�s�>�"�L�|�ل�B��Q�f���"@٠m����g�D����)WM�kb�6�*k��4�������F�7��˥�Inǁ.l{Q��ӯy�����a�A�VTR]hc(^�y^��񢯔��A��j7d�|y&�45s�D���l��b�Hc�hN��������X��&�o��>0�7���}#T
+�>�,��?���H�[a�X������ty��C,��B�ʊ����c��+\��Ҫ�5_@�a�����;�ᨼV�t���7��rλf=&G�� ���ǋq���"(�SB�+^W��.�a�;����nR!����I+���� �qF���ʮ���k�k	�\��*���ꞏ��u���Ⱦ�~k�k��޿�7��ϳe�wx�B�Θ�:?K��C�a�G��Jk���s[|�*l�0.�����ugTa����FK.q��8���g�k
+LR��H˪.Ճ� �z
+C�@u�t򱮙�&�cg,�y������:J� ��A�A��&�z���"
+0���Q?0:���.��`5�:�9�h��w�rT�<���%²����>���QG_���"g�!�crL��P��~� s{���$sd�b M%�
+���\UD��_�D�<.S\�66�'/{�$f���q��h����c�9�WٱUv�RTz��O�}�b�h���V�DJ��<��y�["��U��+��ʴ"fܑ��!�Ji�ۤ��颚Q��kZS�UG�;MJ��#[��k=����5`ok�=���5����OK�C��Q�E��Q��T�t��݅�}4E�<l>�r7���m+O�t�b��9��O�����4�*Bd�$ha_��c�������O��f�	���@�exp�gu��⭎ɮ�Pl�m��]��}����G�*�%��;v9Վ��"g�D�AR�E��܄���`;ow��b���N��f���t�}���;.Q���FJUV�dZ�����.���V���	fo{v�4_�U��OԎ}�%�%5U�{�k�_a����y(骦��	�Z��	h��P�sL���?�V��s"�~Z8�"Cq����댜��r����Ck�:%�Zת9���y���d�s�[v�6+��	ko��G�v^=���v޺�j��a�*Q�yo��)��T^�v'D��XA'���Wb\^AN�l�ٕr�y��1�.�+aj����1���z����?�m���;��IU���S�c�uڮ��BB��r���*T��%�1G2tg�t�E���z ��݃(�n!e�����rA����a��1�t
+�$�}+�������QF��ŵ�l�Ӥ�軰��m;�y7���9w0�-�t�{]�'h�����^�c�^=��6�u2�G�����+N�C[7�|����1���3t�#	YJ+3�i�@�Մ5��v��菸sս�XJ0����{��9y,���%
+�����cڑ���E98*�7pI���#�ƓB�<z֨�����Je�X����\�[�{��L����#t��$o⁂f�f.�b�.��z��IkYvEl7��}Xb�+�D_
+����l���H�������V��M�aȠL��v�V�N�y05J��Q�J�B � -5�Y��ׅc�lX��a��[3$_�b�7���W$���:��w#0�	�����-������N�So-W\���>����ۇ�ũ�V h��j,H��W*�qGK��E�hO��Jq�jҤw{�\�j���ꗾ�v�H�#qY�Jih^�4���ֺ���QR�N�;Uu���ծj�9��}�k�@ "� ��2I�p�[��)�7�(~�T��+�?\R���H^��y ڎUü .[�b>e�-�z�P#hG���lJ?�A�U�Q�iK� 
+�f�Ps��s�{�Ns�ӣ�"�.��_p�/��?st��"��1$�GR�:�j�MJM46����/5i��2�1�́c����=���q�#nҠ��q�g���H�åt��4��V�E)DN��E��\	m)|I��}{7��pc���H�Y�Q��M@���(u��7MN�޵� �D�N�k���Qw�E���}��YU��	�����{��'�8�nK<or�.�jH�2�2׎���R��qGQySLb���W&r�א��)�a�S}������`c]�:��#�yN�F���[⺉ȫ��֊��Nu���GՀ9_m���T�f߾���� sK�3C�Y�6e�|����N	�Z��X�Lt;��?u��UWm�E-���{�9f� ����C\2�B�3-:�0� =H����.:���!}�M���sG5Ӝ�V��l��C������^�ie��E�#��\}S]u�hh�cS5���Ad��[y��#�XN6z�� 2�_�8����Ȟ6��󂺛�u�#~x]ݦ��	�[�n��B�F����>VJ�Y	�Dr�y&�� /�}4�l�Ç8���$�<���{o�Sq3,,����M�j![A :r����` E���cUۿi�{�ud7,�������h���I�فX:�Du�����c��:�]?{]t˫�ؑ$ﻄ�������g��v�*�7�ƥ�qJ^R=�;�݄=�#\��o�ؑ�GV�ȃ��/K�S���)p�Y�3���<���q��kzO��Q{�����ֹw{h@�^�������`�JQ)	�*��!��&:�6�J�ҝ�a�D�����Ɏ(j7��t��gJ�q�QJ:�c�o,�V���֬k:�&��l�i�2.p��%��2¸�jٲ"���TUTr���WuE2�R���x�	F0��ت�N��\Z��n���r/�(ؖ���)�Bޤw��5��?5]g�D�|~�s��������{���nCr@ۋdP��1F�T�cܫ�Wv�4���UW�:�����*l���	A��H�cs�DE�c\F�!t'~#Ԋ:P�/%i�B�]ѫk]}4Nw3�M��@���o��v��X1�d�G/t�ur�](�x.+��Gu�ic?��*:h���E��q/�����09٨([�:�[��0/i!҃���*��և�Jcn�w�R��k��U{bP�8�:� 9�ݛ��'�5�������7hL�@a����p3]jN�Z:��4�?տ�M�(</�e���W,3�F������^s�C�sQ�7#,7/m̕2��L1B���1��;��-��D�E�&/�`�[��{����-�ڒ��YB@>��V�59�q����+�����<P� D�d�T������#�l�LF�v	�2D�m��Ҕ����#��(�j��_S(��Z�qZ�NW|�CcEj7�\��R���]w�x��D�ʝ�4SN\�>2��U6J��& 7��3*
+�:�b�[ni[p:�6�:��	NkJ)��f�~%�=$^Zu���V)̐7w�@ZT��U�]�$H��FRIQ̶� �cȥs�B��xmV���s��J��<���0b�_1���9��V,��y$���G�Dܑ'"Ȝ�]tE�t��ҟ�}:ܫT����M^��J ��K��˳7~ʩt���b����N����i�hL��U�Qk�3���&��oA�2�����Wn�CK��V����9����=�D�#�xa��ҫZ���:�V�=�5]��"x���hGfLµ7_Du�ȥ�Սi�At��[�S�\J��h�	��V�DEםv�蚳J.�z��~����*���鈍���>�^����$���aŦ�\iR��ks	�ʴ� gKTl�ץ�u6�/��Ɯ��\r4-�'hIH1�Y�Q\l�"j��=����~��	�ǧ����';ݟ{�#Sć6�S��o�G������)7��⣵��!	�xu�+�~ �
+/��������G!�˳�%��|{.u������.(ihs������U�^��)#����>3���G�oa�q�w�d� _����7�z�"����4t���s@RZ���a�ߩ��uUr;uE��ꈞ6n�Xu���@dpS;�����w�r���%m�V-ab�%��!4]S\��]j�Š�Hߟu��#�������,��ɚj�,(�t����z�!Yu�w��8��t��m��9�T�GM��ڋK:��wy�%�/� -4D^ꢋ��ݵ�Q�ssñB����N�&������<lR�\\�����ۻ훶c��ìK���C�Y԰U%#���/q�"��?0��uLm��Aj����z������@p�M�<!N�M#�kF5-U~*�_"4ԩ��=E���ε���7���~�߿�㤦�N�]�4Խӹ���m�J$u7M��BT��u2�b���$r���������\�G���P����3~q���q����u�;<��Ho�(yN�b9���\�N��O_d��99F�$H�}p\�3��p�`ǗpF���U���1�T���C�_����'l��'���Ēb�{N��b��>�.�x�����/oC��7	n��CI�:��DI�F��-��nC4�*e4;1�x&Uz�4A�S��2/���PdIo>)��H��ۄVO���Ҿٖ#HU���!�A�z����"��"&��(��?��!���&�,�o9�BԘ~,㎳���:R�^��I-ڔq�����(����V3�̷DFj�{����o����t׌��P;�^�hY(h���IVi&�G���m���5+\�RQZg�g�Ф��7}�O{��u�)/ �F�CH4���)R[�E5T5T
+����F�FQU�1��#��n� ���=C!g��ٳ�۶��¿�ꐍf�z	��n��HT�g�(7��i��毦�f��k��v¤�;���k
+�,�w�\=����K��u�.�!�i��� ~-�J1GDT���_R�D���q��A�{}u��ڕ.k�([n�E� gɢ+��4]pbvC0����]uվߩ9���1.5]�r�4�6���#�=�B�Q	y�F\��d4��aD�l�u��"���Ҝ#��f�X�17����ݡ�X�%��YL[��rY�US��&V�u�DO�.��2����[s�ӟ�̭4��Np�nP��K!�9����J�+V�j�V�����E�QSg*ts�|�	��
+��7��[Xq��.ȶ�_��G*�U�R�>t^T�*S��W!S���K����F���?�n�~d�"n�.9�	q*����R�-N:ý*֮�^�/1,���������K��J��dko�kÉ%wy�2-b!�H~z�Ka��:���[N�e�R��^Ĉ*g�HcF�cs�	�4���>�v��B=�0e��'����i�+J0��֋K�������8�)mI��&�"��[��K��3�@̢�$ң���T�VUk�^e��0�*q��EK�[��n���ꤦ��v>�^�8��vv j���ۥ��mi�=lt�O+�f���7W�6s�����m6�K�[��/�+��m�|�t�P��)Q]K^<"**��'�=��8� Gv~[�3�D���^��V�p������4/�'��hw�|���{��aUO� (>vL�S!���e�P);���~��-�[6�ս��r&��md*�%
+�*=58�<�?lw��_MWa������c���H�i�y��Z2Βܵ�ōt��l�p����nY�1p�e��G�*q��~�@�v� ��V4o���9��e���Eݟ�2��6�����]7j������L�4|bGN��~�Ҧ����%*Hx7|U���2�޷CFEV �8tI_,#O��?ˑ�L~�^rV�~k*q�u�[���fdN�ƪԗ�����������j������ԕ�I>*b�o��fmmJ%9����8{�q�<I�E�aV��utHԌn��&�y����g���:�D������*�th��:6я�}�1Ϸ�I�!�#����:_e�3��hFJ$m}�&qa�%� g��n3w���RCN>��xʆx���c������vA�G��S�0��68���洌�VH7��$��"4$���3ܨ�*
+M�S��QeU9���l�p�d���ѩ� �����k��ߞ�8Џ�����.̸y��:t��%�Ն2�c�FRc��5\�~�7w9�N~J߲l�78�n�s��2�SD�WU�]�9ӍB�
+�K�dH!�G��Q6 �]�Db�>�$ n��.���.�i��I����0��C����p�G ��\�jn��t�Zӥ�+u��0���L���H
+(	MC�}��s�|��y��>a� �O�������3
+��7-lxފ�����������}syۯ��10T�]s�,���$Ua%��P㎄dq�O��=U`�&O���3އM�v*练��`�'��C���x��Ќ}��p����;��� ��$���� g���ݹ�6]w+p��Ć�xw�%�.-��-bY���՗2F��F�!���\3��Ou��(��6��.�����Z ��~"��w�낤�����Z㞎mXB��}�i������|�*�P�)��*�2D�ڐR{�KZM2ِ���<
+teT�E�3bv��f�����������z�
+uF�����Tl��8��G[�i����q�KiJ���-P��'"���Gk�����<�IQ8b�������p�~#���dL~q'Y�+*�P�|��r��_�����UJ4� �7����e6�5\�Nc��N|93����[6��S�5G�%UOL�Z�fdPh���je��y���3����a*��t�ø5������:�QT}�����ƨםչI��D@5{\V��
+��J�)ϰ;�?Mo-%t(d�0����"���؇o?7��PQ�� ̕��ę�>�&>r��;��ڗ ��-\}z�֩�z:/��>�>�ԭP������]���r,bD#Cb۔�uǜ��fQ;��v�#a�a�EE맔��d����_�9zf��]^gK�z+�m����V�]��,g"*ņT�|�#���O���Mv+���T2|}�Lu�q�]�/LA7Af]�_*�UU ��(���+L���\�ʮS
+��H��H�{O��Z�C��8K>Hx�A4"�p�e�D�:�7Z��
+�b��k��Q�p�Je���+���i���LBb���䓣�oS�<���N��~Uy���� �T��O�ct��±���1���w)��F*�����ϊ��s���]�n��D�+��~���_�U�@���m�k4J����)b����5]����U+�&-���Gd5�W��I�-p�xE�{�����#�3O��#�z���i���h�S]t��	.�>7�N� �բ�p��l��|�,d��;$�DӍ>)4��@�}�!ܳ��e�"v���E1~���Tp�8#��V���0�wgE�sn�x@�S�:���L���=���DfHc�ԗ��ڮ��]���I"�rR���޽�5p�ۆ��{S��m���r?A�ꩁЌ�aͅ ��w*��P���+QU�!'3p*$m�-P����o>�U:5U	Q48�:��L��;�u���/����Œ���V�&�Y��M�BK���a\v^6���z��:B���4��w+K����tL]�;�F��E�mݲs��]�.`�� g8à̎>�Vr�q��q�j�%A�sH^�mWu��fn��/�8�C�$.2�+�0C㾄&}�\�j5��S.#}���g�=��S3V�lU�'Pԃo�����@r9�C���+�S^��l��#-vY���p'�~�e\�Z�l�m�4+���S�0-���?n�������{?��鰣���*�9]�*<���FEI��(2O���m��`���t5a����_�@H�4�ZΒ���9H�Z|���+|���D��� �����dD*��'bn�8+��vj�|��QFi!Y����;�� �M���c�ak�]-�[v�b��A��w�������/q�����`�d깠�
+k/��B�j2���h)!�Tb��O�'��2��tc� �Hc��w�G n��Ꮘ��cr����Hu۪ڰe.#C�h�I"��J��?���=�m!���8{Mz�Ԉ��>h�(?)G��q�o1w����K�&�j�4��(B��箺��0�4���,/"c�?�m�����������7&^i�A�,�xn��g��ܾ�)Y�m��m)�L����y^pJE~������J�l!CT��P�iP�R�m��i���}a�O��ڎ�m���ܪ6!�p�E2��j�V_����p�����W��_��D�J�7	�$N���L�l�.�Z�	��qh]Q2�P�NSM_[�q�O�o+��� �ݗ�����9ߴ�a �3ě2ij��ED�5u�]UԹ���p�V�֘J�)�E�5"y�TJ������Z2rXs��,���~�b�1���5�E���RM�C�͡u� �L���uW���y��lS�q�=��;� ,zԈ������V܀�Ur����?��d5�/�O��2��~��6ҩ���2�$N���ISX�����4HF|�u����;ȉ���"'��i�gSwy!֗�
+.Zɴ�3���-�9A:��w�s�p��~_���S�.�vNw�5�?Ren��qq�em�f���~4�r�Q��n��	��TW�0�V�Õ]��LR���峄�w*����t\�����B�MNTïeu�Zg�B/7���Q~J��QvɣM��[��5]�.����χM�ob67�[�;�������M	U��ʢ��aS��ֺ5�W��`���� 6�!h�fᳯ(�Ժ���1�h\2(v���Mk�R診�*J��6���b��'41�/v[��ܾ�ؐ��%����F�!L,��8�~�.5J�zV�E¯��jo��DF<D/>�_��}���.�w�ds7�E���7PD� �@�[�U����]��29�ʴ[;�o���Sˠ�0��$�߆}�mH��5PN�E��6��٪�Ξ�f��3��F[���낁Sh r���^�n��{?}���dݤC���)#J!����T��2@�׎��tuHƺ���h<�+�a�ߪ��~��~wUCHۗ\
+�	�H���}/`V���G��U�ttۡ�\���k����\,�m~�B˄��t�
+m�σ��PD)J������DD_>�Q��H� Ȯ�F�g���)�[���tqA��P�6�(ԼB��>���4\"i���P� �J<��aI�����/�[�G���0	B���_��G\|��vqw��]Բm�lM�1K&��݊0�����u됽��3�=��b84Ž�~i��]�½"Q��=]o�ᆰ2��^���>�_�)��j�,��\rf̤$e1�T�ՠfT2!�8�1����_�����L�Q�f��H H��,W�Ŷ� �w�Q���Yy�����/�F�&5\�:��Yq�QN�C.'n��Ѫ��:8���������ݒ�I��޽��)�~�z�1'T{^���1�X���4�]�-�?mS[�ܛ��f-���O�$s�r�$%�S���v����{cf6� '[�0��!�{�傐���q�o��U���������a���K@[��__g��|N$L��#�G�T=!�������/7[��=Zc����H�d���Q�fW{�En 2�z��K8]��߲��0Q�HH�h�S�f�)]9+JR�<P�6�t�L�w���vK}�[������܅�L[�n�:�.S����~nI�V#3M
+�r���+��O3]�ٻ�C 8�#��'�m��Z�V_��SYR:
+�k�L�`��|����R�$��ky�Ͻo�)��b2,�jd�"�"��a@��Te�⟧��q��uLU�Ck3����K�n�	����q�+��ۺ�"X����U}�������ަ��|+�<�x��~���9^]��oa�ssE<qn�7y<*� ��w��]��E
+��3H��$�-�zU���zWW2/*�ۡ�-&#�?�kF*����8�	���ZZ�~��GQ��'��x0���P�K����Թa�����AX�6�)���^���F���<��>�V����g�i��ۑ��Ԇ?]�W�w��H��IV`@���\I��o�Ġ/ƣG��?0�����mn�|���-�79�I�J펑�!Ai�+��trZ_���e^EF�� QN��C}p��ҭ�{�L���[���)ɸ�(�r�d� �hl7h��gy�OU(���k���҅�V��Rm��6y�yf�q;\���c�CL}��ۖ�k}�M�c*}���4�=z�O_��Q]�� ���C.���Hi<��}���5�rM�����$�U�H�-J��%2Bs�:�z��z��v���XH
+.��W�|!}�{��D�۳�H��]G�p���?<����>8�� �Zv�6ë�:(�T�'P�A���=wx)��� �x��vQ��B��$A'�)I�Ѯ�\\�8V�=A_�yU*�4�ێ%TWC�N�ǵ���³:�>��R�d����zn�	q�ް/�c\��d�f����~���FT�W�JX�Pdpu�Uqb�^P&Q���y�n����s���Nb%�X`'��� "D�zJn1�u��Mr���T����gD7���+u;ȹ�I���1�\~L^�t�F�8#!�!X��� �g����?����}~ҟ��|��w|��3C��K0��S���pU�����ꞯ.}��
+��oL�?��.5��Y6���.N�-H��	���Vч�J�^ڑ֗ߧ�C�RstUV�m�\R�B`��^��U�
+��V�U�E|z�WyQTA���(�(��]���W�iR0�j��C-��7Q��p���@�O��.-c�I9Q׸�v�"��������7~	R���ιWɯ}ΑS���p"++R��J�㒊�� �� ��ciR,�5�*&��#����*cy�ӑF=�j:tIc	�����r��(���O��\�D�j�p�3|NnG�#a�w�0�5��]�!��r�۲0����ۿ+����|�t�!�[����QB���,ad���y�Ϲ��EZ�� ������ѭ�U�|�����lk�;H2)��UW������ � ��ݍ�u�f&��)���]�ي��h�u ��A	����#O��?T�ǡ��%VL�/ҭ[rd��`�:���OA�c������W�M4��ۋW 4Z������M�ܻ����q�!��j䤶	���0��Z$zѷz��ޭ��F{��9�C�a�w����n{� }��wOw���Z��[&5�	����n�h��TEZܪ�R��[���vj�Kr����	��a&]�I];����&�d�Hq�d� ��G�DNŇ�3���S�_q>I���K�&��/-K�H�����*�R8��J	&���r0���������?D0D�4]�CB$�5֣0@�n�D�r���G�v>]��/��gA�e]������!F����U7(��S�ƈ��}��:����ƤxQ�W�WL��է�Ć���/Q�<=�iG�58;�ǑSkR�cԪ�������UZk��"{��9l�/;ݦ�%�f�/ N�4]���9�-]V|�1�V��D��ϣ0��2��۾��� ]��7u�@��^q��v�������瓞E�FQ�)ԟ"t4c�%}rB0���&����P�w�A��-� hg��t����W�L���jƞ�x\mƀ"���vS7\��c�B�<��+��ħE�;��2h������L1��nb��j$��w�����%e�;+�R1�qA<j;Ld�P�t�>4Q�b�H]i_�H�]jĨ�M���ۈOS`��%M}��6û7a{[qU���J�nP#�7Cy��`���5U"0܍G����EEG���h�ϸk�i�ς[P��4Y�ة�&��E}����\�s�Ϊ��=�'��٢Z�):;g �0*�[fnЮHa�d�̩jep�>U��?��}t��-���Vl��Cp_��׸[ �ǼK�>�>J�w{��g�%�"��Y��I�HqFW�AT�����ju�z������o�f�5ӠW�څe�[���;~U�Co����.�i+F&�_�����Ԍz����!U�+es$�s�ST��K̭�p���,M�1�k[�e��ţ��C��/G�?��S����~{c����� 7ɺ����K����!�c�Z�]�(�}��E�1�R<�.6�k%�(�瞻��\�+3�.�V8 ����y梑��}�q���T֔�	��MLg?K�g}��. �e���mkf$#��т��B�ij�TJ�M�*"�ep�&���i� �j��c�2�.M�F�FV��>�H�G�0�}�kΊ��Vs�?��r��E�専��<�Օ� �^�2;Jv�ӜRb(@����ݧ*e4]5Ӓ����E@�3$MG�f��!���oe9>�W��<"c1��n�S�֭�۲�$�!=M|�0Eڧ*b��DM|�8M��ƒvJh>�0�y�*�䯷����Ud�����&W�Uی!�r��4�d�?�f�k�	�v>���1LE�w�$�U�L.��jmܮ	���V�'.fܳw�q;p��P�}��/���b@�d�&uTκ�1��ڏ �ڰ��D���f��R�����&�	�P~��pRF4� 3��S`n��m��wi���6�vHM�zHSP�Z��51�$>� ���"/p���|g]��5������+���-�ݛmZ��I7-\��@ò &)�<r8#"*4���>_Z+E{.*���~m��Zd4LU��x�k����n�"�ݿ�1'/%E�;~(w$�hC�X���i��G�YOP�]tP��#�h�Fw���UalA�w��a��s��#&�&��D{��і���Vh�.���|�jB��G��ɼ�A1�~��#m�{	��6-�=:��$��	���˿��cG� �Q�cǲ�.�1p��ʁ�-k�����:�ƕfi�ƒ���ap���EO#����%:��]��	7~���b���r��j(##U����0GA��"~����ʌ&��W��r���w���0��1�>ᐦ@���p�"�E�4�5KZ�d��D!�Z9t\kN~\	�\�q�g�z�e��(u�*��gH�3�h�j�r6���
+��i[.��h�*�/��	���S��)�tur�����y|Mk�*��d�[^F�^}���&ґ\�E��v��)��n�GOAv���7�hNc�D�Zܸ�!#[��*�C���=Q<��N�pǄ�m#����t@�T�`�F��R��E	Z!8Q%���S������;uZ�q���
+���+���v�O�IB\q�7.O>Uc��Z�ap��sj�g��6��p�N�XIweia��E�g��
+W��;w6�$�^LZ�^V��f���%u3P��U~�f��Ǽ�s���/�()t��QL��'L���޺��ݕ煾d4�����0LD��H0)@ ���3���?\vS��� p;�{~>v�ԞڔC��ܐs6n��.��~�?EGvPa��YT���7_��*/CTT��E��p���jU��)�ڳ1��;\\�%�DT�	��%��ӷ^�AG��q���V:y���7~�npU��.1�T��;|��&��$��h*�Ȩ�9M��}�4>�P�*�[�ǖW��
+u@�2��t�i����/�I��Z�����9)f㇍c�
+�S�|�E��_����TE�01a��>>I
+�8ܧ@���!�#�		B�d�G������n?_�?T�}�}�F�}��4��T7�M��+t>�F�oKMR鄴�B�|�3]49�]_r��TEL&y�i��Eiv�`k*�J�X��Fh��fAiYpVE�L!KVUS9D�u���z���,���C�S�%��|;���)���LL�d�ɯ�0J{|I�:&אF�}ʙ�����V��y��IW�Br�R�5Q����g:����k�!Ӑ��rr�u�����KRH��*�Wd��m8�y�0�EJ���p�H.&�'q-�2��lIGFI�S��C��>A�_:�_eڏx� *�����l^%��x��=�O������M�UDV;I�}QW���M�=��p�*�w��5�]��{w��P����V�PbRF���ޟ1��l��*���a��"�+��$�BI�\DK��л�y�{��lv_h�������J��O�)��t�5�����aKu��\E�="M%�/ۍ1�\�	%��c��D_�n��1w�C��ʱx �?7�qq�`ۛ��2I������!�i��k���?/����zs�&lN���[��&7��4�j�w_u�(O�V��7s#v�3!��ִC���΍E;C�Կܶ�"ӄ��\�mL ��dO��%�UW�Ŧ��狉{ˉ��ݱq�_w�Ev@����T��R�ݝMP23J�)N�y]�}Y��k3s)'�|�AxJ���#t��u�w�\hQ#�9}@�:IM8�$W#䐁��?�^�w��R"���N��H�JY;������_;�nzZ	��܏rW%�u�ݷ�������ʦH���I�R��}n��/J��Aɒщ�k��=����ڎ@l^�,~[8�|�v=fɈ��+l��E�����ϻoe���t�ޱ�,�6�A���q���yz: ﰄ��aSL��\d��e�ۨ�|��p�j/��Y?g7�iU��g-^ �m�n�<z��!�G鬖\��Qa���p���o/�=h;i��<t�v@΀����������^�q}�}��Mj�i&��@�S"��a0�J��E�X�k�j\Q���[��4.>^Љ��j���^,��h���z׼(��iBa8Z*T^� ^܁�Y(���FL�o^p���9�0�-��o�|���o�rU�-��-If�dq�FA��}q���=���uO5m>�GjUF�ŝ�YWe�Ӷ�� r)a���a��QҤ�ry�\g��_�����}�^���P����퉾�� �p�E���9o��Wn����Q��=U�t^a��}�{��JS��_%���i�|�U������͹�r�����	qN$`ԵXpD
+��E.!,v�ԔЕ+*���l9By]��2��L��\� �*���4��?~��K��[y�چ8 ���aH��0��b��A��HHU���z�Hl沚{>��7�pY�p���,Ԑ�*r�G�4Vt!H� �����ۀ;��]�T��M���;h�Y˓t�z�K�-k !u#��^�\��j?n��s�C�w��Ł�>��p)���s�IG�M]4HI܀FJIIM�?R�R68��)n��������;��{.�!��A�<@Ӏ��P�� >����L�Ϸ-;���6ɷz���7k����>.)��uk�dY��Q�IL�����[������!|�ͨ���ߪ��"�� �j�z聓=]����Y���Fz��~a�qԟ]��QP�~m?���Q���H\ܕz�IPT$1"�#5�y��
+C�QSf���_8D�Py5@�zn��n�Ҳ���^�᷃�O���r�08�>B�SJ�p��J�|�Ԧ�8F�1�������]P�/��Ä��F,���ɑ�F�̈�|'��Uӫ� �|1��=q�9M��ەv9*����`)*����5�����U#dJ)�_��Y��W�<:��_�G�Q���b6��W
+O$&r�8պI����U���3j9'�ے�rq�!J3�!����@�v�>��C��O�5!�n�H=+�}[%�Eo���n�H�G[q���גO�ӏ��n��5փ��󬂘��w�|L���Eg��Tf�mĕ,��|s�?l��ğ�r��L.�/M���Cd��Ꮘ���EMn�� +���h�qO߻Tq���+��+���!1��d�q37��⩚:�-~7-J��w1u�ݵ5�F␙��a���Ft;��D��n�fWf�����.��5��#��!w=���1�v�>�z�m~�m�`� ՚�� e\��d��^�̀��y�Ɖ4��v}�&����)Bd~r�ɢ9���&5ϓ#���e5чeΎ*��}�Ȏ�&�w_�q7D��Ζ ��[0ig*��QBq���"mj������Q����Vye�C�0���l��C�����U�� xҌr�D�3$�*ҋQd��Rs �����H��Dª��8�ё��;�����EnpK���St��̳5�S�Wn��$�\U���>X�J��d|&��(k�0w]�|���b�w�h�ZWo$��F)���@.��2�I�:V�S��*�u�����F�v����K���Pv�N]��ݱ�C���Ԟ�e��SN�џ�>���t�)�5��
+��������uo�,F��Z�{��&ܘ��}�4^ޤ!���ۆ(��7���v���I�j8�ڧ�R�!�b�YB�EN��h��~��{|i�ku]%L��&���p��>��ૉX���r[���V�a�n��Y&���a�f$���=^zVP����*&�c�n�#_=����=cQ�s���>��8o����
+TO��~R���Zύ �"e娗Ju�)��!I�W�}�;�BW�(tc�a��}?�(���Ͽ�)���s;^ݷ�%煮��S$	����%L�}g=a���;bY�XUΈ��ֵH2@�R�A�p�hX�a���؃D�1�u�Ɗ��ܮ�O���e�t�����ݏa�����?���a�k���ݢ���f�H��A���y���c5�̭֚��p��}'XmG3��z�l�j`5��n�@�4�ͽ]彼�P�~!��ف��HAˎ2����z�I�S���� =�0�f@sr���cbj?j��ꗜ�JdR�k�ץ%`�2�;�|����P�;�o��s�&KT秝�I��e>��c�eu���A 
+�K��a�+���_ʯ�VC2RN���(�C���)�\$}�C�"e�	��:���!�UWQ��`�{�����V�Q,(6��Ƈ���#};}��s�ѕN�B��]��[i⃄��G|��q[=�� ߧ5`���M���[<���yHr�FI[@���12#
+M4�E41BԕQ��n����PÊ�D�n+2�u�a�U�R���a
+�r�}�#���W�\���Ϯ��+�4�gﴀf�� �fXa�ح���l���I�>^h��u+ª5�J'CWi��Mهk�/TZ@��ܭ������^N�p�T��q���DT{j��I>�w�����˫)J�1��8yq1�U�!�y�"�����c'�d|!�a���ȊXE�0ƈ��#��TB<(�p�&}J�q]�}%n\��(s�#2��� yH�� �g>�5!��#TT q���;����S���)�j�p&�"J�*��-��Y;���S����3�z#�5�M�a�\^ᮗ�r�EH\5�e�T9%�-��z;�uV=v?�Vr��wo�+0FW�*nk����U/}������޶���-vW8�[
+�-����!$!,�#���#����F��q�$5� �wآ�� ��|۲��M�q�M��5Y�Y��'*0"�̃��F�^�����E�T,�!�x\`�Pq1��gRE�f�|��Q����>9�B@|���M�{�&��s�`w�ެ�������\#F��҆,��$�t�Q�qAy�iN����L����|!k��o�N{�)P~$�Zw%���po�e�S�����Ҡ�X�ӈ�Mt+�s�Mh�kZ��墼�EŨ5�4�k�iS�p:� o�a���w�s?uo2݆p�b�h�U�@t�X�(P� g������ .Ye)�蘫Cb��Ov��˜��A7n�y�g�7x{����G f��e-*�+��'lA$w���t�o��a!�>�Jv�G.�l�7����ݛ�Ԕ��ʎ����!��#v�Ï�(��� ����	���cK�$�O�w��`�m[O��2�]�ɏsn�6}�N��.������M1��|�����T�^�x���.al]����^~�������	�T�x�P���z�>U�QvM�It���$#�`熍�0@$$yCC,�,#	�vH��Vʿ�Կ0�H�[2Ʉ���g	��>��.+mAߐ��c�.���N��������Q�a<�a@n7�0[���V�w��C�0ӎW,+-��Q�w�������/]r9߀��U�v��sR .���xH�,]��!wk�-�D�m��ոm�/MU�ޱBL�"���&��UJ���y�
+G����E���$��;��ׁ�BҬ��A��K�]�pW��ٿ�۟w��e��jh6Ď�:�QK+�	Z�ϪP��0�"ui�a6ث� ���#(��X�ٳP����#�[@�q,f��
+2�Z�m�%e$�1�y�!�Ԃ}(a�G�Dez/=�����@`��=F��w��7-\����ǲu�Z�}�IZ{��w+i���yND��q��S,�p��R��:e;dTB�}t�vWD�C���8��ew�;Mvζ��f�� 1�y�$j��,�������4����뵄oYNhy���-+.�kL�(��R'˺��O*t}����0��<�.��8�*6�ʌ������K�ν,t^���］A�1��'��k����Hޘ�6M����m�թ=z�\dt��IR�ʝ|��9�?�?�j�"� �~ٜ�׶��a پh[s�����]����� �evFb1� M�c������쵞�p������qy;Q�7���h�� <����X�5�E�(�C���Z�2�5a{�f<eX!}�Vr��Q���J�痲wp�!�4D|���%+,tL=@�7o�α$=�ߢ����c�L���T7�8��|��KL�������M��#���S4%Y��y����M�^Z�J�u@����S���1Xl�=�L����v.6���<e�]%��[���DUP�""��g$;�_���.2���ۖ�i�[���B�U� �H{�7q���>8�����Z�wXl�3���%q���,q�֯	R�De�߻C	��V	^�w�EaW,1�u�N��:ɪ"��l�o�;ǂ��g�ꘝ$�+��X�A�Z+f�R�dU~e�V���0� o�G�����\/�o�1}�mA����+Nܘ��<f"�%D����B�ƘF���sv���wިiA�ޤ�iѦQ��x;~F>9 Sdd$�;�����a���U �TA���$�HjaN�,��9	���nUER7	DCQ1���9GĂzl�+�S>��sZ�V�=TX�>�� �K�w��n�&�	N >泫tZ�&B�$QG<nL��>� M;vG�-�u�4����)�t"��hϳ��^8m�&��e�tG��B�+�Pa%�"������?5[h;	C���|kWI���t���^���=����A�3����Ꮍo������ihۺ��:6��N�I��|X��F�F`V*6�U� ��|j��l3Y�8n���"23�Yج��� TIeZ����7\7b	C��T���/���:��!9#�?�#��"�8�q���?	b�3�e�lxf�NS1]@��UTɌQ�0� ]I���?��a��U>c�.�U2'�~�#� ��Dƒ�Q�ǟ���e_c������ �e���q��Ή��q�D��F�9=ej��a�j��?8���z|#an������W4�!!2SN��JËX$�3ʚ�߫}�;� �+��_�Y���!16̉����`錎���*#���Q'o�R��C轺&�{w�m�S��a�4P�i[��,��E�i܎H�UGۗu�y���ai����tT#=ǜu�\��z�D��7����cf�ܝ2���G2Jŝ=������#>�����o��=~w��M���.n-����v[y	oSg�oIot�s�JYʎ+T�<�D�j{���)S���Wֺ�#A�G]�NzpL��{n��BחV��ı|AټUރ_-2@�S��2�L�Q�H�t�wք_�q�\����
+M����f� u�=�Mn����|@n�{��ws�onĻf�V;x�3*��A3@�B��r�
+��'7e�#�]*�YXL�#�Q���@�/��0d�сJ]׼�̌���3RǎEd�>��?�?�t�k
+�H|�*Uul�y��և<[D��5	��Ն�'�� �6a��*�ȝ9E�x&冴���H��VGFu}S�UH��v��V=ц�B�1���ߐ=��d�X�u�OY�9xr;���{g���[�	bI<SYE�&k~ۺ쇟V*��>u����1��xil���]G|tc��!U6�ýpbi5H�lĮ�0Zt@N��̣��VP��r� 0������r����, �h�}���atP�����$>Uh� � �����{�ݱ9%�3	� ���0�*&��Y}�*�	/D��^�:�*��D���.%��TOڳ{�5K��+qlV���}�'/"u��|��Ͼ]��p�m�jR*	F�'k�:n����9aa�T�ZGyb�g��Q2�;c���4�~��C��5d�\��҅S����Aҽ�c��������3�D|���Vk-�ˍ2�_���jU^���Ǣ��\v(������Ԭ�8e-C�	:Dz��
+:���_����±��˱��쫁&B�Z.ܲ����ZpG��ʑRE�������G�c	�lM�o�P5�V���T��n{�p�3 :Rb�i8!��#�o߰���='�}v��w��U�0�7��YM����4�.�h>M���F�=�¨�7���P���������E,� nzM��k'rŰ�qsn)��Rv̼�h+�о�I����S���Z?�JY�*� j�]<�<�*�؈�2ߌ+�8~���o�#ohM�o{z���5�Gܐ����Ӕ���Fw�D|�_FW����g��6@ݗڣ���7*��D��4�0�C�q���C�;��ȕ �!H���F�:�m�� 
+r,�q\x������y�! ��l�Ia�QX%?0������+�Fj�._GJ�W���k��PD`̇0���.u���B:��Z_|w�B<�;�#��L(���7x�w*��Zr+�!D�D�0w��9�=��__�?���!���� 9��Pt�0�śQ�-[��Ф��C.�����'<J�~B|�����9�L�����: ����@��j/6|��У��5������§�1�S��"I(b@��/�p![�a�%Y��� kn=󈋏�0;�7pG_�#��v���hّ�]��-�Y�&M�b�na�.�iT��B�S���V�:g�}X}9�|���P�s��������g���H�r�f�����(pꝲ1�1��W���v��;���NF�(�#"&��n&��ꥢ\FZ*�|�d��}~]�°�������nD<��� ˸-�� h&P�%"D���x�����u׮��yԏ���j�ۦn�J:K@�1A�	"J��j9Q�#/���F?��� �?�o���TO��K�n�0=r��!d��b�Z�Bg�����}�y�vƬ���ç���S�ϊ|�o92�R�C�Z�������^a� ��덮�
+FF����ѹ+��n�}�Ed5#U���F�z=Ǯ��� �g�t�i�h�q e-\}�k��ς0�����I���j�>���	��� ��� 1��q�MFz�~ʉ"�k�Ǌ�"��I$F;��!��HN�(���	���h��O"n����n]H�!k%#\�j��V�D>����}F��]�����}ꆋ�e5��Ƿv���<:T?�5Я�8���\������Sw��f��K��7�4FK�A1P�g��_!������>_�p��C��˼�_M�w�ϴ�$x�[q����L��'�\�|��H�V�$�*Õ���T�̨��J8ζ�g�M�T�X�ڲ0�%�����G[J�h �Lps�5�I4�d�S�Uj�0��vј0.�IV��9�\;������jaL S#�U�,���q��O������0fn�z.���Y��Un��s���S&��}�%h��1 ����������zS�Ϯ���vk�⣢�-2c�u�K����;1�r_s���:��ʌۣ���h�2�!pl���|��Jޒ� oF��E\���[�����􍞺0��%K������ZXN��U�8E�vv�Ư�^03���	��uȖL���㢼�!'�����;��WkF��qd�P��Q��W�����o�H�ē��A�~��Ў�A��c��.=�h�n��i� (Y9��8Y��UV)Tq�qMQ*�n��è��]W�c�HN��4�+����ХV�7 Y���l�=i���d_~���Z���>���#�8�������:��I{�ɬ��	�'�H�z6��4�^���ƌ7�����|��3�u�5l� ����8m�ą��i/��}�h\�Y�P5�Ȣw8�#�G�!���Э|��<�Dߊ�,�Cr׳�s�7S���$
+�O<��>G�e�����M�M�d�cj�L����-˩�+t���������d	��h��I?؞�VNpC�� ��9d�A��~B�B�J�jx��`�Ǉ��5EE������N�nA�?q�dn�P� ]�zY��� 1b(dG�e�$�:��H`F%r���z������F[�&Tl3WEw�y04ԩ#CNRB�[ꝸ��ྚ���#=��H�;�MdR�o/	��"H���X����Vu ��}|'�/_X���_�ʿ2D�Z�.�58�9,�4�����鎊c8^�tcϯ��E<�����-�K�`	���#�:GHs8c+�����/�6��#zj~j�xa䫬�"����a�_!zj�o]��D\z��ej�NW��Q"5���N�T\I,�jE:YD��`�:eg�]���� Ci�:���]$��RF\�HC���V�}ʾe�S�N��몿��w�֜�m����r����B�X�6(fI��$j��
+�=~c����|���i�������bԙ#w��S+��PB�۩=VW���� nG_t�?��x�b5���r�n�f� �Fu�Qɻ02$�T�z$������}����j���&BQ�.b�r6-�_na�$�z��!:2�}_�����C\q������,�m0���%�n"+��`y@H���zU�}���u����	���G\va	]��]�������@Pp���e�̰?�+�"���������s��Q�8!�]�[�oo's���NtVeG���T��W�#���� �OK8���1���L!x�/�� �@��~ި3�7���~�[��nź�nd��y�k���1��u��pq�doPR�Õ6�e��f��wS�y�^9{+2�&�Q�ߵ�K4����G@�2��1E	ES��r�M��)�"""a6��or�$)c8��B2�C����QO-=z�ST�0�+�Dªx�_�Ӳ�ŭ;�6���=�)i� ozi��[��n�)��^�)�h�r�ʟ��Lc	�@]����%��/��o��w�o����e]Zs�Z��ę��@]��	f���u��!��6��G���E��5��������U�U��hl3�Ln'8��`>!/��Z(�hn�2����}���\4S�؈Nk�ϊ�vE�&7�QSU/?U�r��U��U]\�}��j�Q�ɘM���fic�{�TTT��13�D_�}�?�}6햝˃4	f��═��g�[���ԽЦ�9(�R���^�9�uE�t �a�r�N+�� �$�R� d��P�}���kxe�kVk��M�J�r.�\�;t����q1�}�%���[h�`��f4Д'�Z��D�JQ6� ʒ֝��<\q[C�No	�+�K��\Ҵ�+����J�ӕ>��諰�}GW7M4����JF�zQ/C�՞f����������Zw$◉�A��2���������U�qʸW|�-8�a>�t ����.Z�{�V(e�8��h�f�hzh�LDj��-SO�����S퍠5�@�a���7Ē�-+��LR�O��>\��^���+�>$���k���9� �>*{��� ����Z�ji��3���QQU��\*��]�v���8��!4��茂�O�]%��Us�t'ST�|J��U�nԮ�g��.x������ᣍ�KM����ԷJa(E��J&��h�Wl�f&qg�L�U�}�����י�V�蜊��ytM<h�M���IS�/�R�q~"<�E�K�ߍ��W�}]i�|x]9��Ө��-����S�=)JS%�u�B'�~�6�j���֚W�'�h�Wl0nK�������;�:h"����9�UEU�:���.�D�m�������-a�-��+�[n�>�Qs��������v�x&��|L����U�Ɏ���w=/ִ�+]hۨ�U�M)���{m�1���2x�:@�c���C��L�]�d*p�3�Z�W�Zg\.v�l��g/�?�Y0s�G_�`�1��w��O����WEN�UB��r�cU�n9�*6�.�\X<�Ͻ����M������Rܡ����_R�[�jʥ?
+i��eN�8&��C��,
+)<D�N4*�M�w������W~
+W�M���P��dD���o��4��y��󗏘F\	;��9ZU�z��Z]�-ȼ���M�5�@�Ѡ_�� 
                         </p>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                     
                 </section>
@@ -1149,7 +2420,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::post-simple::status_code_is_200
+                                httpbin::images::image-jpeg::status_code_is_200
                             </span>
                             
                             
@@ -1163,21 +2434,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::post-simple::body_is_ok
-                            </span>
-                            
-                            
-                        </div>
-                    </div>
-                    <div class="endpoint__testcase">
-                        <div class="endpoint__testcaseStatus">
-                            <strong class="endpoint__testcase-passed">
-                                [PASSED]
-                            </strong>
-                        </div>
-                        <div class="endpoint__testcaseLabel">
-                            <span>
-                                httpbin::post-simple::response_origin
+                                httpbin::images::image-jpeg::content_type_is_jpeg
                             </span>
                             
                             
@@ -1193,9 +2450,9 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
         
 
         <div class="endpoint">
-            <input type="checkbox" class="endpoint__checkbox" id="chck_4" />
-            <label class="endpoint__title" for="chck_4">
-                <span class="endpoint__url"><span class="http_method">PUT</span> /put</span>
+            <input type="checkbox" class="endpoint__checkbox" id="chck_8" />
+            <label class="endpoint__title" for="chck_8">
+                <span class="endpoint__url"><span class="http_method">GET</span> /image/svg</span>
                 <span class="endpoint__titleInfo">
                     200
                     <span class="endpoint__status endpoint__status--P">
@@ -1207,7 +2464,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
             <div class="endpoint__content">
                 <section class="endpoint__request">
                     <h3>Request</h3>
-                    <p>Full URL: <a href="https://httpbin.org/put"> https://httpbin.org/put</a></p>
+                    <p>Full URL: <a href="https://httpbin.org/image/svg"> https://httpbin.org/image/svg</a></p>
 
                     
                     <table>
@@ -1244,7 +2501,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     Accept
                                 </td>
                                 <td>
-                                    application/json
+                                    image/svg+xml
                                 </td>
                             </tr>
                             <tr>
@@ -1255,37 +2512,17 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     keep-alive
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Content-Length
-                                </td>
-                                <td>
-                                    38
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Type
-                                </td>
-                                <td>
-                                    application/json
-                                </td>
-                            </tr>
                             
                         </tbody>
                     </table>
                     
 
                     
-                    <details>
-                        <summary>Body</summary>
-                        <p>b'{"description": "hello scanapi again"}'</p>
-                    </details>
-                    
 
                     <details>
                         <summary>cURL</summary>
-                        <p>curl -X PUT -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 38' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{"description": "hello scanapi again"}' https://httpbin.org/put</p>
+                        <pre>curl -X GET -H 'Accept: image/svg+xml' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/image/svg</pre>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                 </section>
 
@@ -1306,7 +2543,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     response time
                                 </td>
                                 <td>
-                                    0.845829 s
+                                    0.786054 s
                                 </td>
                             </tr>
                             <tr>
@@ -1340,7 +2577,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Date
                                     </td>
                                     <td>
-                                        Thu, 10 Sep 2020 17:31:02 GMT
+                                        Fri, 12 Feb 2021 19:08:16 GMT
                                     </td>
                                 </tr>
                             </tbody>
@@ -1350,7 +2587,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Type
                                     </td>
                                     <td>
-                                        application/json
+                                        image/svg+xml
                                     </td>
                                 </tr>
                             </tbody>
@@ -1360,7 +2597,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Length
                                     </td>
                                     <td>
-                                        539
+                                        8984
                                     </td>
                                 </tr>
                             </tbody>
@@ -1411,28 +2648,268 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                     <details>
                         <summary>Content</summary>
                         <p class="json-body">
-                             {
-  "args": {}, 
-  "data": "{\"description\": \"hello scanapi again\"}", 
-  "files": {}, 
-  "form": {}, 
-  "headers": {
-    "Accept": "application/json", 
-    "Accept-Encoding": "gzip, deflate", 
-    "Content-Length": "38", 
-    "Content-Type": "application/json", 
-    "Host": "httpbin.org", 
-    "User-Agent": "python-requests/2.24.0", 
-    "X-Amzn-Trace-Id": "Root=1-5f5a62d6-bd0546e075010034c70e55a4"
-  }, 
-  "json": {
-    "description": "hello scanapi again"
-  }, 
-  "origin": "177.193.150.229", 
-  "url": "https://httpbin.org/put"
-}
+                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 100 100">
+
+  <title>SVG Logo</title>
+
+  <a xlink:href="http://www.w3.org/Graphics/SVG/" target="_parent"
+     xlink:title="W3C SVG Working Group home page">
+
+    <rect
+        id="background"
+        fill="#FF9900"
+        width="100"
+        height="100"
+        rx="4"
+        ry="4"/>
+
+    <rect
+        id="top-left"
+        fill="#FFB13B"
+        width="50"
+        height="50"
+        rx="4"
+        ry="4"/>
+
+    <rect
+        id="bottom-right"
+        x="50"
+        y="50"
+        fill="#DE8500"
+        width="50"
+        height="50"
+        rx="4"
+        ry="4"/>
+
+    <g id="circles" fill="#FF9900">
+        <circle
+            id="n"
+            cx="50"
+            cy="18.4"
+            r="18.4"/>
+
+        <circle
+            id="ne"
+            cx="72.4"
+            cy="27.6"
+            r="18.4"/>
+
+        <circle
+            id="e"
+            cx="81.6"
+            cy="50"
+            r="18.4"/>
+
+        <circle
+            id="se"
+            cx="72.4"
+            cy="72.4"
+            r="18.4"/>
+
+        <circle
+            id="s"
+            cx="50"
+            cy="81.6"
+            r="18.4"/>
+
+        <circle
+            id="sw"
+            cx="27.6"
+            cy="72.4"
+            r="18.4"/>
+
+        <circle
+            id="w"
+            cx="18.4"
+            cy="50"
+            r="18.4"/>
+
+        <circle
+            id="nw"
+            cx="27.6"
+            cy="27.6"
+            r="18.4"/>
+    </g>
+
+    <g id="stars">
+        <path
+            id="black-star"
+            d="M  63.086, 18.385
+               c  0.000, -7.227  -5.859,-13.086 -13.100,-13.086
+               c -7.235,  0.000 -13.096,  5.859 -13.096, 13.086
+               c -5.100, -5.110 -13.395, -5.110 -18.497,  0.000
+               c -5.119,  5.120  -5.119, 13.408   0.000, 18.524
+               c -7.234,  0.000 -13.103,  5.859 -13.103, 13.085
+               c  0.000,  7.230   5.870, 13.098  13.103, 13.098
+               c -5.119,  5.110  -5.119, 13.395   0.000, 18.515
+               c  5.102,  5.104  13.397,  5.104  18.497,  0.000
+               c  0.000,  7.228   5.860, 13.083  13.096, 13.083
+               c  7.240,  0.000  13.100, -5.855  13.100,-13.083
+               c  5.118,  5.104  13.416,  5.104  18.513,  0.000
+               c  5.101, -5.120   5.101,-13.410   0.000,-18.515
+               c  7.216,  0.000  13.081, -5.869  13.081,-13.098
+               c  0.000, -7.227  -5.865,-13.085 -13.081,-13.085
+               c  5.101, -5.119   5.101,-13.406   0.000,-18.524
+               C 76.502, 13.275  68.206, 13.275  63.086, 18.385 z"/>
+
+        <path
+            id="white-star"
+            fill="#FFFFFF"
+            d="M 55.003, 23.405
+               v 14.488
+               L 65.260, 27.640
+               c  0.000, -1.812  0.691,-3.618   2.066, -5.005
+               c  2.780, -2.771  7.275,-2.771  10.024,  0.000
+               c  2.771,  2.766  2.771, 7.255   0.000, 10.027
+               c -1.377,  1.375 -3.195, 2.072  -5.015,  2.072
+               L 62.101, 44.982
+               H 76.590
+               c  1.290, -1.280  3.054,-2.076   5.011, -2.076
+               c  3.900,  0.000  7.078, 3.179   7.078,  7.087
+               c  0.000,  3.906 -3.178, 7.088  -7.078,  7.088
+               c -1.957,  0.000 -3.721,-0.798  -5.011, -2.072
+               H 62.100
+               l 10.229, 10.244
+               c  1.824,  0.000  3.642, 0.694   5.015,  2.086
+               c  2.774,  2.759  2.774, 7.250   0.000, 10.010
+               c -2.750,  2.774 -7.239, 2.774 -10.025,  0.000
+               c -1.372, -1.372 -2.064,-3.192  -2.064, -5.003
+               L 55.000, 62.094
+               v 14.499
+               c  1.271,  1.276  2.084, 3.054   2.084,  5.013
+               c  0.000,  3.906 -3.177, 7.077  -7.098,  7.077
+               c -3.919,  0.000 -7.094,-3.167  -7.094, -7.077
+               c  0.000, -1.959  0.811,-3.732   2.081, -5.013
+               V 62.094
+               L 34.738, 72.346
+               c  0.000,  1.812 -0.705, 3.627  -2.084,  5.003
+               c -2.769,  2.772 -7.251, 2.772 -10.024,  0.000
+               c -2.775, -2.764 -2.775,-7.253   0.000,-10.012
+               c  1.377, -1.390  3.214,-2.086   5.012, -2.086
+               l 10.257,-10.242
+               H 23.414
+               c -1.289,  1.276 -3.072, 2.072  -5.015,  2.072
+               c -3.917,  0.000 -7.096,-3.180  -7.096, -7.088
+               s  3.177, -7.087  7.096,-7.087
+               c  1.940,  0.000  3.725, 0.796   5.015,  2.076
+               h 14.488
+               L 27.646, 34.736
+               c -1.797,  0.000 -3.632,-0.697  -5.012, -2.071
+               c -2.775, -2.772 -2.775,-7.260   0.000,-10.027
+               c  2.773, -2.771  7.256,-2.771  10.027,  0.000
+               c  1.375,  1.386  2.083, 3.195   2.083,  5.005
+               l 10.235, 10.252
+               V 23.407
+               c -1.270, -1.287 -2.082,-3.053  -2.082, -5.023
+               c  0.000, -3.908  3.175,-7.079   7.096, -7.079
+               c  3.919,  0.000  7.097, 3.168   7.097,  7.079
+               C 57.088, 20.356 56.274,22.119  55.003, 23.405 z"/>
+    </g>
+
+    <g id="svg-textbox">
+        <path
+            id="text-backdrop"
+            fill="black"
+            d="M  5.30,50.00
+               H 94.68
+               V 90.00
+               Q 94.68,95.00 89.68,95.00
+               H 10.30
+               Q  5.30,95.00  5.30,90.00 Z"/>
+
+        <path 
+            id="shine"
+            fill="#3F3F3F"
+            d="M  14.657,54.211
+               h  71.394
+               c   2.908, 0.000   5.312, 2.385   5.312, 5.315
+               v  17.910
+               c -27.584,-3.403 -54.926,-8.125 -82.011,-7.683
+               V  59.526
+               C   9.353,56.596  11.743,54.211  14.657,54.211
+               L  14.657,54.211 z"/>
+
+        <g id="svg-text">
+            <title>SVG</title>
+            <path
+                id="S"
+                fill="#FFFFFF"
+                stroke="#000000"
+                stroke-width="0.5035"
+                d="M 18.312,72.927
+                   c -2.103,-2.107  -3.407, -5.028  -3.407, -8.253
+                   c  0.000,-6.445   5.223,-11.672  11.666,-11.672
+                   c  6.446, 0.000  11.667,  5.225  11.667, 11.672
+                   h -6.832
+                   c  0.000,-2.674  -2.168, -4.837  -4.835, -4.837
+                   c -2.663, 0.000  -4.838,  2.163  -4.838,  4.837
+                   c  0.000, 1.338   0.549,  2.536   1.415,  3.420
+                   l  0.000, 0.000
+                   c  0.883, 0.874   2.101,  1.405   3.423,  1.405
+                   v  0.012
+                   c  3.232, 0.000   6.145,  1.309   8.243,  3.416
+                   l  0.000, 0.000
+                   c  2.118, 2.111   3.424,  5.034   3.424,  8.248
+                   c  0.000, 6.454  -5.221, 11.680 -11.667, 11.680
+                   c -6.442, 0.000 -11.666, -5.222 -11.666,-11.680
+                   h  6.828
+                   c  0.000, 2.679   2.175,  4.835   4.838,  4.835
+                   c  2.667, 0.000   4.835, -2.156   4.835, -4.835
+                   c  0.000,-1.329  -0.545, -2.527  -1.429, -3.407
+                   l  0.000, 0.000
+                   c -0.864,-0.880  -2.082, -1.418  -3.406, -1.418
+                   l  0.000, 0.000
+                   C 23.341,76.350  20.429, 75.036  18.312, 72.927
+                   L 18.312,72.927
+                   L 18.312,72.927 z"/>
+            <polygon
+                id="V"
+                fill="#FFFFFF"
+                stroke="#000000"
+                stroke-width="0.5035"
+                points="61.588,53.005
+                        53.344,92.854
+                        46.494,92.854
+                        38.236,53.005
+                        45.082,53.005
+                        49.920,76.342
+                        54.755,53.005"/>
+
+         <path 
+            id="G"
+            fill="#FFFFFF"
+            stroke="#000000"
+            stroke-width="0.5035"
+            d="M 73.255,69.513
+               h 11.683
+               v 11.664
+               l  0.000, 0.000
+               c  0.000, 6.452  -5.226,11.678 -11.669, 11.678
+               c -6.441, 0.000 -11.666,-5.226 -11.666,-11.678
+               l  0.000, 0.000
+               V 64.676
+               h -0.017
+               C 61.586,58.229  66.827,53.000  73.253, 53.000
+               c  6.459, 0.000  11.683, 5.225  11.683, 11.676
+               h -6.849
+               c  0.000,-2.674  -2.152,-4.837  -4.834, -4.837
+               c -2.647, 0.000  -4.820, 2.163  -4.820,  4.837
+               v 16.501
+               l  0.000, 0.000
+               c  0.000, 2.675   2.173, 4.837   4.820,  4.837
+               c  2.682, 0.000   4.834,-2.162   4.834, -4.827
+               v -0.012
+               v -4.827
+               h -4.834
+               L 73.255,69.513
+               L 73.255,69.513 z"/>
+        </g>
+    </g>
+  </a>
+</svg>
  
                         </p>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                     
                 </section>
@@ -1447,7 +2924,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::put-simple::status_code_is_200
+                                httpbin::images::image-svg::status_code_is_200
                             </span>
                             
                             
@@ -1461,7 +2938,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::put-simple::description_changed
+                                httpbin::images::image-svg::content_type_is_svg
                             </span>
                             
                             
@@ -1477,9 +2954,9 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
         
 
         <div class="endpoint">
-            <input type="checkbox" class="endpoint__checkbox" id="chck_5" />
-            <label class="endpoint__title" for="chck_5">
-                <span class="endpoint__url"><span class="http_method">DELETE</span> /delete</span>
+            <input type="checkbox" class="endpoint__checkbox" id="chck_9" />
+            <label class="endpoint__title" for="chck_9">
+                <span class="endpoint__url"><span class="http_method">GET</span> /image/webp</span>
                 <span class="endpoint__titleInfo">
                     200
                     <span class="endpoint__status endpoint__status--P">
@@ -1491,7 +2968,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
             <div class="endpoint__content">
                 <section class="endpoint__request">
                     <h3>Request</h3>
-                    <p>Full URL: <a href="https://httpbin.org/delete"> https://httpbin.org/delete</a></p>
+                    <p>Full URL: <a href="https://httpbin.org/image/webp"> https://httpbin.org/image/webp</a></p>
 
                     
                     <table>
@@ -1528,7 +3005,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     Accept
                                 </td>
                                 <td>
-                                    application/json
+                                    image/webp
                                 </td>
                             </tr>
                             <tr>
@@ -1537,22 +3014,6 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                 </td>
                                 <td>
                                     keep-alive
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Length
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Content-Type
-                                </td>
-                                <td>
-                                    application/json
                                 </td>
                             </tr>
                             
@@ -1564,7 +3025,8 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
 
                     <details>
                         <summary>cURL</summary>
-                        <p>curl -X DELETE -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Length: 2' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.24.0' -d '{}' https://httpbin.org/delete</p>
+                        <pre>curl -X GET -H 'Accept: image/webp' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'User-Agent: python-requests/2.24.0' https://httpbin.org/image/webp</pre>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                 </section>
 
@@ -1585,7 +3047,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                     response time
                                 </td>
                                 <td>
-                                    0.805528 s
+                                    0.783791 s
                                 </td>
                             </tr>
                             <tr>
@@ -1619,7 +3081,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Date
                                     </td>
                                     <td>
-                                        Thu, 10 Sep 2020 17:31:03 GMT
+                                        Fri, 12 Feb 2021 19:08:17 GMT
                                     </td>
                                 </tr>
                             </tbody>
@@ -1629,7 +3091,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Type
                                     </td>
                                     <td>
-                                        application/json
+                                        image/webp
                                     </td>
                                 </tr>
                             </tbody>
@@ -1639,7 +3101,7 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                                         Content-Length
                                     </td>
                                     <td>
-                                        457
+                                        10568
                                     </td>
                                 </tr>
                             </tbody>
@@ -1690,26 +3152,71 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                     <details>
                         <summary>Content</summary>
                         <p class="json-body">
-                             {
-  "args": {}, 
-  "data": "{}", 
-  "files": {}, 
-  "form": {}, 
-  "headers": {
-    "Accept": "application/json", 
-    "Accept-Encoding": "gzip, deflate", 
-    "Content-Length": "2", 
-    "Content-Type": "application/json", 
-    "Host": "httpbin.org", 
-    "User-Agent": "python-requests/2.24.0", 
-    "X-Amzn-Trace-Id": "Root=1-5f5a62d7-2ae63ba0ddaa46acdc8e49b8"
-  }, 
-  "json": {}, 
-  "origin": "177.193.150.229", 
-  "url": "https://httpbin.org/delete"
-}
- 
+                             RIFF@)  WEBPVP8X
+       n VP8 X%  �� �*o>1�C�C�� `�����$g��PO�;A8�������T��`?R�z���{��@� �v� � �������&���o�^�_�/��x���g������>f~m�������~(3'�ƥ����/����u���s�߁�'�����g�?�쟷�q��~���/�?;M���ݯ�������_��C�����������g��������}}�������f� ��W�q�'�����L�������������?����1�K����������������{�������t�د�W$��z����i��n1xx��'���w&^����B}���B�~�f�t׃f�u^�B!���RV�|�����'ĝ�l�=<�/�x��|�jK��"��76�(�1Y�RG}*R%�45zo��u��Gy"��/���W ��S��������>��j(���R��/ ��u�b��PL8��;���"z��w��5��"&:Dwf���5�:�Hm_=�SN��C���v�L3����~�(qT���-	��^eu��T�p]p`��c�~3�7�X8~�I��<nR�FC����Gj���h���g�v�����]�
+��ث��%��.�- �� �i�m�uY��-2{-J���+�V���)8�����cy������#p��W��,L�DpUŝ~X��/<�t�_��7��Uy��ye���q���o7���^_� ��MO���&|��;t�o1�q��lhq��-�Ԭ4Fm�6��s�q��H���p����%{yz�E�/q.�4֬e^L�����%�c����������9e�~Z};�Ң��b 4Ae��w�|��-
+��=m��W�롰6:�ГE��Yaq&<z�`���_Z*y��)&!���FI�W'I��9/����� O
+�,�SS�z/���1j�`Q�1�bڐ�m���atpT�vy &	��S���`J�Jp��:�T(@�_mc)X��f �z�@:cr|������@��莅�Z�|~N5ň�ЭɅ1p�Fv� qb<��;J,-ᅑ/ZtE����7�!��"�<�3�6q%m�Q���*�UΠ/g��vfaYn�t�9#����ZA[�!&a�E���{	t
+���`���Y�\֒�v�HZ�$Cr.�Ohs���)�O���$!�G?�޺G�I�O���� 5�}uY^���]�
+i��O��+���W����(��q������|�l��`�X�cO@�+YuM�`�}ܺ�?���� �������{�N�1ٖ3��)���IpL��/~X�j�tb�p&���"!u7��r_�feh���^6�R������6n��s��y�̹���)x�Z�K�,Y�b~���r��n3��������*�i�1	�Q��G=5��M�x�8��(_�I� X�C�);6�/�=G6;C�*��9���:����_���K�Q
+�L{��Lh/ѱd���C��q�H�.����m�����sX��"��³� ���Ѯ\�L_:��s�i۸�#L�0%�����[~hV��L:;"g����
+�\���g��[ߙ�e� ��6�S�(�Y�����s1R>Yj*dw�>����'N\�bR �ߵ����$�s̡/K��Ub�JW�m��AC���/�����N�zl9�s�h5:�γ��cI5�4țC����pg[���t����R+���mpn@�8x.";, ��5D;�`!��7�"!�<k�U��`ڡ����>_pƧ1����'|���m,I��<r��h#�tR��]y�5P�rE|= ��2sB؅F�i3"4Xs�c^#U7���|�=��ٝ��	,�V�b�^�K��Z-��Ҫ�f��B��i������<G5M�Ɗ�X�H{Կ�~$��J���h�w�l�rK����9�=o�?���Cy�����
+��݁j�i~I�U���1�b#�[;�O��u7q��qw��o3ԡ10K+c�fZ��6l��D�(gl\c�^K���1
+�]Mz�ߏ�C&42�E�N���}�"�Ų�;ӡ�.EŨ.�j���/
+�3lǗ�t4��Ŝtx<�3�6i�*)�|G�8�aׂu��Mn��9�%�,7�*Uv1��vA�Q��*���Z�Q��G�c6�g��m����+~"=ȧ���<����7N
+�M`e'�%������i���� ��sX�X��/
+���M�Q��2�t� OQ�cS�]����}Xac��֐'��Y�� �N�=�s��� �^9�o�e���ܽPo`J�ZՌ���n׷�Z:���Lf��,yv�-��ߞ���`���$�=��mXaO�j҅I�\�I�j<b?�*M3��~q��3�E~��YE���n����"��Qa�7��I�Kx�&�"{e{�"l��R��P�|Y[������T���^<_n^M�Lnoky�B
+_�]�D-�l�$�C})�}�?�Hn�]c�x�� ~������@V�GA�{35����0�)��7� |I�o�3@u_�ВbD�Oc?�Fs^6�"�BD�u�ǳ���BI��{PʂX$<K'0,Z6�ҙ<ƒ�Ʉ3��ۣlB���V[�Mѩw3�V��?`��_ic�(�p8���I�j.S�{߼g-Px�Ty��'Lg��.�Ɂ͒_}Z�QR�Ǣ�����'F���~(�1xH��#r �����.��鉶A�`d ���p�y��u�g�UJ[��b�.ϲ�7�f�5�
+��r��]ѱ9���$�@ET8~�z����y��	`��d�����U�v���*Ʋ��Ɩ�L*g@���+C�H�-b�9Ȁz� �x�?8?j$�%�+�ȞbZ�$�Rl3�X�{�gS�ⷂ�i;����\r6�.�惏1Օ`}�xt��Q��Ξ��2��1�� ���)���JoÝ0�����g5�U���B0V�J$u�J�GY��`��C'�H�;���[�K!�c��-�2d�N�C7�4r&c��*ӭh\�ɻX"ܯ
+�^y�=�K���L��� �mL���k�rv��X�A���G�sm�hCZ�avyO1��3���1�o�*iC���P����r���(�-����e�x��(��:$�Y�A�c��)��+W$���_JU��i ���_ϰ1����;��h��;Z�C�;1=������).�(2UP���ַ���u�g~v@�
+m�Uɵ婌M�&}��t�n̷:���kiPV;ނ��a��j^�*yC�WnO^){�k�@4��Mk#��z$�%,i �\ͺ�M2��3A��Kth�z����S��W+ۆ��`x߮G:#��PX��N���E�iE�­/Z�c8�s�E\7��q��&���!Nu���ue�?^��:�� ���H��� �&���r4��x4Q,�y��`��1&��e�K�i�6���<��	k��jv�����x:־R��6x��&�l���p�:��B�B�FZ
+-~���	�t7sޝm��¼��n�8�ó���㜸��l��c&�]���@ǳ��=��hA�G>
+O�b�8O�4'�'����&�$�(J�a��7Ӆ�B*JcE��]��#�:c3U�Hş:���0F�����<�=�]{���:�~1�p|��4�I�7��W!ȡ��g�|Z4Wm�q����e�s�u]�v�g��VTܓ�P9~�S�rvK
+R�]�Q���.��Q��y{�V��hZ��(�}9�S��������N�!��F6� !��8ZVц�ZPP6&k^�
+q<�IvT�W�C�ͳ	�-a&�^�Z� ��x0��~a-�2j�:<\��Yt�4x����mAv��>�{���}���ַ]��4��If_10�\bND��:!�SJ�i=B��ƛd3u��ΛC�,*���&�]�	�-��u�U�F��ߗ%sL���
+��ʭ�9J?��'3j�#��Kw���G�i�@��P�]�ըH����op�|Z�!<����?]hщ��z�D��{�ͼ9W�{,�$�Cfj�E���߹��O��GoX�Ɓ��|�uy�C��_�Ƅ2����f;1��*��iD��, MQ���N�����{�t�����z�ǝ�m<c��qX��QQ�L��y� 	p-1ک#������������F�PM%���.��3!����b:YV:����ݗ'tJ�F(��I�-|��b�U�Nͪ��'W����lLg�],ܞxs���g��A�ƶ�埐���4�����U�3�&oI!.[}<%�ĀD 23U���� ����Yf�Hݭn	�^�=�gVv:G�O�'�]u��?�=��2�[�Y�n�Ybf9���f)y�Z����@#Ē�e�> ݂~Ӓ(�v�!7��dfpJ���>�s.F�Y���_������!�y���+$��2�7w�8
+�<1�6�*�ʹל4�c������A��`&T@�gi)��&y\{i�U�zh����-�S������[6	��9���w�$a���& E��J�D���X��lY�:P��!��V����C���֑<^U���׊$��K�r�����&�ZK���&��[k^΍Q��qf�K���8z�S��+�s�9��+�?�:_����"rOb��~;�X���iύRQC��(�6�x��XH�Ⱪ��Cj	�G�:��8�b�j�5I�h`���1�p��?��H=�7�i-����ھ��n���:�t6�&�=�Q`�(�G�f'y�_+�)�8l��"���'��T���Y��j�~9�M��v3���>6b?���P��8������>9���x3k�j��ɉ}ߥ�h���洛Q�xc�D���T!������@��R<Q�[U��.�����18T8��ΗY�^��O0���>��Zh�������K�DT�R��U��Y#<&�9U��_�wԓ�\��+U�ݏ�Y$�ߏt�]���a�k�j�2��M�V�~���d����[���7�no�ˏ�%i��m�6��4�n^�����J�Ϯ��}����fE����2�ůF�����7���2�L�-�Ȁ������)i"2K� 줪Ţ�Q�ʝN ��~��+o������oj������}\������h6��@ZM�{�9�Q��+j�IY-�����9b��g1���!",
+��7�:�=0V��ߊ��4$�A�<�Q�A��/���>2�:{��~Cp�%��qr��ta����C;b����k�.稠V*�L�MT��T��p����KEbM���:T��UD����O�6���u'R�	@vDRJU��Y�!mi���᷈%���X��Y���\�s�l�+�V�������ʺ�󶞽� �r��6���"�x/�h5�ZAt����bW���x�p����_U~O�y�鳪4��=�@C�~����s�6=P��2�t�Xo��-�ygvF�3,��k�O��ќ�>�5J�������
+�� �����t��������Zm��a�:qM|�S�����攠�;W����ޏs;�:\js�BdHb%�����[יִa�*jy�ӒVG�!�.�a��3��>|������������X;ܙ�t��"��A�r��0�1��:K3���F�QN�>����*���¢��H�,�q��q�ٍ��!�f V�G�*v��ox���Yl0.<e��AVH_�X�($���w6�j�=^���������q;G��A^n�:<����+W�*��� ������?�7��Jwj����vkU=��:��i�f��oN�L���&1�:wOI���K�;~s����~��N����,���_e���Aa�@�h���o�
+���0���o[�f��'��t�<gJ	�g�7z|��"�o��ا�Q(�tJ[�N�A�oa�Kn<����2ì�� AE���4�{�z�bb;�K8Pf���O��~jw~�f�E#����Vt�WrMǔ�Jt,�j$���r�'^q6K�T!W�`1��k,�6J�2]Ƹ7$�U�D7����ҡg���\�1��u�>׶�5�(1�9βM}���T��bM �~؝oN�\\�,��B���!ԭ��c��頮fE�\�:)�Bб~���rL���H�_R�}�Q��)�|������u,N��O�¼��	�`��O��p��6(�3���cܶ����`�Ӱ<��q]N^�E@���d��������裸�n���}��L�(B�<�|�#����B>,���[e�����ԳG�xW��=������0���AA��x[�d���M�#�Cٶ���A�"��@V��KF�s �>>n�8���K����hoB��:S���{��R�d�*:����(�¶����ެ�N�H�A@�F�s+L��XHt)�2��Hῃ��x�L���k��5���x{�����M��q1*�k���	9��7��v�EZ��ș���=`��_[.�Y��� �FU���kܗ�Y�@>W�-T�5�Z�VEB����@�k�
+�G�@KE�o���(����6�`?�_����hQ�G?��H?�UÐ�#��8-�f�u�&��mA4��%h����n���[\���Iة��z���_�h��o�WU�6�K�ts�{D1��{OAԡbҷu+%l=Pg8~��ɾ�������k���)�UV���F* Ę3��ك�˷���5�@��\�"�F5)Z��6xe��T�>����J�D����V��MS�zɾ���>[�����FCIK���zᘱ�T����l��;w��U����N$�{��K���O*��B��Fr���bޅ��`��@Ev�Z�� �#��YG�o�M���ID��E���,�8�@�2���kolc؛�[��q4L"�Aۘ�(�E�z���/��V��l��T6��ȱ��U��o������ o��p��_Z�5�v�F���Ź��#��.Ҥ�J~��**AK�۫������7C�%�JE}�Z�#��I�Z������Xэ����hpگ���f� ��v�T���+V�!w�0r�SC��/8wF�N�o��a�1�H�C��i_X�KQ��Vr�w=��Ў���"z0���r)����M����Ҙ��&��e���D���}t��ԏyJD�&�?P߯S���'��j���86�l���=Ó|���6<v��D�y�jϲH�`��s��@�+���o�{����ur���(����.F���~t�	`Y���>�F�ʟ������d���S���<>:�aNV���rYОB߳Tu�X��\uK|f��n�{�p�zQ/6:�O6�(��bD�V��Qk�������eteSƙ�Z	el;7�^������%�.@��u`+>�có�9D��T) v�w\�eՠq�s�z���9����,<��t.yK:�5�<|5�f�q')�ŕ,4�lm�k���M7���8�$df��Ml��S.��@�2�G]���`�|�=ڼ&m =�����4��1�k�F7e���$�WNCG;(s.j��%�
+�h{{5ړȗ4�p��/r�7:8���$��k�N��O������[����$�rW��88]�$w
+�<���dFS���ߨ��N�U��qS��`����˱�c���5�!T r�eQ���ŢQ���~cv����=���1��&s�~�
+�S�Q�[���\�	�.���%��pJ;S� ����`-���_�DVM�Dct���ޞ���`F#�Y���f<���6���1���:5�l��Z�Yp�Ř'3t
+���f�>3�5�e�qoT������
+�ݖv*F��?S��v�w�yf<��X�c��ﮘҒ?�W��^M��K��N4�oK1�>�WP���-�A�0������@�����$�>�zjs��2��z!� Y�J�h�� ��3́W���Vw�!�������� �.G�:��#�V-�o��V�fH�P�Α�D#�&(EY͆�~��n�#�,��!��]R*���<z��{W՟�MAe���N8u�&م�F�-kT�w����`E���v�ӎz�ƔLC��5�T@A�����9[�-s������!��wg�r����}i!�@�=�1�Moq���o��e������ț�v%�	H��J+iX^��P,�h�)қX��-]E��}Q����b0�Ir�o�`6��?)���U���6p����{O�J��\�ѫ�z
+Mؕu�����b�����t���ro��	ۻm�����C�E�&���Hyɬ'Lřv�x
+����?x��Ww�$}<�1N��K�J�~��<��ڭ19�#/�VA#���2���ro�Q��:�3�<.x5���d���!�L9���9�J�J�}��e�� (UL��W�����}�V�w�?�n�4R;�n��9�(��j����r�|A�)�����ݭR���<�Β��ryO�̖�v��l�=y�t�"�w��ā�G��ט����'�H���c��qy���BYE<��y�p-���J�6+X�)�N��_>�0��1��!���dm�O8<�&�|q�����AfHx��L�ZE�I�s�D�~��D�˯Q6I���T�;C.���d�I���|�*uQ~�-Ns�DZ��{�F��ɨ�[Uns�_���7`�q����O�Z�T)�w� ����V��2�1F�U��h�t�"HWA�uQ�_�C�niE{��{풙��W�%Yo;�(�Rڧ?���?/����CT<ٰ���3�P��[��)�2�ۮ� ��`�~õ#>S��W��y��w1Z�!�.�Uʆ>HF�ؽJ�h�!{�{��/O��G*b:���"`̈́/)�G�Y��7��]�f��+����>5�=*�L	"�N!D5���=g�?�E��2�c�����Jn	?�'Wz�?=�%Wjںp���U�6�?�S?�U`�P���p���K�f����!��p��\���
+�#�#�H@]u��S���� �4�ˋF�Cq���0��|�D��]'W8��lk�%�"%����x��e�L�O͆5k�>ж� �����3;����?�&/�Ѣ�J��&[囶R��C�Us+ LZ�5N�����#������m!sȗ@�	{�s$͈Cغ�¡#�2�O:/cQȯW1L#{s���v�,�_zDld_������+���15�o��6â)�:ȭY�?��j�
+ҙ�sQ�,�'ցUE�kSQ��	U����D�d�6UZ���D���^��K X���m�8u�Y�`����Z��Y�a��fo���5D�w;���q5Cd��i|�����1T�`S�?��̻�8R�&���wW�~�E�^��˗1�\Ữk��ً���k���c���:�xD�ȥ	vo�"=8�@	8����h�B�7�TNjr��������cW�.��9'�gup΃SY�_!��ä$�oֳ���m~	��D8�a�`   XMP �  <?xpacket begin='' id=''?><x:xmpmeta xmlns:x='adobe:ns:meta/'>
+    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+
+     <rdf:Description rdf:about='' xmlns:xapRights='http://ns.adobe.com/xap/1.0/rights/'>
+        <xapRights:Marked>False</xapRights:Marked>
+	    <xapRights:WebStatement>http://www.wpclipart.com/terms.html</xapRights:WebStatement>
+	  </rdf:Description>
+	  
+     <rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1/'>
+      <dc:rights>
+       <rdf:Alt>
+        <rdf:li xml:lang='x-default' >edited by Paul Sherman, WPClipart Licensed to the public under Creative Commons Public Domain.</rdf:li>
+       </rdf:Alt>
+      </dc:rights>
+     </rdf:Description>
+
+     <rdf:Description rdf:about=''
+      xmlns:cc='http://creativecommons.org/ns#'>
+      <cc:license rdf:resource='http://creativecommons.org/licenses/publicdomain/'/>
+     </rdf:Description>
+
+    </rdf:RDF>
+</x:xmpmeta><?xpacket end='r'?>
+		
+		
+		
+		 
                         </p>
+                        <button class="copy__snippet">&#10063;</button>
                     </details>
                     
                 </section>
@@ -1724,7 +3231,21 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                         </div>
                         <div class="endpoint__testcaseLabel">
                             <span>
-                                httpbin::delete-simple::status_code_is_200
+                                httpbin::images::image-webp::status_code_is_200
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="endpoint__testcase">
+                        <div class="endpoint__testcaseStatus">
+                            <strong class="endpoint__testcase-passed">
+                                [PASSED]
+                            </strong>
+                        </div>
+                        <div class="endpoint__testcaseLabel">
+                            <span>
+                                httpbin::images::image-webp::content_type_is_webp
                             </span>
                             
                             
@@ -1741,10 +3262,10 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
         <div class="tests__summary tests__summary--passed">
             <h3 class="tests__summaryTitle">Tests Summary</h3>
             <div class="tests__summaryResults">
-                <span><strong>PASSED:</strong> 8</span>
+                <span><strong>PASSED:</strong> 16</span>
                 <span><strong>FAILURES:</strong> 0</span>
                 <span><strong>ERRORS:</strong> 0</span>
-                <span><strong>Total Time:</strong> 0:00:14.968430</span>
+                <span><strong>Total Time:</strong> 0:00:10.131389</span>
             </div>
         </div>
 
@@ -1775,8 +3296,54 @@ _� �������̸�/�2 hkk�ڵk���d�z�L��>q�
                 if (parsed_json) {
                     all_json_bodies[i].innerText = '';
                     all_json_bodies[i].appendChild(renderjson(parsed_json));
+                    all_json_bodies[i].firstElementChild.setAttribute('data-content', raw_json);
                 }
             }
+            /*
+            * Adding class name of snippet__content to all pre elements
+            */
+            var pre_elements = document.querySelectorAll('pre');
+
+            for (var i = 0; i < pre_elements.length; i++){
+                pre_elements[i].classList.add('snippet__content');
+            }
+            /*
+            * Copying data to clipboard
+            */
+            var copy_snippet_button = document.querySelectorAll('.copy__snippet');
+
+            var copyToClipBoard = function(value, button) {
+                if ( value ){
+                    navigator.clipboard.writeText(value)
+                        .then(function(){
+                            console.log('Copied!');
+                            console.log(value)
+                            button.classList.add('bg_green')
+
+                            setTimeout(function(){
+                                button.classList.remove('bg_green')
+                            }, 180);
+                        })
+                        .catch(function(err){
+                            console.log('Something went wrong', err);
+                        })
+                }
+            }
+
+            copy_snippet_button.forEach(function(elem){
+                elem.addEventListener('click', function(evt){
+                    var sibling_element = this.previousElementSibling;
+                    var _this_button = this;
+                    if ( sibling_element.className == 'snippet__content' ){
+                        var content = sibling_element.textContent.trim();
+                        copyToClipBoard(content, _this_button)
+                    } else {
+                        var child_element = sibling_element.children[0];
+                        var content = child_element.getAttribute('data-content').trim()
+                        copyToClipBoard(content, _this_button)
+                    }
+                })
+            })
         </script>
 </body>
 

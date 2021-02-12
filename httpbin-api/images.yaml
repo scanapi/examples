@@ -1,0 +1,47 @@
+- name: image-png
+  path: /image/png
+  headers:
+    Accept: image/png
+  method: get
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+
+    - name: content_type_is_png
+      assert: ${{ response.headers.get("content-type") == "image/png" }}
+
+- name: image-jpeg
+  path: /image/jpeg
+  headers:
+    Accept: image/jpeg
+  method: get
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+
+    - name: content_type_is_jpeg
+      assert: ${{ response.headers.get("content-type") == "image/jpeg" }}
+
+- name: image-svg
+  path: /image/svg
+  headers:
+    Accept: image/svg+xml
+  method: get
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+
+    - name: content_type_is_svg
+      assert: ${{ response.headers.get("content-type") == "image/svg+xml" }}
+
+- name: image-webp
+  path: /image/webp
+  headers:
+    Accept: image/webp
+  method: get
+  tests:
+    - name: status_code_is_200
+      assert: ${{ response.status_code == 200 }}
+
+    - name: content_type_is_webp
+      assert: ${{ response.headers.get("content-type") == "image/webp" }}
