@@ -1,0 +1,12 @@
+endpoints:
+  - name: companies
+    path: https://pagsegurohml.img.com.br/server/rest/services/Hosted/Roteirizacao/FeatureServer/2/query
+    requests:
+      - name: list
+        vars:
+          gis: ${{ GIS("https://pagsegurohml.img.com.br/portal", "user", "password") }} 
+          token: ${{ gis._con.token }}
+          payload: ${{ 'token': token, 'where': '1=1', 'f': 'json', 'returnGeometry': 'true', 'outFields': '*' }}
+          r: ${{ request.get(params=payload)}}
+          - name: statuscode
+            assert: ${{ response.status_code == 200 }}
