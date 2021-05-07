@@ -1,6 +1,8 @@
 endpoints:
-  - name: scanapi-demo
+  - name: snippets-api
     path: ${BASE_URL}
+    headers:
+      Content-Type: application/json
     requests:
       - name: health
         method: get
@@ -9,78 +11,53 @@ endpoints:
           - name: status_code_is_200
             assert: ${{ response.status_code == 200 }}
           - name: bode_equals_ok
-            assert: ${{ response.content == b"OK!" }}
-      - name: languages
-        method: get
-        path: /languages/
-        tests:
-          - name: status_code_is_200
-            assert: ${{ response.status_code == 200 }}
+            assert: ${{ response.json() == "OK!" }}
+      - name: get_token
+        path: /api-token-auth/
+        method: post
+        body:
+            username: ${USER}
+            password: ${PASSWORD}
+        vars:
+          token: ${{response.json()["token"]}}
     endpoints:
-      - name: devs
-        path: /devs/
+      - name: snippets
+        path: /snippets
+        headers:
+          Authorization: Token ${token}
         requests:
           - name: list_all
-            method: get
-            vars:
-              uuid: ${{response.json()[2]["uuid"]}}
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-          - name: looking_for_new_opportunities
-            method: get
-            params:
-              newOpportunities: true
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-          - name: not_looking_for_new_opportunities
-            method: get
-            params:
-              newOpportunities: false
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-          - name: new
+            path: /
+          - name: create
+            path: /
             method: post
-            headers:
-              x-api-key: ${DEMO_KEY}
-            tests:
-              - name: Response Status is 201
-                assert: ${{ response.status_code == 201 }}
             body:
-              uuid: ${{uuid.uuid4().hex}}
-              name: Tarik
-              yearsOfExperience: 2
-              languages:
-                - ruby
-                  go
-              newOpportunities: false
-          - name: details_not_found
-            path: 129e8cb2-d19c-51ad-9921-cea329bed7fa
-            method: get
-            tests:
-              - name: Response Status is 404
-                assert: ${{ response.status_code == 404 }}
-        endpoints:
+              code: "print('hello, hello')"
+            vars:
+              snippet_id: ${{response.json()["id"]}}
           - name: details
-            path: ${uuid}
-            requests:
-              - name: get
-                method: get
-                tests:
-                  - name: status_code_is_200
-                    assert: ${{ response.status_code == 200 }}
-              - name: delete
-                method: delete
-                headers:
-                  x-api-key: ${DEMO_KEY}
-                tests:
-                  - name: status_code_is_200
-                    assert: ${{ response.status_code == 200 }}
-              - name: languages
-                path: languages
-                method: get
-                tests:
-                  - name: status_code_is_200
-                    assert: ${{ response.status_code == 200 }}
+            path: ${snippet_id}
+          - name: update_with_put
+            path: ${snippet_id}/
+            method: put
+            body:
+              code: "print('hello, put')"
+          - name: update_with_patch
+            path: ${snippet_id}/
+            method: patch
+            body:
+              code: "print('hello, patch')"
+          - name: highlight
+            path: ${snippet_id}/highlight/
+          - name: delete
+            path: ${snippet_id}/
+            method: delete
+      - name: users
+        path: /users
+        requests:
+          - name: list_all
+            path: /
+            vars:
+              user_id: ${{response.json()["results"][1]["id"]}}
+          - name: details
+            path: ${user_id}/
