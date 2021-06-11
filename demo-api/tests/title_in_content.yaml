@@ -1,0 +1,2 @@
+name: title_in_content
+assert: ${{ 'title' in response.json() }}

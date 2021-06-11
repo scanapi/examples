@@ -1,0 +1,2 @@
+name: linenos_in_content
+assert: ${{ 'linenos' in response.json() }}

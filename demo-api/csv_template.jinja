@@ -1,0 +1,24 @@
+"project_name"{{- "," -}}
+"generated_at"{{- "," -}}
+"total_successes"{{- "," -}}
+"total_failures"{{- "," -}}
+"total_errors"{{- "," -}}
+"started_at"{{- "," -}}
+"total_time"{{- "," -}}
+"url"{{- "," -}}
+"all_tests_passed"{{- "," -}}
+"test_name"
+{% for result in results -%}
+{% for test in result.tests_results -%}
+    "{{ project_name }}"{{- "," -}}
+    "{{ now }}"{{- "," -}}
+    {{ session.successes }}{{- "," -}}
+    {{ session.failures }}{{- "," -}}
+    {{ session.errors }}{{- "," -}}
+    "{{ session.started_at }}"{{- "," -}}
+    "{{ session.elapsed_time() }}"{{- "," -}}
+    "{{ result.response.request.url }}"{{- "," -}}
+    {{ result.no_failure }}{{- "," -}}
+    "{{ test.name }}"
+{% endfor %}
+{%- endfor %}

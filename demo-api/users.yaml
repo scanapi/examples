@@ -1,0 +1,15 @@
+name: users
+path: /users
+requests:
+  - name: list_all
+    path: /
+    vars:
+      user_id: ${{response.json()["results"][0]["id"]}}
+    tests:
+      - !include tests/status_code_is_200.yaml
+      - !include tests/response_time.yaml
+  - name: details
+    path: ${user_id}/
+    tests:
+      - !include tests/status_code_is_200.yaml
+      - !include tests/response_time.yaml

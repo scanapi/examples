@@ -1,0 +1,2 @@
+name: body_equals_ok
+assert: ${{ response.json() == "OK!" }}

@@ -1,0 +1,2 @@
+name: key_in_content
+assert: ${{ 'key' in response.json() }}
