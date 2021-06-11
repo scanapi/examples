@@ -39,6 +39,9 @@ requests:
     - !include tests/language_in_content.yaml
     - !include tests/style_in_content.yaml
 
+- name: highlight
+  path: ${snippet_id}/highlight/
+
 - name: update_with_patch
   path: ${snippet_id}/
   method: patch
