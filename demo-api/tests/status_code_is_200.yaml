@@ -1,0 +1,2 @@
+name: status_code_is_200
+assert: ${{ response.status_code == 200 }}

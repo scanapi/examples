@@ -1,0 +1,2 @@
+name: highlight_in_content
+assert: ${{ 'highlight' in response.json() }}

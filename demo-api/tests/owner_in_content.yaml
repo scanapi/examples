@@ -1,0 +1,2 @@
+name: owner_in_content
+assert: ${{ 'owner' in response.json() }}

@@ -1,0 +1,2 @@
+name: language_in_content
+assert: ${{ 'language' in response.json() }}

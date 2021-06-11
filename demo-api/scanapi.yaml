@@ -5,59 +5,22 @@ endpoints:
       Content-Type: application/json
     requests:
       - name: health
-        method: get
-        path: /health/
+        path: health/
         tests:
-          - name: status_code_is_200
-            assert: ${{ response.status_code == 200 }}
-          - name: bode_equals_ok
-            assert: ${{ response.json() == "OK!" }}
+          - !include tests/status_code_is_200.yaml
+          - !include tests/body_equals_ok.yaml
       - name: get_token
-        path: /api-token-auth/
+        path: rest-auth/login/
         method: post
         body:
-            username: ${USER}
-            password: ${PASSWORD}
+          username: ${USER}
+          password: ${PASSWORD}
         vars:
-          token: ${{response.json()["token"]}}
+          token: ${{response.json()["key"]}}
+        tests:
+          - !include tests/status_code_is_200.yaml
+          - !include tests/key_in_content.yaml
+          - !include tests/response_time.yaml
     endpoints:
-      - name: snippets
-        path: /snippets
-        headers:
-          Authorization: Token ${token}
-        requests:
-          - name: list_all
-            path: /
-          - name: create
-            path: /
-            method: post
-            body:
-              code: "print('hello, hello')"
-            vars:
-              snippet_id: ${{response.json()["id"]}}
-          - name: details
-            path: ${snippet_id}
-          - name: update_with_put
-            path: ${snippet_id}/
-            method: put
-            body:
-              code: "print('hello, put')"
-          - name: update_with_patch
-            path: ${snippet_id}/
-            method: patch
-            body:
-              code: "print('hello, patch')"
-          - name: highlight
-            path: ${snippet_id}/highlight/
-          - name: delete
-            path: ${snippet_id}/
-            method: delete
-      - name: users
-        path: /users
-        requests:
-          - name: list_all
-            path: /
-            vars:
-              user_id: ${{response.json()["results"][1]["id"]}}
-          - name: details
-            path: ${user_id}/
+      - !include snippets.yaml
+      - !include users.yaml

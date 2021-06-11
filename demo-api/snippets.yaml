@@ -1,0 +1,86 @@
+name: snippets
+path: snippets/
+headers:
+  Authorization: Token ${token}
+requests:
+- name: create
+  method: post
+  body:
+    title: Hello World
+    code: "print('hello world')"
+    style: "xcode"
+    language: "python"
+  vars:
+    snippet_id: ${{response.json()["id"]}}
+  tests:
+    - !include tests/status_code_is_201.yaml
+    - !include tests/response_time.yaml
+    - !include tests/url_in_content.yaml
+    - !include tests/id_in_content.yaml
+    - !include tests/highlight_in_content.yaml
+    - !include tests/owner_in_content.yaml
+    - !include tests/title_in_content.yaml
+    - !include tests/code_in_content.yaml
+    - !include tests/linenos_in_content.yaml
+    - !include tests/language_in_content.yaml
+    - !include tests/style_in_content.yaml
+- name: details
+  path: ${snippet_id}/
+  tests:
+    - !include tests/status_code_is_200.yaml
+    - !include tests/response_time.yaml
+    - !include tests/url_in_content.yaml
+    - !include tests/id_in_content.yaml
+    - !include tests/highlight_in_content.yaml
+    - !include tests/owner_in_content.yaml
+    - !include tests/title_in_content.yaml
+    - !include tests/code_in_content.yaml
+    - !include tests/linenos_in_content.yaml
+    - !include tests/language_in_content.yaml
+    - !include tests/style_in_content.yaml
+
+- name: update_with_patch
+  path: ${snippet_id}/
+  method: patch
+  body:
+    code: "print('hello, patch')"
+  tests:
+    - !include tests/status_code_is_200.yaml
+    - !include tests/response_time.yaml
+    - !include tests/url_in_content.yaml
+    - !include tests/id_in_content.yaml
+    - !include tests/highlight_in_content.yaml
+    - !include tests/owner_in_content.yaml
+    - !include tests/title_in_content.yaml
+    - !include tests/code_in_content.yaml
+    - !include tests/linenos_in_content.yaml
+    - !include tests/language_in_content.yaml
+    - !include tests/style_in_content.yaml
+- name: snippet_update_with_put
+  path: ${snippet_id}/
+  method: put
+  body:
+    title: Hello World - Ruby
+    code: "puts 'hello world'"
+    style: "emacs"
+    language: "ruby"
+  tests:
+    - !include tests/status_code_is_200.yaml
+    - !include tests/response_time.yaml
+    - !include tests/url_in_content.yaml
+    - !include tests/id_in_content.yaml
+    - !include tests/highlight_in_content.yaml
+    - !include tests/owner_in_content.yaml
+    - !include tests/title_in_content.yaml
+    - !include tests/code_in_content.yaml
+    - !include tests/linenos_in_content.yaml
+    - !include tests/language_in_content.yaml
+    - !include tests/style_in_content.yaml
+- name: delete
+  path: ${snippet_id}/
+  method: delete
+  tests:
+    - !include tests/status_code_is_204.yaml
+- name: list_all
+  tests:
+    - !include tests/status_code_is_200.yaml
