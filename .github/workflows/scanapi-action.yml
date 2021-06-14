@@ -1,0 +1,28 @@
+name: Document and Test
+on:
+  pull_request
+
+jobs:
+  deploy-on-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Your staging deploy action here!"
+  scanapi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run automated API tests
+        uses: scanapi/github-action@v1
+        env:
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        with:
+          scanapi_version: '==2.4.0'
+          arguments: run ./scanapi/scanapi.yaml -c ./scanapi/scanapi.conf -o ./scanapi/scanapi-report.html
+      - name: Upload scanapi-report.html
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: ScanAPI Report
+          path: ./scanapi/scanapi-report.html
+    needs: [deploy-on-staging]

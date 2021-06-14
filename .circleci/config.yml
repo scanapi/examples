@@ -1,0 +1,38 @@
+version: 2.1
+
+workflows:
+  main:
+    jobs:
+      - deploy-on-staging:
+          filters:
+              branches:
+                only:
+                  - website-tutorial-ci
+      - scanapi:
+          requires:
+            - deploy-on-staging
+          filters:
+            branches:
+              only:
+                - website-tutorial-ci
+
+jobs:
+  deploy-on-staging:
+    docker:
+      - image: cimg/node:14.10.1
+    steps:
+      - run: echo "Your staging deploy job here!"
+  scanapi:
+    docker:
+      - image: camilamaia/scanapi:2.4.0
+        environment:
+            USER: $USER
+            PASSWORD: $PASSWORD
+    steps:
+      - checkout
+      - run:
+          name: Run ScanAPI
+          command: |
+            scanapi run scanapi/scanapi.yaml -c scanapi/scanapi.conf -o scanapi/report.html
+      - store_artifacts:
+          path: scanapi/report.html
