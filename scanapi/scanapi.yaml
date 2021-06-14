@@ -1,6 +1,6 @@
 endpoints:
   - name: snippets-api
-    path: ${BASE_URL}
+    path: http://demo.scanapi.dev/api/v1/
     headers:
       Content-Type: application/json
     requests:
