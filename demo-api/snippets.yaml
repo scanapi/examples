@@ -14,7 +14,7 @@ requests:
     snippet_id: ${{response.json()["id"]}}
   tests:
     - !include tests/status_code_is_201.yaml
-    - !include tests/response_time.yaml
+    - !include tests/response_time_2_seconds.yaml
     - !include tests/url_in_content.yaml
     - !include tests/id_in_content.yaml
     - !include tests/highlight_in_content.yaml

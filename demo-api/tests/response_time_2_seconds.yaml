@@ -1,0 +1,2 @@
+name: response_time_is_under_two_seconds
+assert: ${{ response.elapsed.total_seconds() < 2 }}

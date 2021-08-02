@@ -20,7 +20,7 @@ endpoints:
         tests:
           - !include tests/status_code_is_200.yaml
           - !include tests/key_in_content.yaml
-          - !include tests/response_time.yaml
+          - !include tests/response_time_2_seconds.yaml
     endpoints:
       - !include snippets.yaml
       - !include users.yaml
