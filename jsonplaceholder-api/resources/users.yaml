@@ -6,7 +6,7 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
@@ -17,7 +17,7 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
@@ -29,7 +29,7 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
@@ -52,13 +52,13 @@
   tests:
     - name: status_code_is_201
       assert: ${{ response.status_code == 201 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
 - name: update_with_put
   method: put
-  path: ${newRecordId}
+  path: "1"
   body:
     name: User Test - PUT
     username: user_test_put
@@ -74,7 +74,7 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
@@ -86,7 +86,7 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
 
@@ -96,6 +96,6 @@
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
-    
+
     - name: response_time_is_under_a_second
       assert: ${{ response.elapsed.total_seconds() < 1 }}
