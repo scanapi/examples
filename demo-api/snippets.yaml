@@ -1,5 +1,7 @@
 name: snippets
 path: snippets/
+vars:
+  greeting: hello ${USER}
 headers:
   Authorization: Token ${token}
 requests:
@@ -7,11 +9,13 @@ requests:
   method: post
   body:
     title: Hello World
-    code: "print('hello world')"
+    code: "print('${greeting}')"
     style: "xcode"
     language: "python"
   vars:
     snippet_id: ${{response.json()["id"]}}
+    my_var_1: my_var_1_value
+    my_var_2: ${{ 'my_var_2_value' }}
   tests:
     - !include tests/status_code_is_201.yaml
     - !include tests/response_time_2_seconds.yaml
@@ -25,6 +29,10 @@ requests:
     - !include tests/language_in_content.yaml
     - !include tests/style_in_content.yaml
 - name: details
+  vars:
+    my_var_3: ${my_var_1}
+    my_var_4: ${my_var_2}
+    
   path: ${snippet_id}/
   tests:
     - !include tests/status_code_is_200.yaml
@@ -40,7 +48,7 @@ requests:
     - !include tests/style_in_content.yaml
 
 - name: update_with_patch
-  path: ${snippet_id}/
+  path: ${snippet_id}/?${my_var_3}&${my_var_4}
   method: patch
   body:
     code: "print('hello, patch')"
@@ -61,7 +69,7 @@ requests:
   method: put
   body:
     title: Hello World - Ruby
-    code: "puts 'hello world'"
+    code: "puts '${greeting}'"
     style: "emacs"
     language: "ruby"
   tests:
