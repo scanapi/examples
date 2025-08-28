@@ -1,2 +1,0 @@
-name: restricted_python_safe_expressions_work
-assert: ${{ datetime.datetime.now().year > 2020 and math.pi > 3.14 and len("test") == 4 }}

@@ -15,12 +15,8 @@ endpoints:
         body:
           username: ${USER}
           password: ${PASSWORD}
-          # RestrictedPython safe expressions
-          request_time: ${{ datetime.datetime.now().isoformat() }}
-          request_id: ${{ "req_" + str(abs(hash(datetime.datetime.now().isoformat()))) }}
         vars:
           token: ${{response.json()["key"]}}
-          response_time_seconds: ${{ response.elapsed.total_seconds() }}
         tests:
           - !include tests/status_code_is_200.yaml
           - !include tests/key_in_content.yaml
@@ -28,5 +24,3 @@ endpoints:
     endpoints:
       - !include snippets.yaml
       - !include users.yaml
-      - !include restrictedpython-security.yaml
-      - !include restrictedpython-unsafe-tests.yaml

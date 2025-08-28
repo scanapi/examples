@@ -10,14 +10,9 @@
   method: post
   vars:
     scanapi_var: scanapi_test1
-    request_timestamp: ${{ datetime.datetime.now().timestamp() }}
   body:
     description: hello scanapi
     scanapi_test: ${scanapi_var}
-    # RestrictedPython safe expressions
-    request_time: ${{ datetime.datetime.now().isoformat() }}
-    random_id: ${{ abs(hash(datetime.datetime.now().isoformat())) }}
-    math_validation: ${{ math.sqrt(16) }}
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
@@ -25,28 +20,19 @@
       assert: ${{ response.json()["json"].get("scanapi_test") == "${scanapi_var}" }}
     - name: response_origin
       assert: ${{ response.json()["origin"] is not None }}
-    - name: restricted_python_math_works
-      assert: ${{ response.json()["json"].get("math_validation") == 4.0 }}
 
 - name: put-simple
   path: /put
   method: put
   vars:
     scanapi_description: hello scanapi again
-    update_time: ${{ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') }}
   body:
     description: ${scanapi_description}
-    # RestrictedPython expressions for tracking updates
-    updated_at: ${update_time}
-    update_hash: ${{ abs(hash("${scanapi_description}")) }}
-    pi_constant: ${{ math.pi }}
   tests:
     - name: status_code_is_200
       assert: ${{ response.status_code == 200 }}
     - name: description_changed
       assert: ${{ response.json()["json"].get("description") == "${scanapi_description}" }}
-    - name: restricted_python_constants_work
-      assert: ${{ response.json()["json"].get("pi_constant") > 3.14 }}
 
 - name: patch-simple
   path: /patch

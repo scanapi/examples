@@ -9,10 +9,6 @@ endpoints:
             method: get
             vars:
               pokemon_name: ${{ response.json()["results"][0]["name"] }}
-              # RestrictedPython safe expressions
-              request_timestamp: ${{ datetime.datetime.now().timestamp() }}
-              total_pokemon_sqrt: ${{ math.sqrt(response.json()["count"]) }}
-              request_date: ${{ datetime.datetime.now().strftime('%Y-%m-%d') }}
             tests:
               - name: status_code_is_200
                 assert: ${{ response.status_code == 200 }}
@@ -22,19 +18,9 @@ endpoints:
                 assert: ${{ len(response.json()["results"]) == 20 }}
               - name: count_is_gte_1118
                 assert: ${{ response.json()["count"] >= 1118 }}
-              - name: restricted_python_math_works
-                assert: ${{ math.sqrt(1600) == 40.0 }}
-              - name: restricted_python_datetime_works
-                assert: ${{ datetime.datetime.now().year >= 2024 }}
           - name: details
             method: get
             path: ${pokemon_name}
-            vars:
-              # RestrictedPython expressions for pokemon details
-              pokemon_id_doubled: ${{ response.json()["id"] * 2 }}
-              weight_kg: ${{ response.json()["weight"] / 10 }}
-              height_m: ${{ response.json()["height"] / 10 }}
-              name_length: ${{ len(response.json()["name"]) }}
             tests:
               - name: status_code_is_200
                 assert: ${{ response.status_code == 200 }}
@@ -42,115 +28,3 @@ endpoints:
                 assert: ${{ response.elapsed.total_seconds() < 0.5 }}
               - name: id_is_one
                 assert: ${{ response.json()["id"] == 1 }}
-              - name: restricted_python_calculations_work
-                assert: ${{ response.json()["id"] * 2 == 2 }}
-              - name: restricted_python_string_ops_work
-                assert: ${{ len(response.json()["name"]) > 0 }}
-
-      - name: restrictedpython_comprehensive_validation
-        path: pokemon/pikachu
-        requests:
-          - name: comprehensive_allowed_modules_test
-            method: get
-            vars:
-              # Comprehensive test of all ALLOWED_MODULES with Pokemon data
-              pokemon_data_analysis:
-                name_hash: ${{ abs(hash(response.json()["name"])) }}
-                weight_sqrt: ${{ math.sqrt(response.json()["weight"]) }}
-                height_calculation: ${{ math.ceil(response.json()["height"] / 10.0) }}
-                abilities_count: ${{ len(response.json()["abilities"]) }}
-                types_joined: ${{ ", ".join([t["type"]["name"] for t in response.json()["types"]]) }}
-              datetime_analysis:
-                request_timestamp: ${{ datetime.datetime.now().timestamp() }}
-                request_date: ${{ datetime.datetime.now().strftime('%Y-%m-%d') }}
-                future_cache_expire: ${{ (datetime.datetime.now() + datetime.timedelta(hours=1)).isoformat() }}
-              random_analysis:
-                random_seed: ${{ random.randint(1, 1000) }}
-                random_ability: ${{ random.choice(["electric", "static", "lightning-rod"]) }}
-              regex_analysis:
-                name_pattern: ${{ bool(re.match(r"^[a-z]+$", response.json()["name"])) }}
-                type_search: ${{ bool(re.search(r"electric", str(response.json()["types"]))) }}
-              time_analysis:
-                request_time: ${{ time.time() }}
-                formatted_time: ${{ time.strftime('%H:%M:%S') }}
-              uuid_analysis:
-                session_id: ${{ str(uuid.uuid4()) }}
-                request_id: ${{ str(uuid.uuid4())[:8] }}
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-              - name: pokemon_is_pikachu
-                assert: ${{ response.json()["name"] == "pikachu" }}
-              - name: math_operations_work
-                assert: ${{ isinstance(math.sqrt(response.json()["weight"]), float) }}
-              - name: datetime_operations_work
-                assert: ${{ len(datetime.datetime.now().strftime('%Y-%m-%d')) == 10 }}
-              - name: string_operations_work
-                assert: ${{ len(", ".join([t["type"]["name"] for t in response.json()["types"]])) > 0 }}
-              - name: regex_works_on_pokemon_data
-                assert: ${{ re.match(r"^[a-z]+$", response.json()["name"]) is not None }}
-              - name: uuid_format_valid
-                assert: ${{ len(str(uuid.uuid4())[:8]) == 8 }}
-
-          - name: unicode_and_complex_operations_test
-            method: get
-            vars:
-              unicode_operations:
-                # Test unicode with Pokemon names (some have special chars in other languages)
-                name_reversed: ${{ response.json()["name"][::-1] }}
-                name_title: ${{ response.json()["name"].title() }}
-                name_length: ${{ len(response.json()["name"]) }}
-              complex_calculations:
-                # Complex mathematical operations with Pokemon stats
-                bmi_like_calculation: ${{ response.json()["weight"] / (response.json()["height"] ** 2) if response.json()["height"] > 0 else 0 }}
-                stat_total: ${{ sum([stat["base_stat"] for stat in response.json()["stats"]]) }}
-                avg_stat: ${{ sum([stat["base_stat"] for stat in response.json()["stats"]]) / len(response.json()["stats"]) }}
-                max_stat: ${{ max([stat["base_stat"] for stat in response.json()["stats"]]) }}
-                min_stat: ${{ min([stat["base_stat"] for stat in response.json()["stats"]]) }}
-              list_comprehensions:
-                stat_names: ${{ [stat["stat"]["name"] for stat in response.json()["stats"]] }}
-                high_stats: ${{ [stat["base_stat"] for stat in response.json()["stats"] if stat["base_stat"] > 50] }}
-                ability_names: ${{ [ability["ability"]["name"] for ability in response.json()["abilities"]] }}
-              isolation_test_data:
-                test_value: ${{ 999 }}
-                test_string: ${{ "isolation_test" }}
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-              - name: unicode_reverse_works
-                assert: ${{ response.json()["name"][::-1] == "uhcakip" }}
-              - name: complex_math_works
-                assert: ${{ isinstance(sum([stat["base_stat"] for stat in response.json()["stats"]]), int) }}
-              - name: list_comprehensions_work
-                assert: ${{ len([stat["stat"]["name"] for stat in response.json()["stats"]]) == 6 }}
-              - name: min_max_functions_work
-                assert: ${{ max([stat["base_stat"] for stat in response.json()["stats"]]) >= min([stat["base_stat"] for stat in response.json()["stats"]]) }}
-
-          - name: security_documentation_with_pokemon_context
-            method: get  
-            vars:
-              security_documentation:
-                test_category: "pokemon_api_security_validation"
-                safe_operations_verified: "All Pokemon data processing uses only safe RestrictedPython operations"
-                # Document what should be blocked (safely in comments)
-                blocked_operations_note: "File access, system calls, dangerous imports are prevented"
-              safe_pokemon_operations:
-                # These operations on Pokemon data should always work safely
-                pokemon_name_safe: ${{ response.json()["name"].upper() }}
-                pokemon_id_safe: ${{ response.json()["id"] * 10 }}
-                pokemon_abilities_safe: ${{ len(response.json()["abilities"]) }}
-                pokemon_types_safe: ${{ [t["type"]["name"] for t in response.json()["types"]] }}
-                # Mathematical analysis of Pokemon stats - all safe
-                total_stats_safe: ${{ sum([s["base_stat"] for s in response.json()["stats"]]) }}
-                stat_variance_safe: ${{ max([s["base_stat"] for s in response.json()["stats"]]) - min([s["base_stat"] for s in response.json()["stats"]]) }}
-            tests:
-              - name: status_code_is_200
-                assert: ${{ response.status_code == 200 }}
-              - name: safe_string_ops_work
-                assert: ${{ response.json()["name"].upper() == "PIKACHU" }}
-              - name: safe_math_ops_work
-                assert: ${{ response.json()["id"] * 10 == 250 }}
-              - name: safe_list_ops_work  
-                assert: ${{ len(response.json()["abilities"]) > 0 }}
-              - name: safe_complex_calculations_work
-                assert: ${{ sum([s["base_stat"] for s in response.json()["stats"]]) > 100 }}

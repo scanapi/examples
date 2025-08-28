@@ -12,13 +12,10 @@ requests:
     code: "print('${greeting}')"
     style: "xcode"
     language: "python"
-    # RestrictedPython safe expressions for metadata
-    created_at: ${{ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') }}
-    version: ${{ "v" + str(math.floor(datetime.datetime.now().timestamp())) }}
-    hash_id: ${{ abs(hash("Hello World")) }}
   vars:
     snippet_id: ${{response.json()["id"]}}
-    creation_timestamp: ${{ math.floor(datetime.datetime.now().timestamp()) }}
+    my_var_1: my_var_1_value
+    my_var_2: ${{ 'my_var_2_value' }}
   tests:
     - !include tests/status_code_is_201.yaml
     - !include tests/response_time_2_seconds.yaml
