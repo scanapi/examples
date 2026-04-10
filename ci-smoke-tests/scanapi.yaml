@@ -1,0 +1,84 @@
+endpoints:
+  # -------------------------------------------------------
+  # Health Check
+  # -------------------------------------------------------
+  - name: Health Check
+    path: ${BASE_URL}
+    requests:
+      - name: service_is_reachable
+        method: get
+        tests:
+          - name: returns_200
+            assert: ${{ response.status_code == 200 }}
+
+  # -------------------------------------------------------
+  # Posts API — Read operations
+  # -------------------------------------------------------
+  - name: Posts API
+    path: ${BASE_URL}/posts
+    headers:
+      Content-Type: application/json
+    requests:
+      - name: list_posts
+        method: get
+        params:
+          _limit: 2
+        tests:
+          - name: returns_200
+            assert: ${{ response.status_code == 200 }}
+          - name: response_is_list
+            assert: ${{ isinstance(response.json(), list) }}
+          - name: respects_limit
+            assert: ${{ len(response.json()) <= 2 }}
+
+      - name: get_single_post
+        path: /1
+        method: get
+        tests:
+          - name: returns_200
+            assert: ${{ response.status_code == 200 }}
+          - name: has_expected_fields
+            assert: ${{ all(k in response.json() for k in ("id", "title", "body", "userId")) }}
+
+      - name: get_nonexistent_post
+        path: /99999
+        method: get
+        tests:
+          - name: returns_404
+            assert: ${{ response.status_code == 404 }}
+
+  # -------------------------------------------------------
+  # Resource Lifecycle (request chaining)
+  # Demonstrates creating a resource and retrieving it
+  # using variables extracted from the previous response.
+  # -------------------------------------------------------
+  - name: Post Lifecycle
+    path: ${BASE_URL}/posts
+    headers:
+      Content-Type: application/json
+    requests:
+      - name: create_post
+        method: post
+        body:
+          title: "ScanAPI Smoke Test"
+          body: "This post was created by a CI smoke test."
+          userId: 1
+        tests:
+          - name: returns_201
+            assert: ${{ response.status_code == 201 }}
+          - name: has_id
+            assert: ${{ "id" in response.json() }}
+          - name: title_matches
+            assert: ${{ response.json()["title"] == "ScanAPI Smoke Test" }}
+        vars:
+          created_post_id: ${{ response.json()["id"] }}
+
+      - name: get_created_post
+        path: /${created_post_id}
+        method: get
+        tests:
+          - name: returns_200_or_404
+            # JSONPlaceholder doesn't persist new posts, so the
+            # created ID may return 404. In a real API this would
+            # be a strict 200 check. We keep it to show the pattern.
+            assert: ${{ response.status_code in (200, 404) }}
