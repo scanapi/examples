@@ -1,0 +1,112 @@
+# Reusable GitHub Actions workflow for running ScanAPI smoke tests
+# after a deployment. Copy this file into your project's
+# .github/workflows/ directory and adjust the inputs to match
+# your setup.
+#
+# Usage:
+#   1. As a standalone workflow (triggered manually or on push)
+#   2. Called from another workflow after a deploy step
+#
+# For authenticated APIs, store your credentials as GitHub Secrets
+# and pass them as environment variables (see the "with-auth" job).
+
+name: Smoke Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Base URL of the deployed service"
+        required: true
+        default: "https://jsonplaceholder.typicode.com"
+  # Uncomment to run after every push:
+  # push:
+  #   branches: [main]
+  # Uncomment to use as a reusable workflow called from deploy pipelines:
+  # workflow_call:
+  #   inputs:
+  #     base_url:
+  #       required: true
+  #       type: string
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    name: Run ScanAPI smoke tests
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ inputs.base_url || 'https://jsonplaceholder.typicode.com' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ScanAPI
+        run: pip install scanapi
+
+      - name: Run smoke tests
+        run: scanapi run scanapi.yaml -c scanapi.conf
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scanapi-smoke-test-report
+          path: scanapi-report.html
+
+  # -------------------------------------------------------
+  # Example: Authenticated API
+  # Uncomment this job if your API requires authentication.
+  # Store credentials in GitHub Secrets.
+  # -------------------------------------------------------
+  # smoke-test-with-auth:
+  #   name: Run authenticated smoke tests
+  #   runs-on: ubuntu-latest
+  #   # Uncomment to run after a deploy job:
+  #   # needs: [deploy]
+  #   env:
+  #     BASE_URL: ${{ inputs.base_url }}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
+  #
+  #     - name: Install ScanAPI
+  #       run: pip install scanapi
+  #
+  #     - name: Obtain access token
+  #       run: |
+  #         response=$(curl --silent --request POST \
+  #           --url "https://${{ secrets.AUTH_DOMAIN }}/oauth/token" \
+  #           --header "Content-Type: application/x-www-form-urlencoded" \
+  #           --data-urlencode "client_id=${{ secrets.AUTH_CLIENT_ID }}" \
+  #           --data-urlencode "client_secret=${{ secrets.AUTH_CLIENT_SECRET }}" \
+  #           --data-urlencode "grant_type=client_credentials" \
+  #           --data-urlencode "audience=${{ secrets.AUTH_AUDIENCE }}")
+  #         token=$(echo "$response" | jq -r '.access_token')
+  #         if [ "$token" = "null" ] || [ -z "$token" ]; then
+  #           echo "::error::Failed to obtain access token"
+  #           exit 1
+  #         fi
+  #         echo "ACCESS_TOKEN=$token" >> "$GITHUB_ENV"
+  #         echo "::add-mask::$token"
+  #
+  #     - name: Run smoke tests
+  #       run: scanapi run scanapi.yaml -c scanapi.conf
+  #
+  #     - name: Upload HTML report
+  #       uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: scanapi-smoke-test-report
+  #         path: scanapi-report.html
